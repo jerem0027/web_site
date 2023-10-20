@@ -49,13 +49,11 @@ services:
       - mariadb
 
   api-flask:
-    build:
-      context: .
-      dockerfile: apis/flask/Dockerfile
+    image: flask_api:1.0.3
     restart: unless-stopped
     container_name: api-flask
     env_file:
-      - apis/flask/envconfig.env
+      - configs/flask.env
     ports:
       - 5000:5000
     links:
