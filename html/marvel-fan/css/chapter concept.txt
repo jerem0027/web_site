@@ -1,0 +1,43 @@
+HTML:
+
+<nav id="fondchapter">
+	<ul id="chapter">
+		<li><a href="#films">Iron Man</a></li>
+		<li><a href="#">Thor</a></li>
+		<li><a href="#">Thor</a></li>
+		<li><a href="#">Thor</a></li>
+		<li><a href="#">Thor</a></li>
+		<li><a href="#">Thor</a></li>
+	</ul>
+</nav>
+
+
+CSS:
+
+#fondchapter{
+	z-index: 999;
+	float: left;
+	background-color: #f11e22;
+	border-radius: 0 5px 0 5px;
+	position: sticky;
+	top: 60px;
+}
+#chapter{
+	display: table;
+	padding: 0;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto
+
+}
+#chapter li{
+	height: 30px;
+	width: 120px;
+}
+#chapter a{
+	text-shadow: none;
+	text-decoration: none;
+	display: block;
+	color: black;
+	line-height: 46px;
+}

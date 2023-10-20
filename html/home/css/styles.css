@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-5px); }
+    20% { transform: translateX(5px); }
+    30% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    90% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.vibration {
+    display: inline-block;
+    animation: shake 0.5s 1;
+}
+
+.inscription_input,
+.connection_input {
+    outline: none;
+}
+
+.demo-blog__posts {
+    max-width: 80%;
+    padding: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.wikipediie > .mdl-card__media {
+    background-image: url('../images/wikipediie.png');
+    height: 280px;
+}
+
+.wikipediie .mdl-card__media {
+    background-image: url('../images/wikipediie.png');
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.marvel_fan > .mdl-card__media {
+    background-image: url('../images/marvel.png');
+    height: 280px;
+}
+
+.marvel_fan .mdl-card__media {
+    background-image: url('../images/marvel.png');
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.about_us > .mdl-card__media {
+    background-image: url('../images/about_us.jpg');
+    height: 400px !important;
+}
+
+.about_us .mdl-card__media {
+    background-image: url('../images/about_us.jpg');
+    background-repeat: no-repeat;
+    background-position: middle;
+}
+
+.wikipediie h3 a {
+    font-size: 60px;
+    color: #4a9aaa;
+}
+
+.marvel_fan h3 a {
+    font-size: 60px;
+    color: #f11e22;
+}
+
+h3 a img {
+    margin-right: 1vw;
+    height: 70px;
+}
+
+.mdl-card__supporting-text {
+    font-size: 20px;
+}
+
+img {
+    border: 0px;
+}
+
+#more-button {
+    margin: 0.5vw;
+}
+
+.mdl-layout__drawer {
+    border: 0px;
+}
+.mdl-layout__header {
+    background-color: #2385b3;
+}
+
+::-moz-selection {
+    background-color: #2385b3;
+    color: #fff;
+}
+
+::selection {
+    background-color: #2385b3;
+    color: #fff;
+}
+
+.logo-image {
+    width: 200px;
+    background-color: #2385b3;
+}
+
+.icon-image {
+    height: 140px;
+    width: 140px;
+    background-color: #2385b3;
+    margin: 10px;
+}
+
+.mdl-layout-title {
+    background-color: #2385b3;
+    border: 0px;
+    margin: -1px;
+}
+
+.separator {
+    height: 1px;
+    background-color: #2385b3;
+    margin: 8px 0;
+}
+
+.separator_content {
+    height: 4px;
+    background-color: #2385b3;
+    margin: 8px 0;
+}
+
+span.mdl-navigation__link {
+    color: #e96e27 !important;
+    font-weight: bold;
+}
+
+.installation {
+    margin-left: 16vw;
+}
+
+.mdl-mega-footer,
+.mdl-mega-footer--right-section,
+.mdl-typography--font-light {
+    margin: 0 !important;
+    padding: 1px;
+}
+
+.connection_input {
+    margin: 20px;
+    background-color: #424242;
+    text-indent: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: #e96e27;
+}
+
+div {
+    line-height: normal;
+}
+
+#affiche_name {
+    font-size: 200%;
+}
+
+#form_inscription .mdl-cell--3-col span {
+    color: red;
+}
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+    .wikipediie h3 a,
+    .marvel_fan h3 a {
+        font-size: 5.55vh;
+    }
+
+    .wikipediie h3 a img {
+        height: 7vh;
+    }
+
+    .mdl-card__supporting-text {
+        padding-top: 0;
+    }
+
+    .marvel_fan h3 a img {
+        height: 5vh;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    div.mdl-cell.mdl-cell--12-col {
+        font-size: 3vh;
+    }
+
+    #logo_large {
+        display: none;
+    }
+
+    .connection_input {
+        margin: 0.2vh 2vw;
+        margin-left: 0;
+        background-color: #424242;
+        text-indent: 2vw;
+        width: 20vw;
+        font-size: 100%;
+        height: 3vh;
+    }
+
+    .connection_button {
+        margin-right: -5px;
+        height: 5.5vh;
+        width: 20vw;
+        padding: 0px 0.2vw 0px 0.2vh;
+        font-size: 90%;
+        line-height: 2vh;
+    }
+}

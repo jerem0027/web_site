@@ -1,0 +1,52 @@
+@media screen and (max-width: 350px) {
+}
+@media screen and (max-width: 1000px) and (min-width: 351px) {
+}
+@media screen and (min-width: 1001px) {
+}
+
+#acteursMcu,
+#acteursGardiens,
+#acteursMechant,
+#acteursShield {
+  scroll-margin-top: 50px;
+}
+
+.menuSelect {
+  z-index: 900;
+  float: left;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  min-height: 100vh;
+  position: fixed;
+}
+
+.menuSelect li {
+  display: table;
+  left: 0;
+  background-color: #a00;
+  width: 220px;
+  position: relative;
+  line-height: 35px;
+  padding-left: 10px;
+  margin-top: 15px;
+  border-radius: 3px 10px 10px 3px;
+  transition: 0.25s;
+}
+.menuSelect li:hover {
+  background-color: #d00;
+  padding-left: 13px;
+  border-radius: 16px 5px 5px 16px;
+  transition: 0.7s;
+}
+.menuSelect a {
+  font-size: 15px;
+  color: #c8c8c8;
+  text-decoration: none;
+  display: block;
+}
+.menuSelect a:hover {
+  color: #eee;
+}

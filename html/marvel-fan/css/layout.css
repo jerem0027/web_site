@@ -1,0 +1,102 @@
+@media screen and (max-width: 350px) {
+  #desc,
+  #MCU,
+  #films,
+  #contact {
+    width: 350px;
+    transition: 0.5s;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 351px) {
+  #desc,
+  #MCU,
+  #films,
+  #contact {
+    width: 80%;
+    transition: 0.5s;
+  }
+}
+@media screen and (min-width: 1001px) {
+  #desc,
+  #MCU,
+  #films,
+  #contact {
+    width: 65%;
+    transition: 0.5s;
+  }
+}
+body {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  font-family: 'Trebuchet MS';
+  background-image: radial-gradient(#525252, #202020);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  color: #d5d5d5;
+}
+h3,
+h1 {
+  color: #e8e8e8;
+}
+b {
+  color: white;
+}
+
+#stan {
+  text-decoration: none;
+  color: white;
+}
+#MCU,
+#films,
+#contact,
+#desc {
+  border-radius: 10px;
+  margin-top: 2em;
+  background-color: #9d0000;
+  padding: 1em;
+  padding-bottom: 3em;
+  border-bottom: 3px solid #4d0000;
+  margin-left: auto;
+  border-right: 3px solid #4d0000;
+  margin-right: auto;
+  margin-bottom: 1em;
+  scroll-margin-top: 50px;
+}
+
+.logo_mcu {
+  margin-top: 2em;
+  padding: 0 1em;
+  position: relative;
+  float: right;
+  clear: both;
+}
+.film {
+  position: relative;
+  clear: both;
+}
+.affiche {
+  position: relative;
+  vertical-align: text-top;
+  float: right;
+  clear: both;
+  border-left: 3px solid #600000;
+  padding-left: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#desc {
+  margin-bottom: 5%;
+}
+
+.text:hover {
+  color: white;
+}
+.text {
+  transition: 0.2s;
+  text-align: justify;
+}

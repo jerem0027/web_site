@@ -1,0 +1,187 @@
+actors:
+  - categorie: Héros
+    id: acteursMcu
+    acteurs:
+      - name: Robert Downey Jr
+        personnage: (Iron Man)
+        image: 'img/acteurs/Robert_Downey_Jr.jpg'
+        lignes:
+          - 'Acteur, artiste musical, producteur et scénariste américain né le 4 avril 1965 à New York City.'
+          - "Films: Iron Man 1&2&3, Avengers, Avengers : L'ère d'Ultron Captain America : Civil War, Spider-Man: Homecoming, Avengers Infinity War"
+      - name: Chris Evans
+        personnage: (Captain America)
+        image: 'img/acteurs/Chris_Evans.jpg'
+        lignes:
+          - 'Acteur, producteur et réalisateur américain né le 13 juin 1981 à Sudbury.'
+          - "Films : Thor, Avengers, Thor : Le Monde des Ténèbres, Avengers :L'ère d'Ultron, Thor : Ragnarok (à venir le 25 octobre 2017), Avengers: Infinity War (à venir en Mai 2018)"
+      - name: Scarlett Johansson
+        personnage: (Black Widow)
+        image: 'img/acteurs/Scarlett_Johansson.jpg'
+        lignes:
+          - Actrice, artiste musicale, réalisatrice et scénariste américaine née le 22 novembre 1984 à New York City
+          - "Films : Iron Man 2, Avengers, Captain America : Le Soldat de l'hiver, Avengers : L'ère d'Ultron, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Jeremy Renner
+        personnage: (Hawkeye)
+        image: 'img/acteurs/Jeremy_Renner.jpg'
+        lignes:
+          - Acteur et producteur américain né le 7 janvier 1971 à Modesto.
+          - "Films : Thor (cameo), Avengers, Avengers : L'ère d'Ultron, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Chris Hemsworth
+        personnage: (Thor)
+        image: 'img/acteurs/Chris_Hemsworth.png'
+        lignes:
+          - Acteur australien né le 11 août 1983 à Melbourne.
+          - "Films : Thor, Avengers, Thor : Le Monde des Ténèbres, Avengers : L'ère d'Ultron, Thor : Ragnarok (à venir le 25 octobre 2017), Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Mark Ruffalo
+        personnage: (Hulk)
+        image: 'img/acteurs/Mark_Ruffalo.jpg'
+        lignes:
+          - Acteur, producteur et réalisateur américain né le 22 novembre 1967 à Kenosha.
+          - "Films : Avengers, Iron Man 3 (cameo), Avengers : L'ère d'Ultron, Thor : Ragnarok (à venir le 25 octobre 2017), Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Benedict Cumberbatch
+        personnage: (Doctor Strange)
+        image: 'img/acteurs/Benedict_Cumberbatch.jpg'
+        lignes:
+          - Acteur, artiste musical et producteur britannique né le 19 juillet 1976 à London.
+          - 'Films/Séries : Doctor Strange (à venir le 26 octobre 2016), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Don Cheadle
+        personnage: (War Machine)
+        image: 'img/acteurs/Don_Cheadle.jpg'
+        lignes:
+          - Acteur, producteur, réalisateur et scénariste américain né le 29 novembre 1964 à Kansas City.
+          - "Films : Iron Man 2, Iron Man 3, Avengers : L'ère d'Ultron, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018"
+      - name: Elizabeth Olsen
+        personnage: (Scarlet Witch)
+        image: 'img/acteurs/Elizabeth_Olsen.jpg'
+        lignes:
+          - Actrice et productrice américaine née le 16 février 1989 à Sherman Oaks.
+          - "Films : Captain America : Le Soldat de l'hiver (cameo), Avengers : L'ère d'Ultron, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Aaron Taylor Johnson
+        personnage: (QuickSilver)
+        image: 'img/acteurs/Aaron_Taylor_Johnson.jpg'
+        lignes:
+          - Acteur et auteur britannique né le 13 juin 1990 à Holmer Green.
+          - "Films : Captain America : Le Soldat de l'hiver (cameo), Avengers : L'ère d'Ultron"
+      - name: Paul Bettany
+        personnage: (Vision)
+        image: 'img/acteurs/Paul_Bettany.jpg'
+        lignes:
+          - Acteur et réalisateur britannique né le 27 mai 1971 à Harlesden.
+          - "Films : Iron Man, Iron Man 2, Avengers, Iron Man 3, Avengers : L'ère d'Ultron, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Paul Rudd
+        personnage: (AntMan)
+        image: 'img/acteurs/Paul_Rudd.jpg'
+        lignes:
+          - Acteur, scénariste, producteur, artiste musical et créateur américain né le 6 avril 1969 à Passaic.
+          - 'Films : Ant-Man, Captain America : Civil War, Ant-Man and the Wasp (à venir en Juillet 2018)'
+      - name: Anthony Mackie
+        personnage: (Hawk)
+        image: 'img/acteurs/Anthony_Mackie.jpg'
+        lignes:
+          - Acteur américain né le 23 septembre 1979 à New Orleans
+          - "Films : Captain America : Le Soldat de l'hiver, Avengers : L'ère d'Ultron (apparitions), Ant-Man (cameo), Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Tom Holland
+        personnage: (Spider Man)
+        image: 'img/acteurs/Tom_Holland.jpg'
+        lignes:
+          - Acteur britannique né le 1 juin 1996 à Kingston upon Thames.
+          - 'Films : Captain America : Civil War, Spider-Man : Homecoming (à venir le 12 juillet 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Chadwick Boseman
+        personnage: (Black Panther)
+        image: 'img/acteurs/Chadwick_Boseman.png'
+        lignes:
+          - Acteur et producteur américain né le 29 novembre 1976 à Anderson, Caroline du Sud.
+          - 'Films : Captain America : Civil War, Black Panther (à venir en Février 2018), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Idris Elba
+        personnage: (Heimdall)
+        image: 'img/acteurs/Idris_Elba.jpg'
+        lignes:
+          - Acteur, producteur, créateur et réalisateur britannique né le 6 septembre 1972 à Londres.
+          - "Films : Thor, Thor : Le Monde des Ténèbres, Avengers : L'ère d'Ultron (cameo), Thor : Ragnarok (à venir le 25 octobre 2017)"
+  - categorie: Gardiens de la Galaxie
+    id: acteursGardiens
+    acteurs:
+      - name: Chris Pratt
+        personnage: (Star Lord)
+        image: 'img/acteurs/Chris_Pratt.jpg'
+        lignes:
+          - Acteur et producteur américain né le 21 juin 1979 à Virginia.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Zoe Saldana
+        personnage: (Gamora)
+        image: 'img/acteurs/Zoe_Saldana.jpg'
+        lignes:
+          - Actrice et créatrice américaine née le 19 juin 1978 à Passaic.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Dave Bautista
+        personnage: (Drax)
+        image: 'img/acteurs/Dave_Bautista.jpg'
+        lignes:
+          - Acteur et producteur américain né le 18 janvier 1969 à Washington.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Bradley Cooper
+        personnage: (voix Rocket Raccoon)
+        image: 'img/acteurs/Bradley_Cooper.jpg'
+        lignes:
+          - Acteur, artiste musical, producteur et réalisateur américain né le 5 janvier 1975 à Philadelphia.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Vin Diesel
+        personnage: (voix Groot)
+        image: 'img/acteurs/Vin_Diesel.jpg'
+        lignes:
+          - Acteur, producteur et réalisateur américain né le 18 juillet 1967 à New York City.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Karen Gillan
+        personnage: (Nebula)
+        image: 'img/acteurs/Karen_Gillan.png'
+        lignes:
+          - Actrice, réalisatrice et auteure britannique née le 28 novembre 1987 à Inverness.
+          - 'Films : Les Gardiens de la Galaxie, Les Gardiens de la Galaxie : Vol. 2 (à venir le 26 avril 2017)'
+  - categorie: Principaux Méchants
+    id: acteursMechant
+    acteurs:
+      - name: Tom Hiddleston
+        personnage: (Loki)
+        image: 'img/acteurs/Tom_Hiddleston.jpg'
+        lignes:
+          - Acteur et producteur britannique né le 9 février 1981 à Westminster.
+          - 'Films : Thor, Avengers, Thor : Le Monde des Ténèbres, Thor : Ragnarok (à venir le 25 octobre 2017), Avengers : Infinity War (à venir en Mai 2018)'
+      - name: Sebastian Stan
+        personnage: (Soldat de l'Hiver)
+        image: 'img/acteurs/Sebastian_Stan.jpg'
+        lignes:
+          - Acteur américain né le 13 août 1983 à Constanţa.
+          - "Films : Captain America : First Avenger, Captain America : Le Soldat de l'hiver, Captain America : Civil War, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: James Spader
+        personnage: (Ultron)
+        image: 'img/acteurs/James_Spader.jpg'
+        lignes:
+          - Acteur et producteur américain né le 7 février 1960 à Boston.
+          - "Films : Avengers : L'ère d'Ultron"
+      - name: Josh Brolin
+        personnage: (Thanos)
+        image: 'img/acteurs/Josh_Brolin.jpg'
+        lignes:
+          - Acteur et producteur américain né le 12 février 1968 à Los Angeles.
+          - "Films : Les Gardiens de la Galaxie, Avengers : L'ère d'Ultron (cameo), Avengers : Infinity War (à venir en Mai 2018)"
+  - categorie: Principaux Agent du SHIELD
+    id: acteursShield
+    acteurs:
+      - name: Samuel L.Jackson
+        personnage: (Nick Fury)
+        image: 'img/acteurs/Samuel_L_Jackson.jpg'
+        lignes:
+          - Acteur, artiste musical, producteur et préface américain né le 21 décembre 1948 à Washington, D.C.
+          - "Films/Séries : Iron Man (cameo), Iron Man 2, Thor (cameo), Captain America : First Avenger (cameo), Avengers, Marvel : Les Agents du S.H.I.E.L.D. (cameo), Captain America : Le Soldat de l'hiver, Avengers : L'ère d'Ultron, Avengers : Infinity War (à venir en Mai 2018)"
+      - name: Clark Gregg
+        personnage: (Agent Coulson)
+        image: 'img/acteurs/Clark_Gregg.jpg'
+        lignes:
+          - Acteur, réalisateur et scénariste américain né le 2 avril 1962 à Boston.
+          - "Films : Iron Man (apparitions), Thor, Le Consultant (court métrage), Une drôle d'histoire en allant voir le marteau de Thor (court métrage), Avengers"
+      - name: Cobie Smulders
+        personnage: (Agent Hill)
+        image: 'img/acteurs/Cobie_Smulders.jpg'
+        lignes:
+          - Actrice et artiste musicale canadienne née le 3 avril 1982 à Vancouver, Canada.
+          - "Films/Séries : Avengers, Marvel : Les Agents du S.H.I.E.L.D. (apparitions), Captain America : Le Soldat de l'hiver, Avengers : L'ère d'Ultron, Avengers : Infinity War (à venir en Mai 2018)"

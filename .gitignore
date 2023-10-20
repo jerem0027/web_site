@@ -1,0 +1,19 @@
+*.log
+html/phpmyadmin/*
+
+# API run
+.vscode/
+__pycache__/
+
+# env python
+virtualenv/
+
+# Node modules
+node_modules/
+package-lock.json
+
+# SSL cert
+cert/
+
+# Envconfig
+*.env

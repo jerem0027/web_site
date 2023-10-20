@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="img/favicon/favicon.ico">
+	<title>Contact-MCU</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/layout.css">
+	<link rel="stylesheet" type="text/css" href="css/contact_layout.css">
+</head>
+<body>
+    <nav id="fondmenu">
+        <a href="stones.html"><img id="logo" src="img/logo/marvel_logo.png" height="50"></a>
+        <ul id="menu">
+
+            <li><a href="index.html#MCU">MCU</a></li>
+            <li><a href="index.html#films">Films</a></li>
+            <li><a href="temoignage.html">Témoignage</a></li>
+            <li><a href="actors.html">Acteurs</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="contact">
+        <h2>Siège social de la compagnie :</h2>
+        <ul class="list">{{#each contact.address}}
+            <li {{#if @first}}id="bold"{{/if}}>{{this}}</li>{{/each}}
+        </ul>
+        <ul class="list">
+            <li id="bold">Contacter Marvel</li>{{#each contact.postal}}
+            <li>{{this}}</li>{{/each}}
+            <li><a href="mailto:{{contact.mail}}">{{contact.mail}}</a></li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>A propos de nous</h2>
+        <p>Nous sommes deux etudiants en première année à l'IUT d'orsay.</p>
+        <p>Ce site a été crée dans le cadre d'un Projet pour le Cour de CODIN (Conception de Documents et Interfaces Numériques)</p>
+        <h2>Mails Pro</h2>
+        <ul id="list">{{#each contact.nous}}
+            <li><a href="mailto:{{mail}}">{{mail}}</a></li>{{/each}}
+        </ul>
+
+    </section>
+    <footer id="logohtml">
+        <p>Powered by HTML</p>
+    </footer>
+</body>

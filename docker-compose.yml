@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: jerem0027/nginx:1.24.0
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - '~/Documents/my_projects/web_site/html:/etc/nginx/html'
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - php
+      - mariadb
+      - phpmyadmin
+      - api-flask
+
+  php:
+    image: jerem0027/php:8.2
+    container_name: php
+    restart: unless-stopped
+    env_file:
+      - configs/php.env
+    volumes:
+      - '~/Documents/my_projects/web_site/html:/etc/nginx/html'
+    links:
+      - mariadb
+
+  mariadb:
+    image: jerem0027/mariadb:10.3.39
+    container_name: mariadb
+    restart: unless-stopped
+    volumes:
+      - db_content:/var/lib/mysql
+    env_file:
+      - configs/mariadb.env
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: jerem0027/phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    restart: unless-stopped
+    env_file:
+      - configs/phpmyadmin.env
+    #ajouter ssl
+    links:
+      - mariadb
+
+  api-flask:
+    build:
+      context: .
+      dockerfile: apis/flask/Dockerfile
+    restart: unless-stopped
+    container_name: api-flask
+    env_file:
+      - apis/flask/envconfig.env
+    ports:
+      - 5000:5000
+    links:
+      - mariadb
+
+volumes:
+  db_content:

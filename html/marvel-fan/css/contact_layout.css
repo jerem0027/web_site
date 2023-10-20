@@ -1,0 +1,25 @@
+#contact{
+	text-decoration: none;
+}
+#bold{
+	font-weight: bold;
+}
+.list{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+#logohtml{
+	text-align: center;
+}
+#pwrd{
+	background-color: grey;
+	color: white;
+	text-align: center;
+	height: 3.8em;
+	border-radius: 5px;
+	width: 3.8em;
+	margin: auto;
+}

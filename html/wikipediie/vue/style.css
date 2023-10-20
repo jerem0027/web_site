@@ -1,0 +1,321 @@
+.menu {
+    margin-bottom: 3%;
+    height: 10%;
+    background-color:  #333333;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#li_wikipediie {
+    height: 100%;
+}
+
+.menu a {
+    text-align:center;
+    text-decoration: none;
+    color:white;
+}
+
+#menu-deroulant ul {
+    list-style-type: none;
+	text-align: center;
+	position: absolute;
+    display: none;
+    text-align: left;
+    z-index: 1000;
+    height: auto;
+    padding-left: 0px;
+}
+#menu-deroulant ul li {
+    list-style-type: none;
+    font-size: 2vh;
+    color:white;
+    margin-left: 0;
+    padding: 10px;
+}
+
+#menu-deroulant:hover ul {
+    display: block;
+    right: 0;
+    background-color: black;
+    flex-direction: column-reverse;
+}
+
+#logo {
+    flex:1;
+    height: 8.8vh;
+    margin: 2%;
+}
+
+#rouage{
+    flex: 3;
+    margin-top: 5px;
+    height: 8.8vh;
+    margin: 0.3vh;
+    margin-right: 1.5vw;
+}
+
+#wikipediie{
+    flex:2;
+    font-size: 8.8vh;
+    margin: 2%;
+}
+
+.menu li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.container{
+    margin: 10px;
+    border-radius: 30px;
+    border: solid 1px;
+    padding: 10px;
+    margin-bottom: 2%;
+}
+.container ul{
+    list-style-type: none;
+    display: inline;
+}
+.input{
+    width: 100%;
+}
+.input input, textarea{
+    width: 100%;
+}
+
+.sidenav {
+    margin-top: -3%;
+    margin-left : -10% !important;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #333333 !important;
+    margin-right: 2%;
+    padding-right: 3%;
+    width: 6vw;
+}
+
+.sidenav a{
+    padding: 10% 5% 10% 7%;
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: rgb(0, 217, 255);
+    display: block;
+    z-index: 100;
+    background-color: #333333 !important;
+    padding-left: 15%;
+  }
+  
+.sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+
+.article {
+    margin-left : 10vw;
+    margin-right: 5%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 80%;
+}
+
+.article div{
+    background-color: rgb(192, 182, 182);
+}
+
+.article div h3, h1, h2, h4{
+    color:#4998a7; 
+    font: bold;
+}
+
+.black {
+    font-style: normal;
+    color: black;
+}
+
+.black a {
+    font-style: normal;
+}
+
+.black a:hover {
+    color: #333333;
+}
+
+.form_admin #container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+
+.form_admin {
+    color: white;
+}
+
+.form_admin form {
+    padding: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid #333333;
+    background: #333333;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form_admin h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.form_admin input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+}
+
+.form_admin input[type=submit] {
+    background-color: #4998a7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.form_admin input[type=submit]:hover {
+    background-color: #333333;
+    color: white;
+    border: 1px solid #4998a7;
+}
+
+.button1, .button2, .btnsuppr{
+    background-color: #4998a7;
+    color: white;
+    border: 1px solid #333333;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.button1 {
+    margin-top: 20%;
+    margin-left: 1vw;
+    height: auto;
+    padding: 0.5vh 0.5vw;
+}
+
+.button1:hover, .button2:hover {
+    background-color: #333333;
+    color: white;
+    border: 1px solid #4998a7;
+}
+
+#newpage {
+    margin-right: 10%;
+    margin-left: 10%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 80%;
+}
+
+#newpage div {
+    background-color:  rgb(192, 182, 182);
+}
+
+.button2, .btnsuppr{
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+    margin-right: 10px;
+}
+
+.btnsuppr {
+    background-color: #a03941 !important;
+}
+
+.btnsuppr:hover {
+    background-color: #333333 !important;
+    color: white;
+    border: 1px solid #a03941;
+}
+
+.page {
+    margin-left : 10%;
+    margin-right: 5%;
+}
+
+.page p {
+    text-align: justify;
+    padding-right: 1vw;
+}
+
+.page div h3, h1, h2, h4{
+    color:#4998a7; 
+    font: bold;
+}
+
+body{
+    overflow-y: hidden;
+    margin: 0%;
+}
+
+.page .affichePage {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 80%;
+}
+
+#logo_validation {
+    height: 10%;
+    position: absolute;
+    right: 15%;
+    top: 10%;
+    margin-left: 80%;
+}
+
+#apropos{
+    margin-right: 15%;
+    margin-left: 20%;
+    height: 80%;
+    overflow-y: scroll;
+    scrollbar-width: thin;    
+}
+
+#apropos h1 h2{
+  font-size: 50px;
+  margin-right: 40%;
+  margin-left: 40%;
+  flex: 2;
+}
+  
+.bienvenue{
+  margin: 10px;
+  border-radius: 30px;
+  border: solid 5px;
+  padding: 10px;
+  margin-bottom: 10%;
+  border-color: #333;
+  font-size: 20px;
+  background-color: rgb(192, 182, 182);
+}
+
+.categorie {
+    padding: 10% 5% 10% 7%;
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: white;
+    display: block;
+    z-index: 100;
+    background-color: #333333 !important;
+    padding-left: 15%;
+}

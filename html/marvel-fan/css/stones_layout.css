@@ -1,0 +1,34 @@
+.right {
+  position: relative;
+  float: right;
+  clear: both;
+  margin: 0 1em;
+  transition: 0.2s;
+}
+.zoom {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  clear: both;
+  margin: 0 1em;
+  transition: 0.2s;
+}
+.zoom:hover {
+  position: absolute;
+  border-radius: 2px;
+  width: 110%;
+  height: auto;
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  margin: -0.15 -0.15;
+  transform: scale(1.2);
+}
+.left {
+  position: relative;
+  float: left;
+  clear: both;
+  margin: 0 1em;
+  transition: 0.1s;
+}
+.parties {
+  padding-bottom: 2em;
+}

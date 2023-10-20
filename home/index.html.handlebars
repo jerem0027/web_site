@@ -1,0 +1,112 @@
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Page de presentation des projet réaliser par Jérémie Henrion.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="icon" href="logo/icon.png">
+    <title>Jeremie H</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/inscription.js"></script>
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <div class="mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">
+                    <a href="/home/index.html"><img class="logo-image" id="logo_large" alt="logo large + white version" src="logo/logo_large_white.png"></a>
+                </span>
+                <div class="mdl-layout-spacer"></div>
+                <form onsubmit = "event.preventDefault(); check_connection();"  method="POST" id="form">
+                    <nav class="mdl-navigation">
+                        <h2 id="affiche_name" class="connection_ok"></h2>
+                        <input placeholder="Pseudo" class="mdl-textfield__input connection_input" type="text" id="pseudo">
+                        <input placeholder="Password" class="mdl-textfield__input connection_input" type="password" id="password">
+                    </nav>
+                </form>
+                <button style="background-color: #424242;" type="submit" form="form" class="mdl-button mdl-js- mdl-button--raised mdl-js-ripple-effect mdl-button--accent connection_button">Connexion</button>
+
+                <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item connection_ok"><a onclick="deconnection()" href="#">Deconnection</a></li>
+                    <li class="mdl-menu__item connection_off"><a href="/home/inscription.html">Inscription</a></li>
+                    <li class="mdl-menu__item"><a href="/home/apropos.html">A propos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <a href="/home/index.html"><img class="icon-image" src="logo/icon.png"></a>
+            </span>
+            <nav class="mdl-navigation">
+                <span class="mdl-navigation__link">Liens</span>
+                <a class="mdl-navigation__link" href="/phpmyadmin">phpmyadmin</a>
+                <a class="mdl-navigation__link" href="../marvel-fan/index.html">Fan site Marvel</a>
+                <a class="mdl-navigation__link" href="../wikipediie/vue/home.php">Wikipediie</a>
+                <div class="separator"></div>
+                <span class="mdl-navigation__link">Raspberry Pi</span>
+                <a class="mdl-navigation__link" href="installation.php">Installation</a>
+                <div class="separator"></div>
+                <span class="mdl-navigation__link">APIs</span>
+                <a class="mdl-navigation__link" href="/api/v1/">API V1</a>
+                <div class="separator"></div>
+                <span class="mdl-navigation__link">Autres</span>
+                <a class="mdl-navigation__link" href="">WIP</a>
+            </nav>
+        </div>
+        <div class="mdl-layout__content">
+            <div class="demo-blog__posts mdl-grid" id="top">
+                {{#each cards}}
+                <div class="mdl-card {{this.name}} mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__media"></div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h3><a href="{{this.href}}"><img alt="{{this.alt}}" src="{{this.img}}">{{this.titre}}</a></h3>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-cell mdl-cell--12-col"><b>{{this.description}}</b>({{this.date}})</div>
+                        <div class="mdl-cell mdl-cell--12-col">Site en {{this.techno}}.</div>
+                    </div>
+                </div>
+                <div class="mdl-typography--text-right mdl-cell mdl-cell--12-col {{this.css_button}}">
+                    <div class="mdl-cell mdl-cell--4-col"></div>
+                    <a href="{{this.site_link}}">
+                        <button class="mdl-cell mdl-cell--2-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="background-color: {{this.background_color}}; color: {{this.color}};">Voir le site</button>
+                    </a>
+                    <a href="{{this.a_propos_link}}">
+                        <button class="mdl-cell mdl-cell--2-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="background-color: {{this.background_color}}; color: {{this.color}};">A propos</button>
+                    </a>
+                </div>
+                <div class="separator_content"></div>
+                <div class="mdl-cell mdl-cell--12-col separator">&nbsp;</div>                
+                {{/each}}
+            </div>
+            <div class="separator_content"></div>
+        </div>
+        <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--top-section">
+                <div class="mdl-mega-footer--right-section">
+                  <a class="mdl-typography--font-light" href="#top">Back to Top<i class="material-icons">expand_less</i></a>
+                </div>
+                <div class="mdl-mega-footer--middle-section">
+                    <p style="text-align: center;" class="mdl-typography--font-light">Jérémie Henrion © 2021, France</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
