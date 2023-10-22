@@ -39,7 +39,7 @@ function deconnection() {
 function check_connection() {
   $.ajax({
     type: 'post',
-    url: 'all_validations.php',
+    url: 'php/all_validations.php',
     data: {
       pseudo: $('#pseudo').val(),
       password: $('#password').val(),
@@ -84,6 +84,22 @@ function before_submit() {
     }
   });
 
+    // TODO reduire call to API
+    $.ajax({
+        type: 'post',
+        url: '/php/all_validations.php',
+        data: { pseudo: $('#pseudo_form').val(), check: 'pseudo' },
+        dataType: 'json',
+        success: function (data, status, xml) {
+          if (data.status != 'success') {
+            $('.pseudo_used').css('display', 'initial');
+            check_all = false;
+          } else {
+            $('.pseudo_used').css('display', 'none');
+          }
+        },
+      });
+
   regex_pattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\]).*$/
   if (! regex_pattern.test($('#password1').val())) {
     $('.invalid_pattern_error').css('color', 'red').addClass("vibration");
@@ -104,20 +120,6 @@ function before_submit() {
   } else {
     $('.not_same_error').css('display', 'none');
   }
-  // TODO reduire call to API
-  $.ajax({
-    type: 'post',
-    url: 'all_validations.php',
-    data: { pseudo: $('#pseudo_form').val(), check: 'pseudo' },
-    dataType: 'json',
-    success: function (data, status, xml) {
-      if (data.status != 'success') {
-        $('.pseudo_used').css('display', 'initial');
-        check_all = false;
-      } else {
-        $('.pseudo_used').css('display', 'none');
-      }
-    },
-  });
+
   return check_all;
 }

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/inscription.js"></script>
@@ -59,7 +59,7 @@
         
           <div class="separator"></div>
           <span class="mdl-navigation__link" href="">Raspberry Pi</span>
-          <a class="mdl-navigation__link" href="installation.php">Installation</a>
+          <a class="mdl-navigation__link" href="php/installation.php">Installation</a>
           <div class="separator"></div>
           <span class="mdl-navigation__link" href="">Autres</span>
           <a class="mdl-navigation__link" href="">je sais pas quoi mettre</a>
@@ -68,7 +68,7 @@
 
       <div class="mdl-layout__content installation">
 <?php
-            require_once "read_md.php";
+            require_once "php/read_md.php";
             echo Markdown(file_get_contents("../README.md"));
 ?>
       </div>

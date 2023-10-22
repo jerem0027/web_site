@@ -27,5 +27,5 @@
         echo json_encode(array('status' => 'error', 'msg' => 'A fields is not set'));
     }
 
-    header('Location: /home');
+    header('Location: /home/');
 ?>
