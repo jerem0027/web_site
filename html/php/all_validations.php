@@ -1,5 +1,12 @@
 <?php
-    $conn = new mysqli("localhost", "site_perso_user", "site_perso_passwd", "home_db");
+    if (isset($_ENV["MYSQL_ROOT_PASSWORD"])) {
+        define("PASS", $_ENV["MYSQL_ROOT_PASSWORD"]);
+    }
+    else {
+        define("PASS", "root1");
+    }
+
+    $conn = new mysqli("mariadb", "root", PASS, "home_db");
 
     switch ($_POST['check']) {
         case "pseudo":
@@ -47,12 +54,5 @@
             break;
 
     }
-
-
-
-
-
-
-
 
 ?>
