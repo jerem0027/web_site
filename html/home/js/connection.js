@@ -18,7 +18,7 @@ const connection = function () {
         connected_func()
     } else {
         $.ajax({
-            type: 'POST',
+            type: 'PUT',
             url: "/api/v1/home_user/user/connection",
             headers: {
                 "APIKEY": masterkey,
@@ -26,8 +26,8 @@ const connection = function () {
                 "Content-Type": "application/json"
             },
             data: JSON.stringify({
-                "pseudo": $('#pseudo_form').val().toLowerCase(),
-                "password": $('#password1').val()
+                "pseudo": $('#pseudo').val().toLowerCase(),
+                "password": $('#password').val()
             }),
             success: function (data) {
                 sessionStorage.setItem("apikey", data.APIKEY);
