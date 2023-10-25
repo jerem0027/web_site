@@ -1,125 +1,118 @@
 jQuery(document).ready(function ($) {
-  init();
-  connection();
-
-  $('.inscription_input').change(function () {
-    localStorage.setItem($(this)[0].name, $('#' + $(this)[0].name).val());
-  });
-
-  $('.inscription_input').each(function () {
-    $('#' + $(this)[0].name).val(localStorage.getItem($(this)[0].name));
-  });
+    init();
 });
 
-function connection() {
-  if (localStorage.getItem('connection')) {
-    $('.connection_input').hide();
-    $('.connection_button').hide();
-    $('.connection_off').hide();
-    $('.connection_ok').show();
-    $('#affiche_name').html(
-      localStorage.getItem('prenom') +
-        "<span style='color:#424242' > (" +
-        localStorage.getItem('pseudo') +
-        ')</span> ' +
-        localStorage.getItem('nom')
-    );
-  }
-}
+// Masterkey api
+var masterkey = "";
 
-function deconnection() {
-  localStorage.clear();
-  $('.connection_input').show().val('');
-  $('.connection_button').show();
-  $('.connection_off').show();
-  $('.connection_ok').hide();
-  $('#affiche_name').hide();
-}
-
-function check_connection() {
-  $.ajax({
-    type: 'post',
-    url: 'php/all_validations.php',
-    data: {
-      pseudo: $('#pseudo').val(),
-      password: $('#password').val(),
-      check: 'connection',
-    },
-    dataType: 'json',
-    success: function (data, status, xml) {
-      if (data.status == 'success') {
-        localStorage.setItem('connection', 1);
-        localStorage.setItem('pseudo', $('#pseudo').val());
-        localStorage.setItem('prenom', data.prenom);
-        localStorage.setItem('nom', data.nom);
-        connection();
-      } else {
-        $('.connection_input').css('borderColor', '#e96e27');
-      }
-    },
-  });
-}
-
-function init() {
-  $('.not_same_error').hide();
-  $('.pseudo_used').hide();
-  $('.connection_ok').hide();
-}
-
-function send_inscription() {
-  check = before_submit();
-  if (check) {
-    $('#form_inscription').submit();
-  }
-}
-
-function before_submit() {
-  var check_all = true;
-  $('.inscription_input').each(function () {
-    if (!$(this).val()) {
-      $(this).css('borderColor', 'red');
-      check_all = false;
-    } else {
-      $(this).css('borderColor', 'grey');
-    }
-  });
-
-    // TODO reduire call to API
+const init = function() {
+    $('.not_same_error').hide();
+    $('.pseudo_used').hide();
+    $('.connection_ok').hide();
+    // Enregistre elements
+    $('.inscription_input_save').change(function () {
+        localStorage.setItem($(this)[0].name, $('#' + $(this)[0].name).val());
+    });
+    
+    $('.inscription_input_save').each(function () {
+        $('#' + $(this)[0].name).val(localStorage.getItem($(this)[0].name));
+    });
     $.ajax({
-        type: 'post',
-        url: '/php/all_validations.php',
-        data: { pseudo: $('#pseudo_form').val(), check: 'pseudo' },
+        type: 'GET',
+        url: '/php/apikey.php',
         dataType: 'json',
-        success: function (data, status, xml) {
-          if (data.status != 'success') {
-            $('.pseudo_used').css('display', 'initial');
-            check_all = false;
-          } else {
-            $('.pseudo_used').css('display', 'none');
-          }
-        },
-      });
+        success: function(data) {
+            masterkey = data.masterkey;
+        }
+    });
+}
 
-  regex_pattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\]).*$/
-  if (! regex_pattern.test($('#password1').val())) {
-    $('.invalid_pattern_error').css('color', 'red').addClass("vibration");
-    setTimeout(() => {
-        $('.invalid_pattern_error').removeClass("vibration");
-    }, 1500);
-    return false;
-  } else {
-    $('.invalid_pattern_error').css('color', 'limegreen');
-  }
+const send_inscription = function() {
+    if (before_submit()) {
+        var split = $('#birthdate').val().split('-')
+        var date = split[2] + '-' + split[1] + '-' + split[0];
+        $.ajax({
+            type: 'POST',
+            url: "/api/v1/home_user/user/",
+            headers: {
+                "APIKEY": masterkey,
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                "name": $('#name').val(),
+                "first_name": $('#first_name').val(),
+                "pseudo": $('#pseudo_form').val(),
+                "birthdate": date,
+                "email": $('#email').val(),
+                "password": $('#password1').val()
+            }),
+            success: function (data) {
+                sessionStorage.setItem("apikey", data.APIKEY);
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    }
+}
 
-  if ($('#password1').val() != $('#password2').val()) {
-    $('.not_same_error').css('display', 'initial').addClass("vibration");
-    setTimeout(() => {
-        $('.not_same_error').removeClass("vibration");
-    }, 1500);
-    return false;
-  } else {
-    $('.not_same_error').css('display', 'none');
-  }
+const before_submit = function () {
+    var check_all = true;
+    $('.inscription_input').each(function () {
+        if (!$(this).val()) {
+        $(this).css('borderColor', 'red');
+        check_all = false;
+        } else {
+        $(this).css('borderColor', 'grey');
+        }
+    });
 
-  return check_all;
+    if ($('#pseudo_form').val() != "") {
+        $.ajax({
+            type: 'get',
+            url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
+            complete: function (data, status, xml) {
+            if (data.status == 200) {
+                $('.pseudo_used').css('display', 'initial');
+                $('.pseudo_used').addClass('vibration');
+                setTimeout(() => {
+                    $('.invalid_pattern_error').removeClass('vibration');
+                }, 1500);
+                check_all = false;
+            } else {
+                $('.pseudo_used').css('display', 'none');
+            }
+            },
+        });
+    }
+
+    regex_pattern =
+        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\]).*$/;
+    if (!regex_pattern.test($('#password1').val())) {
+        $('.invalid_pattern_error').css('color', 'red').addClass('vibration');
+        setTimeout(() => {
+        $('.invalid_pattern_error').removeClass('vibration');
+        }, 1500);
+        return false;
+    } else {
+        $('.invalid_pattern_error').css('color', 'limegreen');
+    }
+
+    if ($('#password1').val() != $('#password2').val()) {
+        $('.not_same_error').css('display', 'initial').addClass('vibration');
+        setTimeout(() => {
+        $('.not_same_error').removeClass('vibration');
+        }, 1500);
+        return false;
+    } else {
+        $('.not_same_error').css('display', 'none');
+    }
+    return check_all;
+}
+
+
+function rien() {
+    console.log("nothing happend !")
 }

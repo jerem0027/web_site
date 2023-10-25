@@ -28,6 +28,21 @@ body {
     outline: none;
 }
 
+.bouton-visibility{
+    background: #007bff; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
 .demo-blog__posts {
     max-width: 80%;
     padding: 0;
