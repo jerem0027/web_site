@@ -52,7 +52,7 @@ const send_inscription = function() {
             data: JSON.stringify({
                 "name": $('#name').val(),
                 "first_name": $('#first_name').val(),
-                "pseudo": $('#pseudo_form').val(),
+                "pseudo": $('#pseudo_form').val().toLowerCase(),
                 "birthdate": date,
                 "email": $('#email').val(),
                 "password": $('#password1').val()

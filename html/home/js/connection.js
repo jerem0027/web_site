@@ -26,7 +26,7 @@ const connection = function () {
                 "Content-Type": "application/json"
             },
             data: JSON.stringify({
-                "pseudo": $('#pseudo_form').val(),
+                "pseudo": $('#pseudo_form').val().toLowerCase(),
                 "password": $('#password1').val()
             }),
             success: function (data) {
@@ -64,7 +64,7 @@ const disconnected_func = function() {
 //         url: '/php/all_validations.php',
 //         data: {
 //             pseudo: $('#pseudo').val(),
-//             password: $('#password').val(),
+//             password: $('#password').val().toLowerCase(),
 //             check: 'connection'
 //         },
 //         dataType: 'json',
