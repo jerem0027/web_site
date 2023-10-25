@@ -10,7 +10,7 @@ function guest_check() {
 
   $.ajax({
     type: 'get',
-    url: '/api/v1/secret_santa_guest/guest/' + product,
+    url: '/api/v1/secret_santa/guest/' + product,
     dataType: 'json',
     success: function (data, status, xhr) {
       if (xhr.status == 200) {

@@ -256,15 +256,86 @@ div {
     color: red;
 }
 
+.connection_button, .connection_input {
+    font-size: 15px;
+    background-color: #424242;
+}
+
+.connection_button {
+    color:#fff;
+    border: solid 2px #424242;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.connection_input {
+    padding: 9px;
+    border-radius: 25px;
+}
+
+.connection_button:hover {
+    cursor: pointer;
+    background-color: #e96e27;
+    color: #fff;
+    border-color: #fff;
+}
+
+#logo_short {
+    display: none;
+}
+
+.button_card {
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    border: solid 0;
+}
+
+.button_card {
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 7px;
+    padding: 15px;
+    border: solid 0;
+}
+
+.wikipediie button {
+    background-color: #2385b3;
+    color: #fff;
+    border: solid 2px #2385b3;
+}
+
+.wikipediie button:hover {
+    background-color: #fff;
+    color: #2385b3;
+}
+
+.marvel_fan button {
+    background-color: #f11e22;
+    color: #fff;
+    border: solid 2px #f11e22;
+}
+
+.marvel_fan button:hover {
+    background-color: #fff;
+    color: #f11e22;
+}
+
+
 /**** Mobile layout ****/
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .wikipediie h3 a,
     .marvel_fan h3 a {
-        font-size: 5.55vh;
+        font-size: 100%;
+    }
+
+    .text_card {
+        font-size: 15%;
     }
 
     .wikipediie h3 a img {
-        height: 7vh;
+        height: 50%;
     }
 
     .mdl-card__supporting-text {
@@ -272,37 +343,28 @@ div {
     }
 
     .marvel_fan h3 a img {
-        height: 5vh;
+        height: 60px;
     }
 
     h3 {
         margin: 0;
     }
 
-    div.mdl-cell.mdl-cell--12-col {
-        font-size: 3vh;
+    .mdl-card__supporting-text div.mdl-cell.mdl-cell--12-col {
+        font-size: 100%;
     }
 
     #logo_large {
         display: none;
     }
 
-    .connection_input {
-        margin: 0.2vh 2vw;
-        margin-left: 0;
-        background-color: #424242;
-        text-indent: 2vw;
-        width: 20vw;
-        font-size: 100%;
-        height: 3vh;
+    #logo_short {
+        display: block;
+        height: 40px;
     }
 
-    .connection_button {
-        margin-right: -5px;
-        height: 5.5vh;
-        width: 20vw;
-        padding: 0px 0.2vw 0px 0.2vh;
-        font-size: 90%;
-        line-height: 2vh;
+    .button_card{
+        font-size: 15px;
+        padding: 10px;
     }
 }

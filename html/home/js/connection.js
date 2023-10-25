@@ -1,26 +1,61 @@
-function connection() {
-  if (localStorage.getItem('connection')) {
-    $('.connection_input').hide();
-    $('.connection_button').hide();
-    $('.connection_off').hide();
-    $('.connection_ok').show();
-    $('#affiche_name').html(
-      localStorage.getItem('prenom') +
-        "<span style='color:#424242' > (" +
-        localStorage.getItem('pseudo') +
-        ')</span> ' +
-        localStorage.getItem('nom')
-    );
-  }
+jQuery(document).ready(function ($) {
+    $('.connection_on').hide();
+    connection();
+    $.ajax({
+        type: 'GET',
+        url: '/php/apikey.php',
+        dataType: 'json',
+        success: function(data) {
+            masterkey = data.masterkey;
+        }
+    });
+});
+
+var masterkey = ""
+
+const connection = function () {
+    if (sessionStorage.getItem('apikey')) {
+        connected_func()
+    } else {
+        $.ajax({
+            type: 'POST',
+            url: "/api/v1/home_user/user/connection",
+            headers: {
+                "APIKEY": masterkey,
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                "pseudo": $('#pseudo_form').val(),
+                "password": $('#password1').val()
+            }),
+            success: function (data) {
+                sessionStorage.setItem("apikey", data.APIKEY);
+                sessionStorage.setItem('pseudo', data.pseudo);
+                connected_func()
+            }
+        });
+    }
 }
 
-function deconnection() {
-  localStorage.clear();
-  $('.connection_input').show().val('');
-  $('.connection_button').show();
-  $('.connection_off').show();
-  $('.connection_ok').hide();
-  $('#affiche_name').hide();
+const connected_func = function(){
+    $('.connection_off').hide();
+    $('.connection_on').show();
+    $('#affiche_name').html(
+    "<span style='color:#424242' >" +
+        sessionStorage.getItem('pseudo') +
+        '</span>'
+    );
+}
+
+const disconnected_func = function() {
+    localStorage.clear();
+    sessionStorage.clear();
+    $('.connection_input').show().val('');
+    $('.connection_button').show();
+    $('.connection_off').show();
+    $('.connection_ok').hide();
+    $('#affiche_name').hide();
 }
 
 // function check_connection() {

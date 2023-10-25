@@ -57,7 +57,7 @@ const send_inscription = function() {
                 "email": $('#email').val(),
                 "password": $('#password1').val()
             }),
-            error: function (data) {
+            success: function (data) {
                 sessionStorage.setItem("apikey", data.APIKEY);
                 $('#inscription_validated').addClass("volet").show()
                 timer_redirect()

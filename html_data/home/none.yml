@@ -1,0 +1,31 @@
+index:
+  head:
+  cards:
+    - name: wikipediie
+      href: ../wikipediie/vue/home.php
+      img: ../wikipediie/vue/images/logo.png
+      titre: Wikipediie
+      description: Projet ENSIIE S1
+      date: Janvier 2021
+      techno: HTML/ CSS/ PHP/ JavaScript, permettant de crée et lire des articles
+      site_link: /wikipediie/vue/home.php
+      a_propos_link: /wikipediie/vue/apropos.php
+    
+    - name: marvel_fan
+      href: ../marvel-fan/index.html
+      img: ../marvel-fan/img/logo/marvel_logo.png
+      titre: Fan Site Marvel
+      description: Projet IUT Orsay S1
+      date: Janvier 2019
+      techno: HTML/ CSS
+      site_link: /marvel-fan/index.html
+      a_propos_link: /marvel-fan/contact.html
+
+inscription:
+  head:
+    - <script type="text/javascript" src="js/inscription.js"></script>
+
+guest:
+  head:
+    - <link rel="stylesheet" href="css/secret_santa.css"/>
+    - <script type="text/javascript" src="js/guest.js"></script>
