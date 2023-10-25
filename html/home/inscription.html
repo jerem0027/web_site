@@ -4,41 +4,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="Page de presentation des projet réaliser par Jérémie Henrion."
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="description" content="Page de presentation des projet réaliser par Jérémie Henrion."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
 
     <link rel="icon" href="logo/icon.png" />
     <title>Jeremie H</title>
 
     <!-- Page styles -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://code.getmdl.io/1.3.0/material.min.css"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css"/>
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <script
-      type="text/javascript"
-      src="https://code.getmdl.io/1.3.0/material.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-    ></script>
+    <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/inscription.js"></script>
   </head>
   <body>
@@ -55,11 +33,7 @@
             /></a>
           </span>
           <div class="mdl-layout-spacer"></div>
-          <form
-            onsubmit="event.preventDefault(); check_connection();"
-            method="POST"
-            id="form"
-          >
+          <form id="form">
             <nav class="mdl-navigation">
               <h2 id="affiche_name" class="connection_ok"></h2>
               <input
@@ -131,17 +105,18 @@
         </nav>
       </div>
       <div class="mdl-layout__content">
+        <div class="mdl-cell--12-col">&nbsp;</div>
         <div class="demo-blog__posts mdl-grid" id="top">
+            <div id="inscription_validated" class="mdl-cell--12-col">
+                <img src="logo/logo-white.png" />
+                <h1>Votre inscription à bien été prise en compte</h1>
+                <h3>Vous allez être redirigé vers la page d'accueil dans <span id="timer_inscription">5</span> secondes</h3>
+            </div>
+            <div class="mdl-cell--12-col">&nbsp;</div>
           <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
 
-          <form
-            class="mdl-grid"
-            onchange="before_submit()"
-            method="POST"
-            id="form_inscription"
-            onsubmit="send_inscription()"
-          >
-            <div class="mdl-cell--3-col">Nom<span style="color: red">*</span></div>
+          <div class="mdl-grid" onchange="before_submit()" id="form_inscription">
+            <div class="mdl-cell--3-col">Nom<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input inscription_input_save"
@@ -153,7 +128,7 @@
             </div><div class="mdl-cell--1-col">&nbsp;</div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
-            <div class="mdl-cell--3-col">Prénom<span style="color: red">*</span></div>
+            <div class="mdl-cell--3-col">Prénom<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input inscription_input_save"
@@ -165,7 +140,7 @@
             </div><div class="mdl-cell--1-col">&nbsp;</div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
-            <div class="mdl-cell--3-col">Pseudo<span style="color: red">*</span></div>
+            <div class="mdl-cell--3-col">Pseudo<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input inscription_input_save"
@@ -175,12 +150,12 @@
                 placeholder="Pseudo"
               />
             </div><div class="mdl-cell--1-col">&nbsp;</div>
-            <div class="mdl-cell--12-col pseudo_used" style="color: red">
+            <div class="mdl-cell--12-col pseudo_used">
               Ce pseudo est deja utilisé
             </div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
-            <div class="mdl-cell--3-col">Date de naissance<span style="color: red">*</span></div>
+            <div class="mdl-cell--3-col">Date de naissance<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input inscription_input_save"
@@ -193,7 +168,7 @@
             </div><div class="mdl-cell--1-col">&nbsp;</div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
-            <div class="mdl-cell--3-col">Email<span style="color: red">*</span></div>
+            <div class="mdl-cell--3-col">Email<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input inscription_input_save"
@@ -205,7 +180,7 @@
             </div><div class="mdl-cell--1-col">&nbsp;</div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
-            <div class="mdl-cell--3-col">Mot de passe<span style="color: red">*</span></div>
+            <div class="mdl-cell--3-col">Mot de passe<span>*</span></div>
             <div class="mdl-cell--8-col">
               <input
                 class="mdl-textfield__input inscription_input"
@@ -215,31 +190,21 @@
                 placeholder="Mot de passe"
               /></div>
               <div class="mdl-cell--1-col">
-                <button
-                style="background-color: #424242"
-                id="btn_visibility_pass1"
-                onclick="rien()"
-                class="mdl-button mdl-js- mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-              >
-              <span class="material-symbols-outlined">visibility</span>
-              </button>
+                <i id="password-1" class="material-icons showcreds">visibility</i>
             </div>
-            <div
-              class="mdl-cell--12-col invalid_pattern_error"
-              style="color: red"
-            >
-              Votre mot de passe doit contenir au moins:
+            <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
+              <span style="color:grey;">Votre mot de passe doit contenir au moins:</span>
               <ul>
-                <li>1 lettre minuscule</li>
-                <li>1 lettre majuscule</li>
-                <li>1 chiffre</li>
-                <li>1 caractère spécial</li>
+                <li id="pattern_min">1 lettre minuscule</li>
+                <li id="pattern_maj">1 lettre majuscule</li>
+                <li id="pattern_dig">1 chiffre</li>
+                <li id="pattern_spe">1 caractère spécial</li>
               </ul>
             </div>
 
             <div class="mdl-cell--12-col">&nbsp;</div>
             <div class="mdl-cell--3-col">
-              Vérification du mot de passe<span style="color: red">*</span>
+              Vérification du mot de passe<span>*</span>
             </div>
             <div class="mdl-cell--8-col">
               <input
@@ -249,8 +214,10 @@
                 name="password2"
                 placeholder="Vérification du mot de passe"
               />
-            </div><div class="mdl-cell--1-col">&nbsp;</div>
-            <div class="mdl-cell--12-col not_same_error" style="color: red">
+            </div><div class="mdl-cell--1-col">
+                <i id="password-2" class="material-icons showcreds">visibility</i>
+            </div>
+            <div class="mdl-cell--12-col not_same_error">
               Les mots de passe ne correspondent pas
             </div>
 
@@ -261,19 +228,17 @@
               passe sont chiffrés, mais pour des questions de sécurité, merci
               d'utiliser/créer un nouveau mot de passe.</span
             >
-          </form>
+          </div>
           <div class="mdl-cell--12-col">&nbsp;</div>
-          <div class="mdl-cell--6-col"></div>
-          <div class="mdl-cell--6-col">
+          <div class="mdl-cell--4-col"></div>
+          <div class="mdl-cell--4-col">
             <button
-              style="background-color: #424242"
               id="btn_submit"
               onclick="send_inscription()"
-              class="mdl-button mdl-js- mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn_insctiption"
-            >
-              S'inscrire
-            </button>
+              class="btn_insctiption"
+            > S'inscrire</button>
           </div>
+          <div class="mdl-cell--4-col"></div>
         </div>
       </div>
       <footer class="mdl-mega-footer">

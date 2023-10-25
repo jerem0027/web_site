@@ -6,9 +6,11 @@ jQuery(document).ready(function ($) {
 var masterkey = "";
 
 const init = function() {
-    $('.not_same_error').hide();
-    $('.pseudo_used').hide();
-    $('.connection_ok').hide();
+    $('.not_same_error').css('color', 'white');
+    $('.pseudo_used').css('color', 'white')
+    $('.connection_ok').css('color', 'white');
+    $('#inscription_validated').hide();
+
     // Enregistre elements
     $('.inscription_input_save').change(function () {
         localStorage.setItem($(this)[0].name, $('#' + $(this)[0].name).val());
@@ -16,6 +18,14 @@ const init = function() {
     
     $('.inscription_input_save').each(function () {
         $('#' + $(this)[0].name).val(localStorage.getItem($(this)[0].name));
+    });
+
+    $('.showcreds').click(function () {
+        const id = $(this)[0].id.replace('-', "")
+        if ($('#' + id).attr("type") === "text")
+            $('#' + id).attr("type", "password");
+        else
+            $('#' + id).attr("type", "text");
     });
     $.ajax({
         type: 'GET',
@@ -47,12 +57,13 @@ const send_inscription = function() {
                 "email": $('#email').val(),
                 "password": $('#password1').val()
             }),
-            success: function (data) {
+            error: function (data) {
                 sessionStorage.setItem("apikey", data.APIKEY);
-                console.log(data)
-            },
-            error: function(data) {
-                console.log(data)
+                $('#inscription_validated').addClass("volet").show()
+                timer_redirect()
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 10000);
             }
         });
     }
@@ -75,44 +86,89 @@ const before_submit = function () {
             url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
             complete: function (data, status, xml) {
             if (data.status == 200) {
-                $('.pseudo_used').css('display', 'initial');
+                $('.pseudo_used').css('color', 'red');
                 $('.pseudo_used').addClass('vibration');
                 setTimeout(() => {
-                    $('.invalid_pattern_error').removeClass('vibration');
+                    $('.pseudo_used').removeClass('vibration');
                 }, 1500);
                 check_all = false;
             } else {
-                $('.pseudo_used').css('display', 'none');
+                $('.pseudo_used').css('color', 'white');
             }
             },
         });
     }
 
-    regex_pattern =
-        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\]).*$/;
-    if (!regex_pattern.test($('#password1').val())) {
-        $('.invalid_pattern_error').css('color', 'red').addClass('vibration');
-        setTimeout(() => {
-        $('.invalid_pattern_error').removeClass('vibration');
-        }, 1500);
-        return false;
-    } else {
-        $('.invalid_pattern_error').css('color', 'limegreen');
+    if (check_pattern($('#password1').val())){
+        return false
     }
 
     if ($('#password1').val() != $('#password2').val()) {
-        $('.not_same_error').css('display', 'initial').addClass('vibration');
+        $('.not_same_error').css('color', 'red').addClass('vibration');
         setTimeout(() => {
         $('.not_same_error').removeClass('vibration');
         }, 1500);
         return false;
     } else {
-        $('.not_same_error').css('display', 'none');
+        $('.not_same_error').css('color', 'white');
     }
     return check_all;
 }
 
+function timer_redirect() {
+    var cpt = 10
+    var time = setInterval(function(){
+        cpt--;
+        $("#timer_inscription").text(cpt.toString());
+        if (cpt === 0)
+            clearInterval(time)
+    }, 1000)
+}
+function  check_pattern(value) {
+    var tests = false
 
-function rien() {
-    console.log("nothing happend !")
+    pattern_min = /[a-z]/;
+    if (!pattern_min.test(value)) {
+        $('#pattern_min').css('color', 'red').addClass('vibration');
+        setTimeout(() => {
+        $('#pattern_min').removeClass('vibration');
+        }, 1500);
+        tests = true;
+    } else {
+        $('#pattern_min').css('color', 'limegreen');
+    }
+
+    pattern_maj = /[A-Z]/;
+    if (!pattern_maj.test(value)) {
+        $('#pattern_maj').css('color', 'red').addClass('vibration');
+        setTimeout(() => {
+        $('#pattern_maj').removeClass('vibration');
+        }, 1500);
+        tests = true;
+    } else {
+        $('#pattern_maj').css('color', 'limegreen');
+    }
+
+    pattern_dig = /^(?=.*\d).*$/;
+    if (!pattern_dig.test(value)) {
+        $('#pattern_dig').css('color', 'red').addClass('vibration');
+        setTimeout(() => {
+        $('#pattern_dig').removeClass('vibration');
+        }, 1500);
+        tests = true;
+    } else {
+        $('#pattern_dig').css('color', 'limegreen');
+    }
+
+    pattern_spe = /^(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\/]).*$/;
+    if (!pattern_spe.test(value)) {
+        $('#pattern_spe').css('color', 'red').addClass('vibration');
+        setTimeout(() => {
+        $('#pattern_spe').removeClass('vibration');
+        }, 1500);
+        tests = true;
+    } else {
+        $('#pattern_spe').css('color', 'limegreen');
+    }
+    return tests
 }
