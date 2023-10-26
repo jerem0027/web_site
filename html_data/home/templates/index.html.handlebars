@@ -31,13 +31,14 @@
                         </div>
                         <div class="mdl-typography--text-right mdl-cell mdl-cell--12-col">
                             <a href="{{this.site_link}}"> 
-                                <button class="button_card" style="color: {{this.color}};">Voir le site</button>
+                                <button class="button_card">Voir le site</button>
                             </a>
                             <a href="{{this.a_propos_link}}">
-                                <button class="button_card" style="color: {{this.color}};">A propos</button>
+                                <button class="button_card">A propos</button>
                             </a>
                         </div>
                         <div class="mdl-cell mdl-cell--12-col">&nbsp;</div>
+                        {{#unless @last}}<div class="separator_content"></div>{{/unless}}
                     </div>
                 {{/each}}
                 </div>
