@@ -1,7 +1,8 @@
 jQuery(document).ready(function ($) {
     $('#loader_connection').hide();
     $('.connection_on').hide();
-    connection();
+    if (sessionStorage.getItem('apikey'))
+        connected_func()
     $.ajax({
         type: 'GET',
         url: '/php/apikey.php',
@@ -37,10 +38,8 @@ const connection = function () {
                 connected_func()
             },
             error: function(data) {
-                $('.connection_input').addCladd("vibration_input");
-                setTimeout(() => {
-                    $('.connection_input').removeCladd("vibration_input")
-                }, 1000);
+                $('#loader_connection').hide();
+                $('.connection_input').addClass("vibration_input");
             }
 
         });
@@ -50,18 +49,22 @@ const connection = function () {
 const connected_func = function(){
     $('.connection_off').hide();
     $('.connection_on').show();
-    $('#display_username span').html(
+    $('#display_username').html(
         sessionStorage.getItem('pseudo')
     );
     $('#loader_connection').hide();
 }
 
 const disconnected_func = function() {
-    localStorage.clear();
-    sessionStorage.clear();
-    $('.connection_input').show().val('');
-    $('.connection_button').show();
-    $('.connection_off').show();
-    $('.connection_ok').hide();
-    $('#affiche_name').hide();
+    $('#loader_connection').show();
+    setTimeout(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+        $('.connection_input').show().val('');
+        $('.connection_button').show();
+        $('.connection_off').show();
+        $('.connection_on').hide();
+        $('.connection_input').removeClass("vibration_input")
+        $('#loader_connection').hide();
+    }, 1500);
 }
