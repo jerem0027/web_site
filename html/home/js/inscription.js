@@ -62,7 +62,7 @@ const send_inscription = function() {
             success: function (data) {
                 $('#loader_connection').css("visibility", "hidden");
                 sessionStorage.setItem("apikey", data.APIKEY);
-                sessionStorage.setItem("pseudo", data.pseudo);
+                sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
                 $('.banner_validated').addClass("volet_inscription").show()
                 $('#content_inscription').addClass("volet_inscription")
                 timer_redirect()
