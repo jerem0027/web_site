@@ -233,12 +233,6 @@ span.mdl-navigation__link {
     padding: 1px;
 }
 
-.connection_input {
-    margin: 20px;
-    background-color: #424242;
-    text-indent: 10%;
-}
-
 a {
     text-decoration: none;
     color: #e96e27;
@@ -271,6 +265,8 @@ div {
 .connection_input {
     padding: 9px;
     border-radius: 25px;
+    margin: 20px;
+    text-indent: 10%;
 }
 
 .connection_button:hover {
@@ -322,6 +318,17 @@ div {
     color: #f11e22;
 }
 
+#display_username {
+    color: #fff;
+    font-size: 50px;
+    margin-right: 30px;
+}
+
+#icon_user {
+    color: #fff;
+    font-size: 50px;
+    margin-right: 10px;
+}
 
 /**** Mobile layout ****/
 @media (max-width: 1000px) {

@@ -41,10 +41,8 @@ const connection = function () {
 const connected_func = function(){
     $('.connection_off').hide();
     $('.connection_on').show();
-    $('#affiche_name').html(
-    "<span style='color:#424242' >" +
-        sessionStorage.getItem('pseudo') +
-        '</span>'
+    $('#display_username span').html(
+        sessionStorage.getItem('pseudo')
     );
 }
 
@@ -57,27 +55,3 @@ const disconnected_func = function() {
     $('.connection_ok').hide();
     $('#affiche_name').hide();
 }
-
-// function check_connection() {
-//     $.ajax({
-//         type: 'POST',
-//         url: '/php/all_validations.php',
-//         data: {
-//             pseudo: $('#pseudo').val(),
-//             password: $('#password').val().toLowerCase(),
-//             check: 'connection'
-//         },
-//         dataType: 'json',
-//         success: function (data, status, xml) {
-//             if (data.status == 'success') {
-//                 localStorage.setItem('connection', 1);
-//                 localStorage.setItem('pseudo', $('#pseudo').val());
-//                 localStorage.setItem('first_name', data.prenom);
-//                 localStorage.setItem('name', data.nom);
-//                 connection();
-//             } else {
-//                 $('.connection_input').css('borderColor', '#e96e27');
-//             }
-//         },
-//     });
-// }
