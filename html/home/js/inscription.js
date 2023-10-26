@@ -9,6 +9,7 @@ const init = function() {
     $('.not_same_error').css('color', 'white');
     $('.pseudo_used').css('color', 'white')
     $('.connection_ok').css('color', 'white');
+    $('#loader_connection').css("visibility", "hidden");
     $('.banner').hide();
 
     // Enregistre elements
@@ -39,6 +40,7 @@ const init = function() {
 
 const send_inscription = function() {
     if (before_submit()) {
+        $('#loader_connection').css("visibility", "visible");
         var split = $('#birthdate').val().split('-')
         var date = split[2] + '-' + split[1] + '-' + split[0];
         $.ajax({
@@ -58,8 +60,11 @@ const send_inscription = function() {
                 "password": $('#password1').val()
             }),
             success: function (data) {
+                $('#loader_connection').css("visibility", "hidden");
                 sessionStorage.setItem("apikey", data.APIKEY);
+                sessionStorage.setItem("pseudo", data.pseudo);
                 $('.banner_validated').addClass("volet_inscription").show()
+                $('#content_inscription').addClass("volet_inscription")
                 timer_redirect()
                 setTimeout(() => {
                     window.location.href = "/";
@@ -70,13 +75,14 @@ const send_inscription = function() {
 }
 
 const before_submit = function () {
+    $('#loader_connection').css("visibility", "visible");
     var check_all = true;
     $('.inscription_input').each(function () {
         if (!$(this).val()) {
-        $(this).css('borderColor', 'red');
-        check_all = false;
+            $(this).css('borderColor', 'red');
+            check_all = false;
         } else {
-        $(this).css('borderColor', 'grey');
+            $(this).css('borderColor', 'grey');
         }
     });
 
@@ -85,33 +91,35 @@ const before_submit = function () {
             type: 'get',
             url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
             complete: function (data, status, xml) {
-            if (data.status == 200) {
-                $('.pseudo_used').css('color', 'red');
-                $('.pseudo_used').addClass('vibration');
-                setTimeout(() => {
-                    $('.pseudo_used').removeClass('vibration');
-                }, 1500);
-                check_all = false;
-            } else {
-                $('.pseudo_used').css('color', 'white');
-            }
+                if (data.status == 200) {
+                    $('.pseudo_used').css('color', 'red');
+                    $('.pseudo_used').addClass('vibration');
+                    setTimeout(() => {
+                        $('.pseudo_used').removeClass('vibration');
+                    }, 1500);
+                    check_all = false;
+                } else {
+                    $('.pseudo_used').css('color', 'white');
+                }
             },
         });
     }
 
     if (check_pattern($('#password1').val())){
+        $('#loader_connection').css("visibility", "hidden");
         return false
     }
 
     if ($('#password1').val() != $('#password2').val()) {
         $('.not_same_error').css('color', 'red').addClass('vibration');
         setTimeout(() => {
-        $('.not_same_error').removeClass('vibration');
+            $('.not_same_error').removeClass('vibration');
         }, 1500);
-        return false;
+        check_all =  false;
     } else {
         $('.not_same_error').css('color', 'white');
     }
+    $('#loader_connection').css("visibility", "hidden");
     return check_all;
 }
 
