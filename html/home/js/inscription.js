@@ -9,7 +9,7 @@ const init = function() {
     $('.not_same_error').css('color', 'white');
     $('.pseudo_used').css('color', 'white')
     $('.connection_ok').css('color', 'white');
-    $('#inscription_validated').hide();
+    $('.banner').hide();
 
     // Enregistre elements
     $('.inscription_input_save').change(function () {
@@ -59,7 +59,7 @@ const send_inscription = function() {
             }),
             success: function (data) {
                 sessionStorage.setItem("apikey", data.APIKEY);
-                $('#inscription_validated').addClass("volet").show()
+                $('.banner_validated').addClass("volet_inscription").show()
                 timer_redirect()
                 setTimeout(() => {
                     window.location.href = "/";

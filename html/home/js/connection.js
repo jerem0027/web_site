@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    $('#loader_connection').hide();
+    $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
     if (sessionStorage.getItem('apikey'))
         connected_func()
@@ -16,7 +16,7 @@ jQuery(document).ready(function ($) {
 var masterkey = ""
 
 const connection = function () {
-    $('#loader_connection').show();
+    $('#loader_connection').css("visibility", "visible");
     if (sessionStorage.getItem('apikey')) {
         connected_func()
     } else {
@@ -38,7 +38,7 @@ const connection = function () {
                 connected_func()
             },
             error: function(data) {
-                $('#loader_connection').hide();
+                $('#loader_connection').css("visibility", "hidden");
                 $('.connection_input').addClass("vibration_input");
             }
 
@@ -52,11 +52,11 @@ const connected_func = function(){
     $('#display_username').html(
         sessionStorage.getItem('pseudo')
     );
-    $('#loader_connection').hide();
+    $('#loader_connection').css("visibility", "hidden");
 }
 
 const disconnected_func = function() {
-    $('#loader_connection').show();
+    $('#loader_connection').css("visibility", "visible");
     setTimeout(() => {
         localStorage.clear();
         sessionStorage.clear();
@@ -65,6 +65,6 @@ const disconnected_func = function() {
         $('.connection_off').show();
         $('.connection_on').hide();
         $('.connection_input').removeClass("vibration_input")
-        $('#loader_connection').hide();
+        $('#loader_connection').css("visibility", "hidden");
     }, 1500);
 }
