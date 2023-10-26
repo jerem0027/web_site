@@ -29,6 +29,12 @@ body {
     color: red;
 }
 
+.vibration_input {
+    /* display: inline-block; */
+    animation: shake 0.5s 1;
+    border-color: red;
+}
+
 .volet{
     animation: volet 2s 1;
 }
@@ -329,6 +335,20 @@ div {
     font-size: 50px;
     margin-right: 10px;
 }
+
+
+.mdl-progress > .bufferbar {
+    background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(233,110,39), rgb(233,110,39))  !important;
+}
+
+.mdl-progress > .auxbar {
+    background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, rgb(233,110,39), rgb(233,110,39))  !important;
+}
+
+.mdl-progress > .progressbar {
+    background-color: rgb(233,110,39) !important;
+}
+
 
 /**** Mobile layout ****/
 @media (max-width: 1000px) {

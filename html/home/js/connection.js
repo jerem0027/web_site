@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+    $('#loader_connection').hide();
     $('.connection_on').hide();
     connection();
     $.ajax({
@@ -14,6 +15,7 @@ jQuery(document).ready(function ($) {
 var masterkey = ""
 
 const connection = function () {
+    $('#loader_connection').show();
     if (sessionStorage.getItem('apikey')) {
         connected_func()
     } else {
@@ -33,7 +35,14 @@ const connection = function () {
                 sessionStorage.setItem("apikey", data.APIKEY);
                 sessionStorage.setItem('pseudo', data.pseudo);
                 connected_func()
+            },
+            error: function(data) {
+                $('.connection_input').addCladd("vibration_input");
+                setTimeout(() => {
+                    $('.connection_input').removeCladd("vibration_input")
+                }, 1000);
             }
+
         });
     }
 }
@@ -44,6 +53,7 @@ const connected_func = function(){
     $('#display_username span').html(
         sessionStorage.getItem('pseudo')
     );
+    $('#loader_connection').hide();
 }
 
 const disconnected_func = function() {
