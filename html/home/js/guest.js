@@ -11,7 +11,7 @@ function guest_check() {
 
     $.ajax({
         type: 'get',
-        url: 'https://jeremiehenrion.serveblog.net/api/v1/secret_santa/guest/' + product,
+        url: '/api/v1/secret_santa/guest/' + product,
         dataType: 'json',
         success: function (data) {
             setTimeout(() => {
