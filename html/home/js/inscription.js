@@ -6,9 +6,8 @@ jQuery(document).ready(function ($) {
 var masterkey = "";
 
 const init = function() {
-    $('.not_same_error').css('color', 'white');
-    $('.pseudo_used').css('color', 'white')
-    $('.connection_ok').css('color', 'white');
+    $('.not_same_error').css("visibility", "hidden");
+    $('.invalid_input').css("visibility", "hidden");
     $('#loader_connection').css("visibility", "hidden");
     $('.banner').hide();
 
@@ -41,8 +40,6 @@ const init = function() {
 const send_inscription = function() {
     if (before_submit()) {
         $('#loader_connection').css("visibility", "visible");
-        var split = $('#birthdate').val().split('-')
-        var date = split[2] + '-' + split[1] + '-' + split[0];
         $.ajax({
             type: 'POST',
             url: "/api/v1/home_user/user/",
@@ -55,7 +52,7 @@ const send_inscription = function() {
                 "name": $('#name').val(),
                 "first_name": $('#first_name').val(),
                 "pseudo": $('#pseudo_form').val().toLowerCase(),
-                "birthdate": date,
+                "birthdate": format_date($('#birthdate').val()),
                 "email": $('#email').val(),
                 "password": $('#password1').val()
             }),
@@ -89,17 +86,17 @@ const before_submit = function () {
     if ($('#pseudo_form').val() != "") {
         $.ajax({
             type: 'get',
-            url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
+            url: "https://jeremiehenrion.serveblog.net/api/v1/home_user/user/" + $('#pseudo_form').val(),
             complete: function (data, status, xml) {
                 if (data.status == 200) {
-                    $('.pseudo_used').css('color', 'red');
-                    $('.pseudo_used').addClass('vibration');
+                    $('.invalid_input').css("visibility", "visible");
+                    $('.invalid_input').addClass('vibration');
                     setTimeout(() => {
-                        $('.pseudo_used').removeClass('vibration');
+                        $('.invalid_input').removeClass('vibration');
                     }, 1500);
                     check_all = false;
                 } else {
-                    $('.pseudo_used').css('color', 'white');
+                    $('.invalid_input').css("visibility", "hidden");
                 }
             },
         });
@@ -111,19 +108,19 @@ const before_submit = function () {
     }
 
     if ($('#password1').val() != $('#password2').val()) {
-        $('.not_same_error').css('color', 'red').addClass('vibration');
+        $('.not_same_error').css("visibility", "visible").addClass('vibration');
         setTimeout(() => {
             $('.not_same_error').removeClass('vibration');
         }, 1500);
         check_all =  false;
     } else {
-        $('.not_same_error').css('color', 'white');
+        $('.not_same_error').css("visibility", "hidden");
     }
     $('#loader_connection').css("visibility", "hidden");
     return check_all;
 }
 
-function timer_redirect() {
+const timer_redirect = function() {
     var cpt = 10
     var time = setInterval(function(){
         cpt--;
@@ -132,7 +129,8 @@ function timer_redirect() {
             clearInterval(time)
     }, 1000)
 }
-function  check_pattern(value) {
+
+const check_pattern = function(value) {
     var tests = false
 
     pattern_min = /[a-z]/;

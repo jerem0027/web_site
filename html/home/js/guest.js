@@ -4,7 +4,7 @@ jQuery(document).ready(function () {
     guest_check();
 });
 
-function guest_check() {
+const guest_check = function() {
     $('#loader_connection').css("visibility", "visible");
 
     const product = new URLSearchParams(window.location.search).get('guest');

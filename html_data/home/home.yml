@@ -29,3 +29,8 @@ guest:
   head:
     - <link rel="stylesheet" href="css/secret_santa.css"/>
     - <script type="text/javascript" src="js/guest.js"></script>
+
+account:
+  head:
+    - <link rel="stylesheet" href="css/account.css"/>
+    - <script type="text/javascript" src="js/account.js"></script>

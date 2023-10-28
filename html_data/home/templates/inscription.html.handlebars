@@ -26,8 +26,8 @@
                         <div class="mdl-cell--12-col">&nbsp;</div>
                         <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
 
-                        <div class="mdl-grid" onchange="before_submit()" id="form_inscription">
-                            <div class="mdl-cell--3-col">Nom<span>*</span></div>
+                        <div class="mdl-grid" oninput="before_submit()" id="form_inscription">
+                            <div class="mdl-cell--3-col form_part_title">Nom<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input inscription_input_save"
@@ -40,7 +40,7 @@
                             <div class="mdl-cell--1-col">&nbsp;</div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Prénom<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Prénom<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input inscription_input_save"
@@ -53,7 +53,7 @@
                             <div class="mdl-cell--1-col">&nbsp;</div>
                             
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Pseudo<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Pseudo<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input inscription_input_save"
@@ -64,12 +64,12 @@
                                 />
                             </div>
                             <div class="mdl-cell--1-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col pseudo_used">
+                            <div class="mdl-cell--12-col invalid_input">
                             Ce pseudo est deja utilisé
                             </div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Date de naissance<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Date de naissance<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input inscription_input_save"
@@ -83,7 +83,7 @@
                             <div class="mdl-cell--1-col">&nbsp;</div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Email<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Email<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input inscription_input_save"
@@ -96,7 +96,7 @@
                             <div class="mdl-cell--1-col">&nbsp;</div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Mot de passe<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Mot de passe<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col">Vérification du mot de passe<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
@@ -144,18 +144,18 @@
                             passe sont chiffrés, mais pour des questions de sécurité, merci
                             d'utiliser/créer un nouveau mot de passe.
                             </span>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--4-col"></div>
+                            <div class="mdl-cell--4-col">
+                                <button
+                                    onclick="send_inscription()"
+                                    class="btn_insctiption"
+                                    >S'inscrire
+                                </button>
+                            </div>
+                            <div class="mdl-cell--4-col"></div>
                         </div>
-                        <div class="mdl-cell--12-col">&nbsp;</div>
-                        <div class="mdl-cell--4-col"></div>
-                        <div class="mdl-cell--4-col">
-                            <button
-                                id="btn_submit"
-                                onclick="send_inscription()"
-                                class="btn_insctiption"
-                                >S'inscrire
-                            </button>
-                        </div>
-                        <div class="mdl-cell--4-col"></div>
                     </div>
                 </div>
             </div>

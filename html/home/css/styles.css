@@ -24,19 +24,27 @@ body {
 }
 
 .vibration {
-    /* display: inline-block; */
     animation: shake 0.5s ease 0s;
     color: red;
 }
 
 .vibration_input {
-    /* display: inline-block; */
     animation: shake 0.5s ease 0s;
     border-color: red;
 }
 
 .volet_inscription {
     animation: volet 2s linear 0s;
+}
+
+#content_inscription h1 {
+    color:#e96e27;
+    font-weight: 500;
+}
+
+.form_part_title {
+    color:#424242;
+    font-size: 16px;
 }
 
 .inscription_input, .connection_input {
@@ -71,6 +79,15 @@ body {
 
 .banner_error {
     background-color: #af4c4cc0;
+}
+
+.invalid_input {
+    color: red;
+}
+
+.mdl-textfield__input:focus{
+    outline: none;
+    border-bottom-color: #2385b3
 }
 
 #timer_inscription {
@@ -226,7 +243,7 @@ img {
 
 .separator_content {
     height: 4px;
-    background-color: #2385b3;
+    background-color: #424242;
     margin: 8px 0;
 }
 
@@ -296,17 +313,10 @@ div {
 .button_card {
     font-size: 20px;
     margin-right: 20px;
-    border-radius: 10px;
-    padding: 15px;
-    border: solid 0;
-}
-
-.button_card {
-    font-size: 20px;
-    margin-right: 20px;
     border-radius: 7px;
-    padding: 15px;
+    padding: 10px 30px 10px 30px;
     border: solid 0;
+    margin: 0px 30px 0px 30px;
 }
 
 .wikipediie button {
@@ -395,10 +405,5 @@ div {
     #logo_short {
         display: block;
         height: 40px;
-    }
-
-    .button_card{
-        font-size: 15px;
-        padding: 10px;
     }
 }

@@ -2,7 +2,7 @@
 
 <html lang="fr">
     <head>
-        <meta charset="UTF-8" />
+                <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="Page de presentation des projet réaliser par Jérémie Henrion."/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
@@ -19,7 +19,8 @@
         <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/connection.js"></script>
-        <script type="text/javascript" src="js/inscription.js"></script>
+        <link rel="stylesheet" href="css/account.css"/>
+        <script type="text/javascript" src="js/account.js"></script>
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -113,85 +114,144 @@
                 <div class="demo-blog__posts mdl-grid" id="top">
                     <div class="mdl-cell--12-col banner banner_validated">
                         <img src="logo/logo-white.png" />
-                        <h1>Votre inscription à bien été prise en compte</h1>
-                        <h3>Vous allez être redirigé vers la page d'accueil dans <span id="timer_inscription">5</span> secondes</h3>
+                        <h1>La modification a bien été prise en compte</h1>
                     </div>
                     <div id="content_inscription">
                         <div class="mdl-cell--12-col">&nbsp;</div>
-                        <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
+                        <div class="mdl-grid" id="form_user">
+                            <div class="mdl-cell--12-col"><h3>Vos informations utilisateurs</h3></div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Pseudo</div>
+                            <div id="form_pseudo" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div class="mdl-cell--3-col">&nbsp;</div>
 
-                        <div class="mdl-grid" oninput="before_submit()" id="form_inscription">
-                            <div class="mdl-cell--3-col form_part_title">Nom<span>*</span></div>
-                            <div class="mdl-cell--8-col">
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Date d'inscription</div>
+                            <div id="form_inscription_date" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div class="mdl-cell--3-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Nom</div>
+                            <div id="form_name" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_name" class="mdl-cell--6-col user_input">
                                 <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    class="mdl-textfield__input"
                                     type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Nom"
+                                    id="name_user"
+                                    name="name_user"
+                                    placeholder="New name"
+                                    oninput="check_field('name')"
                                 />
                             </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
-
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Prénom<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    id="first_name"
-                                    name="first_name"
-                                    placeholder="Prénom"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
-                            
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Pseudo<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    name="pseudo_form"
-                                    id="pseudo_form"
-                                    placeholder="Pseudo"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col invalid_input">
-                            Ce pseudo est deja utilisé
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('name')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_name"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('name')"
+                                    class="btn_save_user"
+                                    id="btn_save_name"
+                                    >Enregistrer
+                                </button>
                             </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Date de naissance<span>*</span></div>
-                            <div class="mdl-cell--8-col">
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Prénom</div>
+                            <div id="form_first_name" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_first_name" class="mdl-cell--6-col user_input">
                                 <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    class="mdl-textfield__input"
+                                    type="text"
+                                    id="first_name_user"
+                                    name="first_name_user"
+                                    placeholder="New first name"
+                                    oninput="check_field('first_name')"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('first_name')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_first_name"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('first_name')"
+                                    class="btn_save_user"
+                                    id="btn_save_first_name"
+                                    >Enregistrer
+                                </button>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Date de naissance</div>
+                            <div id="form_birthdate" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_birthdate" class="mdl-cell--6-col user_input">
+                                <input
+                                    class="mdl-textfield__input"
                                     type="date"
-                                    id="birthdate"
-                                    name="birthdate"
-                                    min="1900-01-01"
-                                    pattern="\d{2}-\d{2}-\d{4}"
+                                    id="birthdate_user"
+                                    name="birthdate_user"
+                                    oninput="check_field('birthdate')"
                                 />
                             </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('birthdate')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_birthdate"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('birthdate')"
+                                    class="btn_save_user"
+                                    id="btn_save_birthdate"
+                                    >Enregistrer
+                                </button>
+                            </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Email<span>*</span></div>
-                            <div class="mdl-cell--8-col">
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Email</div>
+                            <div id="form_email" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_email" class="mdl-cell--6-col user_input">
                                 <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    class="mdl-textfield__input"
                                     type="text"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Email"
+                                    id="email_user"
+                                    name="email_user"
+                                    placeholder="New email"
+                                    oninput="check_field('email')"
                                 />
                             </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('email')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_email"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('email')"
+                                    class="btn_save_user"
+                                    id="btn_save_email"
+                                    >Enregistrer
+                                </button>
+                            </div>
+                            <div class="mdl-cell--12-col invalid_input">Invalide email</div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Mot de passe<span>*</span></div>
-                            <div class="mdl-cell--8-col">
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col"><h3>Mots de passe</h3></div>
+
+                            <div class="mdl-cell--3-col form_part_title">Mot de passe</div>
+                            <div class="mdl-cell--6-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
                                     type="password"
@@ -203,6 +263,14 @@
                             <div class="mdl-cell--1-col">
                                 <i id="password-1" class="material-icons showcreds">visibility</i>
                             </div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick=""
+                                    class="btn_edit_user"
+                                    >Modifier
+                                </button>
+                            </div>
+
                             <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
                                 <span style="color:grey;">Votre mot de passe doit contenir au moins:</span>
                                 <ul>
@@ -214,7 +282,7 @@
                             </div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe<span>*</span></div>
+                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe</div>
                             <div class="mdl-cell--8-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
@@ -238,17 +306,8 @@
                             passe sont chiffrés, mais pour des questions de sécurité, merci
                             d'utiliser/créer un nouveau mot de passe.
                             </span>
-
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--4-col"></div>
-                            <div class="mdl-cell--4-col">
-                                <button
-                                    onclick="send_inscription()"
-                                    class="btn_insctiption"
-                                    >S'inscrire
-                                </button>
-                            </div>
-                            <div class="mdl-cell--4-col"></div>
+                        
+                        <div class="mdl-cell--12-col">&nbsp;</div>
                         </div>
                     </div>
                 </div>

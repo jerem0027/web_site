@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        {{loadpartial '../partials/head.html' 'head'}}{{> head}}
+        {{#each account.head}}
+        {{{this}}}
+        {{/each}}
+    </head>
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <div class="mdl-layout__header mdl-layout__header--waterfall">
+{{loadpartial '../partials/header.html' 'header'}}{{> header}}
+            </div>
+
+{{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
+            <div class="mdl-layout__content">
+                <div class="mdl-cell--12-col">&nbsp;</div>
+                <div class="demo-blog__posts mdl-grid" id="top">
+                    <div class="mdl-cell--12-col banner banner_validated">
+                        <img src="logo/logo-white.png" />
+                        <h1>La modification a bien été prise en compte</h1>
+                    </div>
+                    <div id="content_inscription">
+                        <div class="mdl-cell--12-col">&nbsp;</div>
+                        <div class="mdl-grid" id="form_user">
+                            <div class="mdl-cell--12-col"><h3>Vos informations utilisateurs</h3></div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Pseudo</div>
+                            <div id="form_pseudo" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div class="mdl-cell--3-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Date d'inscription</div>
+                            <div id="form_inscription_date" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div class="mdl-cell--3-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Nom</div>
+                            <div id="form_name" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_name" class="mdl-cell--6-col user_input">
+                                <input
+                                    class="mdl-textfield__input"
+                                    type="text"
+                                    id="name_user"
+                                    name="name_user"
+                                    placeholder="New name"
+                                    oninput="check_field('name')"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('name')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_name"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('name')"
+                                    class="btn_save_user"
+                                    id="btn_save_name"
+                                    >Enregistrer
+                                </button>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Prénom</div>
+                            <div id="form_first_name" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_first_name" class="mdl-cell--6-col user_input">
+                                <input
+                                    class="mdl-textfield__input"
+                                    type="text"
+                                    id="first_name_user"
+                                    name="first_name_user"
+                                    placeholder="New first name"
+                                    oninput="check_field('first_name')"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('first_name')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_first_name"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('first_name')"
+                                    class="btn_save_user"
+                                    id="btn_save_first_name"
+                                    >Enregistrer
+                                </button>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Date de naissance</div>
+                            <div id="form_birthdate" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_birthdate" class="mdl-cell--6-col user_input">
+                                <input
+                                    class="mdl-textfield__input"
+                                    type="date"
+                                    id="birthdate_user"
+                                    name="birthdate_user"
+                                    oninput="check_field('birthdate')"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('birthdate')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_birthdate"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('birthdate')"
+                                    class="btn_save_user"
+                                    id="btn_save_birthdate"
+                                    >Enregistrer
+                                </button>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Email</div>
+                            <div id="form_email" class="mdl-cell--6-col form_user_content">&nbsp;</div>
+                            <div id="form_input_email" class="mdl-cell--6-col user_input">
+                                <input
+                                    class="mdl-textfield__input"
+                                    type="text"
+                                    id="email_user"
+                                    name="email_user"
+                                    placeholder="New email"
+                                    oninput="check_field('email')"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col"></div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="edit_user('email')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_email"
+                                    >Modifier
+                                </button>
+                                <button
+                                    onclick="send_user('email')"
+                                    class="btn_save_user"
+                                    id="btn_save_email"
+                                    >Enregistrer
+                                </button>
+                            </div>
+                            <div class="mdl-cell--12-col invalid_input">Invalide email</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col"><h3>Mots de passe</h3></div>
+
+                            <div class="mdl-cell--3-col form_part_title">Mot de passe</div>
+                            <div class="mdl-cell--6-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input"
+                                    type="password"
+                                    id="password1"
+                                    name="password1"
+                                    placeholder="Mot de passe"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">
+                                <i id="password-1" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick=""
+                                    class="btn_edit_user"
+                                    >Modifier
+                                </button>
+                            </div>
+
+                            <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
+                                <span style="color:grey;">Votre mot de passe doit contenir au moins:</span>
+                                <ul>
+                                    <li id="pattern_min">1 lettre minuscule</li>
+                                    <li id="pattern_maj">1 lettre majuscule</li>
+                                    <li id="pattern_dig">1 chiffre</li>
+                                    <li id="pattern_spe">1 caractère spécial</li>
+                                </ul>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe</div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input"
+                                    type="password"
+                                    id="password2"
+                                    name="password2"
+                                    placeholder="Vérification du mot de passe"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">
+                                <i id="password-2" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--12-col not_same_error">
+                                Les mots de passe ne correspondent pas
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <span style="color: red; font-size: 12px; font-weight: normal">
+                                <b style="font-size: 16px">*Information : </b>Tous les mots de
+                            passe sont chiffrés, mais pour des questions de sécurité, merci
+                            d'utiliser/créer un nouveau mot de passe.
+                            </span>
+                        
+                        <div class="mdl-cell--12-col">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
+        </div>
+    </body>
+</html>

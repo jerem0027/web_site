@@ -22,7 +22,7 @@ const connection = function () {
     } else {
         $.ajax({
             type: 'PUT',
-            url: "/api/v1/home_user/user/connection",
+            url: "/api/v1/home_user/user/connection/",
             headers: {
                 "APIKEY": masterkey,
                 'Accept': 'application/json',
@@ -67,4 +67,9 @@ const disconnected_func = function() {
         $('.connection_input').removeClass("vibration_input")
         $('#loader_connection').css("visibility", "hidden");
     }, 1500);
+}
+
+const format_date = function(date){
+    date = date.split('-')
+    return date[2] + '-' + date[1] + '-' + date[0];
 }

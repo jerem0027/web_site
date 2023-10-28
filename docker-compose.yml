@@ -49,7 +49,7 @@ services:
       - mariadb
 
   api-flask:
-    image: flask_api:1.0.4
+    image: flask_api:1.0.5
     restart: unless-stopped
     container_name: api-flask
     env_file:

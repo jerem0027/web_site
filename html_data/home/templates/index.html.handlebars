@@ -29,7 +29,7 @@
                             <div class="mdl-cell mdl-cell--12-col"><b>{{this.description}}</b>({{this.date}})</div>
                             <div class="mdl-cell mdl-cell--12-col">Site en {{this.techno}}.</div>
                         </div>
-                        <div class="mdl-typography--text-right mdl-cell mdl-cell--12-col">
+                        <div class="mdl-typography--text-center mdl-cell mdl-cell--12-col">
                             <a href="{{this.site_link}}"> 
                                 <button class="button_card">Voir le site</button>
                             </a>
@@ -37,7 +37,7 @@
                                 <button class="button_card">A propos</button>
                             </a>
                         </div>
-                        <div class="mdl-cell mdl-cell--12-col">&nbsp;</div>
+                        <div class="mdl-cell--12-col">&nbsp;</div>
                         {{#unless @last}}<div class="separator_content"></div>{{/unless}}
                     </div>
                 {{/each}}
