@@ -14,7 +14,7 @@ const user_check = function() {
         type: 'get',
         url: 'https://jeremiehenrion.serveblog.net/api/v1/home_user/user/',
         headers: {
-            "APIKEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTg1MTE3NTQsImlhdCI6MTY5ODUwMDk1NCwicHNldWRvIjoidGVzdCJ9.RqVgoUz0YvC3QsUdQLJDjv4yqaO6-TdLIxZxRPpdPfw",
+            "APIKEY": apikey,
             'Accept': 'application/json',
             "Content-Type": "application/json"
         },

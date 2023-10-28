@@ -1,19 +1,22 @@
 jQuery(document).ready(function ($) {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
-    if (sessionStorage.getItem('apikey'))
+    if (sessionStorage.getItem('apikey')) {
         connected_func()
-    $.ajax({
-        type: 'GET',
-        url: '/php/apikey.php',
-        dataType: 'json',
-        success: function(data) {
-            masterkey = data.masterkey;
-        }
-    });
+    } else {
+        console.log("ok")
+        $.ajax({
+            type: 'GET',
+            url: '/php/apikey.php',
+            dataType: 'json',
+            success: function(data) {
+                apikey = data.apikey;
+            }
+        });
+    }
 });
 
-var masterkey = ""
+var apikey = ""
 
 const connection = function () {
     $('#loader_connection').css("visibility", "visible");
@@ -24,7 +27,7 @@ const connection = function () {
             type: 'PUT',
             url: "/api/v1/home_user/user/connection/",
             headers: {
-                "APIKEY": masterkey,
+                "APIKEY": apikey,
                 'Accept': 'application/json',
                 "Content-Type": "application/json"
             },

@@ -2,9 +2,6 @@ jQuery(document).ready(function ($) {
     init();
 });
 
-// Masterkey api
-var masterkey = "";
-
 const init = function() {
     $('.not_same_error').css("visibility", "hidden");
     $('.invalid_input').css("visibility", "hidden");
@@ -27,14 +24,6 @@ const init = function() {
         else
             $('#' + id).attr("type", "text");
     });
-    $.ajax({
-        type: 'GET',
-        url: '/php/apikey.php',
-        dataType: 'json',
-        success: function(data) {
-            masterkey = data.masterkey;
-        }
-    });
 }
 
 const send_inscription = function() {
@@ -44,7 +33,7 @@ const send_inscription = function() {
             type: 'POST',
             url: "/api/v1/home_user/user/",
             headers: {
-                "APIKEY": masterkey,
+                "APIKEY": apikey,
                 'Accept': 'application/json',
                 "Content-Type": "application/json"
             },
@@ -66,6 +55,12 @@ const send_inscription = function() {
                 setTimeout(() => {
                     window.location.href = "/";
                 }, 10000);
+            },
+            error: function (data) {
+                // TODO: ajouter banner error
+                $('#loader_connection').css("visibility", "hidden");
+                console.log(data)
+
             }
         });
     }
