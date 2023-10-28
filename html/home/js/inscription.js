@@ -30,39 +30,49 @@ const send_inscription = function() {
     if (before_submit()) {
         $('#loader_connection').css("visibility", "visible");
         $.ajax({
-            type: 'POST',
-            url: "/api/v1/home_user/user/",
-            headers: {
-                "APIKEY": apikey,
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                "name": $('#name').val(),
-                "first_name": $('#first_name').val(),
-                "pseudo": $('#pseudo_form').val().toLowerCase(),
-                "birthdate": format_date($('#birthdate').val()),
-                "email": $('#email').val(),
-                "password": $('#password1').val()
-            }),
-            success: function (data) {
-                $('#loader_connection').css("visibility", "hidden");
-                sessionStorage.setItem("apikey", data.APIKEY);
-                sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
-                $('.banner_validated').addClass("volet_inscription").show()
-                $('#content_inscription').addClass("volet_inscription")
-                timer_redirect()
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 10000);
-            },
-            error: function (data) {
-                // TODO: ajouter banner error
-                $('#loader_connection').css("visibility", "hidden");
-                console.log(data)
-
+            type: 'GET',
+            url: '/php/apikey.php',
+            dataType: 'json',
+            success: function(data) {
+                sessionStorage.setItem("masterkey", data.masterkey);
             }
         });
+        setTimeout(() => {
+            $.ajax({
+                type: 'POST',
+                url: "/api/v1/home_user/user/",
+                headers: {
+                    "APIKEY": sessionStorage.getItem("masterkey"),
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify({
+                    "name": $('#name').val(),
+                    "first_name": $('#first_name').val(),
+                    "pseudo": $('#pseudo_form').val().toLowerCase(),
+                    "birthdate": format_date($('#birthdate').val()),
+                    "email": $('#email').val(),
+                    "password": $('#password1').val()
+                }),
+                success: function (data) {
+                    $('#loader_connection').css("visibility", "hidden");
+                    sessionStorage.clear();
+                    sessionStorage.setItem("apikey", data.APIKEY);
+                    sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
+                    $('.banner_validated').addClass("volet_inscription").show()
+                    $('#content_inscription').addClass("volet_inscription")
+                    timer_redirect()
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 10000);
+                },
+                error: function (data) {
+                    // TODO: ajouter banner error
+                    $('#loader_connection').css("visibility", "hidden");
+                    console.log(data)
+                }
+            });
+        }, 1000);
     }
 }
 

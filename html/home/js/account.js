@@ -3,7 +3,6 @@ jQuery(document).ready(function () {
     $(".user_input").hide();
     $(".btn_save_user").hide();
     $(".invalid_input").css("visibility", "hidden");
-
     user_check();
 });
 
@@ -12,9 +11,9 @@ const user_check = function() {
 
     $.ajax({
         type: 'get',
-        url: 'https://jeremiehenrion.serveblog.net/api/v1/home_user/user/',
+        url: '/api/v1/home_user/user/',
         headers: {
-            "APIKEY": apikey,
+            "APIKEY": sessionStorage.getItem("apikey"),
             'Accept': 'application/json',
             "Content-Type": "application/json"
         },
