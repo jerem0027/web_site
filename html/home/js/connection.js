@@ -22,7 +22,7 @@ const connection = function () {
         setTimeout(() => {
             $.ajax({
                 type: 'PUT',
-                url: "/api/v1/home_user/user/connection/",
+                url: "/api/v1/identity/connection/",
                 headers: {
                     "APIKEY": sessionStorage.getItem("masterkey"),
                     'Accept': 'application/json',

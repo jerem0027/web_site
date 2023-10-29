@@ -256,13 +256,6 @@ span.mdl-navigation__link {
     margin-left: 16vw;
 }
 
-.mdl-mega-footer,
-.mdl-mega-footer--right-section,
-.mdl-typography--font-light {
-    margin: 0 !important;
-    padding: 1px;
-}
-
 a {
     text-decoration: none;
     color: #e96e27;
@@ -366,6 +359,33 @@ div {
     background-color: rgb(233,110,39) !important;
 }
 
+#spacer_responsive {
+    display: none;
+}
+
+footer {
+    background-color: #424242;
+    color: #e96e27;
+    line-height: 36px;
+    padding: 0 !important;
+}
+
+#watermark {
+    text-align: center; 
+    padding-top: 2px;
+    font-size: 13px;
+}
+
+#link_top a {
+    text-align: right;
+    font-weight: bold !important;
+    font-size: 20px;
+}
+
+footer div div div i {
+    vertical-align: middle !important;
+    font-size: 22px !important;
+}
 
 /**** Mobile layout ****/
 @media (max-width: 1000px) {
@@ -398,6 +418,14 @@ div {
         font-size: 100%;
     }
 
+    #form_connection, #btn_connection {
+        display: none;
+    }
+
+    #spacer_responsive {
+        display: block;
+    }
+
     #logo_large {
         display: none;
     }
@@ -405,5 +433,47 @@ div {
     #logo_short {
         display: block;
         height: 40px;
+    }
+
+    .button_card {
+        font-size: 20px;
+        padding: 5px 15px 5px 15px;
+        margin: 0px 5px 0px 5px;
+    }
+}
+
+@media (max-width: 839px) {
+    #watermark {
+        display: none;
+    }
+}
+
+/**** Mobile layout ****/
+@media (max-width: 450px) {
+
+    .mdl-card__supporting-text {
+        font-size: 80%;
+    }
+
+    .wikipediie h3 {
+        font-size: 25px;
+    }
+
+    .wikipediie h3 a img {
+        height: 30px;
+    }
+
+    .marvel_fan h3 a img {
+        height: 30px;
+    }
+
+    .marvel_fan h3 {
+        font-size: 25px;
+    }
+
+    .button_card {
+        font-size: 15px;
+        padding: 5px 10px 5px 10px;
+        margin: 0px 5px 0px 5px;
     }
 }
