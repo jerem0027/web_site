@@ -446,6 +446,14 @@ footer div div div i {
     #watermark {
         display: none;
     }
+
+    #content_inscription .mdl-cell--8-col {
+        width: 40vw !important;
+    }
+
+    footer div {
+        margin: 0 !important;
+    }
 }
 
 /**** Mobile layout ****/
@@ -476,4 +484,5 @@ footer div div div i {
         padding: 5px 10px 5px 10px;
         margin: 0px 5px 0px 5px;
     }
+
 }
