@@ -62,9 +62,9 @@ const disconnected_func = function() {
     setTimeout(() => {
         localStorage.clear();
         sessionStorage.clear();
-        $('.connection_input').show().val('');
-        $('.connection_button').show();
-        $('.connection_off').show();
+        $('.connection_input').removeAttr("style").val('');
+        $('.connection_button').removeAttr("style");
+        $('.connection_off').removeAttr("style");
         $('.connection_on').hide();
         $('.connection_input').removeClass("vibration_input")
         $('#loader_connection').css("visibility", "hidden");
