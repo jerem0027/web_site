@@ -24,6 +24,7 @@ index:
 inscription:
   head:
     - <script type="text/javascript" src="js/inscription.js"></script>
+    - <script type="text/javascript" src="js/password.js"></script>
 
 guest:
   head:
@@ -34,3 +35,4 @@ account:
   head:
     - <link rel="stylesheet" href="css/account.css"/>
     - <script type="text/javascript" src="js/account.js"></script>
+    - <script type="text/javascript" src="js/password.js"></script>

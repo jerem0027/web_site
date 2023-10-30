@@ -20,6 +20,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/connection.js"></script>
         <script type="text/javascript" src="js/inscription.js"></script>
+        <script type="text/javascript" src="js/password.js"></script>
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -70,9 +71,9 @@
                         <li class="mdl-menu__item connection_off">
                             <a href="#">Connection</a>
                         </li>
-                        <!-- <li class="mdl-menu__item connection_on">
+                        <li class="mdl-menu__item connection_on">
                             <a href="/home/account.html">Account</a>
-                        </li> -->
+                        </li>
                         <li class="mdl-menu__item connection_on">
                             <a onclick="disconnected_func()" href="#">Deconnection</a>
                         </li>
@@ -112,6 +113,12 @@
             <div class="mdl-layout__content">
                 <div class="mdl-cell--12-col">&nbsp;</div>
                 <div class="demo-blog__posts mdl-grid" id="top">
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_error"></div>
                     <div class="mdl-cell--12-col banner banner_validated">
                         <img src="logo/logo-white.png" />
                         <h1>Votre inscription à bien été prise en compte</h1>
@@ -121,7 +128,7 @@
                         <div class="mdl-cell--12-col">&nbsp;</div>
                         <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
 
-                        <div class="mdl-grid" oninput="before_submit()" id="form_inscription">
+                        <div class="mdl-grid" id="form_inscription">
                             <div class="mdl-cell--3-col form_part_title">Nom<span>*</span></div>
                             <div class="mdl-cell--8-col">
                                 <input
@@ -156,6 +163,7 @@
                                     name="pseudo_form"
                                     id="pseudo_form"
                                     placeholder="Pseudo"
+                                    onchange="before_pseudo()"
                                 />
                             </div>
                             <div class="mdl-cell--1-col">&nbsp;</div>
@@ -199,6 +207,7 @@
                                     id="password1"
                                     name="password1"
                                     placeholder="Mot de passe"
+                                    oninput="before_submit()"
                                 />
                             </div>
                             <div class="mdl-cell--1-col">
@@ -223,6 +232,7 @@
                                     id="password2"
                                     name="password2"
                                     placeholder="Vérification du mot de passe"
+                                    oninput="before_submit()"
                                 />
                             </div>
                             <div class="mdl-cell--1-col">

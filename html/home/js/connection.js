@@ -6,12 +6,12 @@ jQuery(document).ready(function ($) {
     }
 });
 
-const connection = function () {
+const connection = async function () {
     $('#loader_connection').css("visibility", "visible");
     if (sessionStorage.getItem('apikey')) {
         connected_func()
     } else {
-        $.ajax({
+        await $.ajax({
             type: 'GET',
             url: '/php/apikey.php',
             dataType: 'json',
@@ -19,32 +19,30 @@ const connection = function () {
                 sessionStorage.setItem("masterkey", data.masterkey);
             }
         });
-        setTimeout(() => {
-            $.ajax({
-                type: 'PUT',
-                url: "/api/v1/identity/connection/",
-                headers: {
-                    "APIKEY": sessionStorage.getItem("masterkey"),
-                    'Accept': 'application/json',
-                    "Content-Type": "application/json"
-                },
-                data: JSON.stringify({
-                    "pseudo": $('#pseudo').val().toLowerCase(),
-                    "password": $('#password').val()
-                }),
-                success: function (data) {
-                    sessionStorage.clear();
-                    sessionStorage.setItem("apikey", data.APIKEY);
-                    sessionStorage.setItem('pseudo', data.pseudo);
-                    connected_func()
-                },
-                error: function(data) {
-                    sessionStorage.clear();
-                    $('#loader_connection').css("visibility", "hidden");
-                    $('.connection_input').addClass("vibration_input");
-                }
-            });
-        }, 50);
+        await $.ajax({
+            type: 'PUT',
+            url: "/api/v1/identity/connection/",
+            headers: {
+                "APIKEY": sessionStorage.getItem("masterkey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                "pseudo": $('#pseudo').val().toLowerCase(),
+                "password": $('#password').val()
+            }),
+            success: function (data) {
+                sessionStorage.clear();
+                sessionStorage.setItem("apikey", data.APIKEY);
+                sessionStorage.setItem('pseudo', data.pseudo);
+                connected_func()
+            },
+            error: function(data) {
+                sessionStorage.clear();
+                $('#loader_connection').css("visibility", "hidden");
+                $('.connection_input').addClass("vibration_input");
+            }
+        });
     }
 }
 

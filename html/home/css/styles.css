@@ -4,6 +4,10 @@ body {
     font-weight: 800;
 }
 
+.mld_grid {
+    justify-content: center;
+}
+
 @keyframes shake {
     0% { transform: translateX(0); }
     10% { transform: translateX(-5px); }
@@ -20,7 +24,10 @@ body {
 
 @keyframes volet {
     0% { transform: translateY(-200px); }
-    100% { transform: translateY(0px); }
+    35% { transform: translateY(0px); }
+    50% { transform: translateY(0px); }
+    75% { transform: translateY(0px); }
+    100% { transform: translateY(-200px); }
 }
 
 .vibration {
@@ -33,11 +40,15 @@ body {
     border-color: red;
 }
 
-.volet_inscription {
-    animation: volet 2s linear 0s;
+.volet {
+    animation: volet 5s linear 0s;
+    z-index: 10;
+    position: fixed;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-#content_inscription h1 {
+#content_inscription h1, #content_account h3 {
     color:#e96e27;
     font-weight: 500;
 }
@@ -94,7 +105,7 @@ body {
     color: #424242
 }
 
-.not_same_error {
+.not_same_error, .not_same_as_old{
     color: red;
     margin-top: 10px;
 }
@@ -447,8 +458,12 @@ footer div div div i {
         display: none;
     }
 
-    #content_inscription .mdl-cell--8-col {
+    #content_inscription .mdl-cell--8-col, #content_account .user_input, #content_account .form_user_content {
         width: 40vw !important;
+    }
+
+    #content_account .btn_edit_user, #content_account .btn_cancel_user {
+        margin-top: 10px;
     }
 
     footer div {

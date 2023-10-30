@@ -17,11 +17,21 @@
             <div class="mdl-layout__content">
                 <div class="mdl-cell--12-col">&nbsp;</div>
                 <div class="demo-blog__posts mdl-grid" id="top">
-                    <div class="mdl-cell--12-col banner banner_validated">
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+                    <div class="mdl-cell--8-col banner banner_validated">
                         <img src="logo/logo-white.png" />
                         <h1>La modification a bien été prise en compte</h1>
                     </div>
-                    <div id="content_inscription">
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+
+                    <div id="content_account">
                         <div class="mdl-cell--12-col">&nbsp;</div>
                         <div class="mdl-grid" id="form_user">
                             <div class="mdl-cell--12-col"><h3>Vos informations utilisateurs</h3></div>
@@ -155,7 +165,28 @@
                             <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
                             <div class="mdl-cell--12-col"><h3>Mots de passe</h3></div>
 
-                            <div class="mdl-cell--3-col form_part_title">Mot de passe</div>
+                            <div class="mdl-cell--3-col form_part_title">Mot de passe actuel</div>
+                            <div class="mdl-cell--6-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input"
+                                    type="password"
+                                    id="password0"
+                                    name="password0"
+                                    placeholder="Mot de passe actuel"
+                                    onchange="before_pass()"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">
+                                <i id="password-0" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--2-col">
+                            </div>
+                            <div class="mdl-cell--12-col not_same_as_old">
+                                Le mots de passe est incorrect
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Nouveau mot de passe</div>
                             <div class="mdl-cell--6-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
@@ -163,17 +194,13 @@
                                     id="password1"
                                     name="password1"
                                     placeholder="Mot de passe"
+                                    oninput="before_submit()"
                                 />
                             </div>
                             <div class="mdl-cell--1-col">
                                 <i id="password-1" class="material-icons showcreds">visibility</i>
                             </div>
                             <div class="mdl-cell--2-col">
-                                <button
-                                    onclick=""
-                                    class="btn_edit_user"
-                                    >Modifier
-                                </button>
                             </div>
 
                             <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
@@ -188,31 +215,46 @@
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
                             <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe</div>
-                            <div class="mdl-cell--8-col">
+                            <div class="mdl-cell--6-col">
                                 <input
                                     class="mdl-textfield__input inscription_input"
                                     type="password"
                                     id="password2"
                                     name="password2"
                                     placeholder="Vérification du mot de passe"
+                                    oninput="before_submit()"
                                 />
                             </div>
                             <div class="mdl-cell--1-col">
                                 <i id="password-2" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--2-col">
                             </div>
                             <div class="mdl-cell--12-col not_same_error">
                                 Les mots de passe ne correspondent pas
                             </div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
+
                             <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="send_password()"
+                                    class="btn_edit_user"
+                                    >Modifier
+                                </button>
+                            </div>
+                            <div class="mdl-cell--10-col"></div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+
                             <span style="color: red; font-size: 12px; font-weight: normal">
                                 <b style="font-size: 16px">*Information : </b>Tous les mots de
                             passe sont chiffrés, mais pour des questions de sécurité, merci
                             d'utiliser/créer un nouveau mot de passe.
                             </span>
-                        
-                        <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+
                         </div>
                     </div>
                 </div>
