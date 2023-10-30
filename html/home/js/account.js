@@ -167,7 +167,7 @@ const before_pass = async function () {
                 before_pass_bool = false
             }
         });
-    } catch (erreur) {
+    } catch (error) {
         if (400 > error.status || error.status > 499 ) {
             sessionStorage.removeItem("masterkey");
             $('.banner_error').show().addClass("volet");
