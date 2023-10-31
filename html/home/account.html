@@ -258,8 +258,7 @@
                             </div>
                             <div class="mdl-cell--12-col invalid_input">Invalide email</div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
                             <div class="mdl-cell--12-col"><h3>Mots de passe</h3></div>
 
                             <div class="mdl-cell--3-col form_part_title">Mot de passe actuel</div>
@@ -332,8 +331,6 @@
                             </div>
 
                             <div class="mdl-cell--12-col">&nbsp;</div>
-
-                            <div class="mdl-cell--12-col">&nbsp;</div>
                             <div class="mdl-cell--2-col">
                                 <button
                                     onclick="send_password()"
@@ -343,19 +340,48 @@
                             </div>
                             <div class="mdl-cell--10-col"></div>
                             <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col">&nbsp;</div>
 
                             <span style="color: red; font-size: 12px; font-weight: normal">
                                 <b style="font-size: 16px">*Information : </b>Tous les mots de
                             passe sont chiffrés, mais pour des questions de sécurité, merci
                             d'utiliser/créer un nouveau mot de passe.
                             </span>
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                            
+                            <div class="mdl-cell--12-col"><h3>Gestion du compte</h3></div>
                             <div class="mdl-cell--12-col">&nbsp;</div>
-
+                            <div class="mdl-cell--2-col">
+                                <button
+                                    onclick="remove_account()"
+                                    class="btn_remove_account"
+                                    >Supprimer le compte
+                                </button>
+                            </div>
+                            <div class="mdl-cell--10-col"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <dialog class="mdl-dialog">
+                <div class="mdl-dialog__content">
+                    Veillez ecrire votre pseudo <b id="pseudo_remove_account"></b> pour confirmer la suppression<br />
+                </div>
+                <input
+                    class="mdl-textfield__input"
+                    type="text"
+                    id="input_remove_account"
+                    name="input_remove_account"
+                    oninput="check_pseudo_remove()"
+                /><br />
+                <div class="mdl-dialog__actions">
+                    <button id="btn_valide_remove" type="button" class="mdl-button close">supprimer</button>
+                    <button id="btn_cancel_remove" type="button" class="mdl-button">annuler</button>
+                </div>
+            </dialog>
+
+
                 <footer>
                     <div class="mdl-cell mdl-cell--12-col">
                         <div class="mdl-grid mdl-grid--nesting">

@@ -233,3 +233,42 @@ const send_password = async function() {
         });
     }
 }
+
+const remove_account = function () {
+    // sessionStorage.setItem("pseudo", "test")
+    // sessionStorage.setItem("apikey", "test")
+
+
+    $('#pseudo_remove_account').html(sessionStorage.getItem("pseudo"))
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+
+    dialog.showModal();
+
+    dialog.querySelector('#btn_cancel_remove').addEventListener('click', function() {
+        dialog.close();
+    });
+    dialog.querySelector('#btn_valide_remove').addEventListener('click', function() {
+        if (check_pseudo_remove()) {
+            $('#loader_connection').css("visibility", "visible");
+
+            // TODO: lancer suppression du compte
+            setTimeout(() => {
+                $('#loader_connection').css("visibility", "hidden");
+                window.location.href = "/";
+                disconnected_func()
+            }, 3000);
+        }
+    });
+}
+
+const check_pseudo_remove = function () {
+    if (sessionStorage.getItem("pseudo") === $('#input_remove_account').val()) {
+        $('#input_remove_account').css('border-bottom-color', '#2385b3')
+        return true
+    }
+    $('#input_remove_account').css('border-bottom-color', 'red')
+    return false
+}

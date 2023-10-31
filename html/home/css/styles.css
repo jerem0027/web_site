@@ -315,6 +315,7 @@ div {
 }
 
 .button_card {
+    cursor: pointer;
     font-size: 20px;
     margin-right: 20px;
     border-radius: 7px;
@@ -377,8 +378,7 @@ div {
 footer {
     background-color: #424242;
     color: #e96e27;
-    line-height: 36px;
-    padding: 0 !important;
+    line-height: 30px;
 }
 
 #watermark {
@@ -396,6 +396,10 @@ footer {
 footer div div div i {
     vertical-align: middle !important;
     font-size: 22px !important;
+}
+
+footer div div {
+    padding: 0 !important;
 }
 
 /**** Mobile layout ****/

@@ -10,7 +10,7 @@
     font-size: 20px;
 }
 
-.btn_edit_user, .btn_save_user, .btn_cancel_user {
+.btn_edit_user, .btn_save_user, .btn_cancel_user, .btn_remove_account {
     font-size: 20px;
     background-color: #2385b3;
     color: #fff;
@@ -22,7 +22,14 @@
 
     line-height: 10px;
     margin-top: -10px;
-    position: relative
+    position: relative;
+    cursor: pointer;
+    line-height: 15px;
+}
+
+.btn_remove_account {
+    width: 200%;
+    line-height: 25px;
 }
 
 .btn_save_user {
@@ -36,19 +43,18 @@
     color: #4caf4fc0;
 }
 
-.btn_cancel_user {
+.btn_cancel_user, .btn_remove_account {
     background-color: #af4c4cc0;
     color: #fff;
     border-color: #af4c4cc0;
 }
 
-.btn_cancel_user:hover {
+.btn_cancel_user:hover, .btn_remove_account:hover {
     background-color: #fff;
     color: #af4c4cc0;
 }
 
 .btn_edit_user:hover, .showcreds:hover {
-    cursor: pointer;
     background-color: #fff;
     color: #2385b3
 }
@@ -57,4 +63,48 @@
     background-color: #2385b3;
     color:#fff;
     border-color: #2385b3;
+}
+
+#pseudo_remove_account {
+    color: #e96e27;
+    padding: 5px;
+}
+
+dialog div {
+    color: #424242 !important;
+    line-height: 30px;
+}
+
+dialog {
+    width: fit-content !important;
+
+}
+
+#input_remove_account {
+    text-align: center !important;
+    width: 80%;
+    margin-left: 10%;
+}
+
+#btn_cancel_remove {
+    color: #fff;
+    background-color: #4caf4fc0;
+    border: solid 2px #4caf4fc0;
+}
+
+#btn_cancel_remove:hover {
+    color: #4caf4fc0;
+    background-color: #fff;
+}
+
+#btn_valide_remove {
+    color: #fff;
+    background-color: #af4c4cc0;
+    border: solid 2px #af4c4cc0;
+    margin-left: 10px;
+}
+
+#btn_valide_remove:hover {
+    color: #af4c4cc0;
+    background-color: #fff;
 }
