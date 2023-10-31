@@ -130,9 +130,7 @@ const before_pseudo = async function () {
             })
             $('#loader_connection').css("visibility", "hidden");
         } catch (error) {
-            console.log(error)
             if (400 > error.status || error.status > 499) {
-                console.log(error)
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {

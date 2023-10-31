@@ -214,7 +214,6 @@ const send_password = async function() {
                 "password": $('#password1').val()
             }),
             success: function (data) {
-                console.log(data)
                 $('#password1').val("")
                 $('#password2').val("")
                 $('.banner_validated').show().addClass("volet");
@@ -253,13 +252,12 @@ const remove_account = function () {
     dialog.querySelector('#btn_valide_remove').addEventListener('click', function() {
         if (check_pseudo_remove()) {
             $('#loader_connection').css("visibility", "visible");
-
+            disconnected_func();
             // TODO: lancer suppression du compte
             setTimeout(() => {
                 $('#loader_connection').css("visibility", "hidden");
-                disconnected_func();
-                window.location.href = "/";
-            }, 3000);
+                window.location.href = "/"
+            }, 1100);
         }
     });
 }
