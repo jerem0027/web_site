@@ -257,8 +257,8 @@ const remove_account = function () {
             // TODO: lancer suppression du compte
             setTimeout(() => {
                 $('#loader_connection').css("visibility", "hidden");
+                disconnected_func();
                 window.location.href = "/";
-                disconnected_func()
             }, 3000);
         }
     });
