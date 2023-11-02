@@ -56,6 +56,14 @@ body {
     margin-right: 10%;
 }
 
+.volet_inscription {
+    animation: volet_inscription 5s linear 0s;
+    z-index: 10;
+    position: fixed;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 #content_inscription h1, #content_account h3 {
     color:#e96e27;
     font-weight: 500;
