@@ -7,12 +7,12 @@ jQuery(document).ready(function () {
     user_check();
 });
 
-const user_check = function() {
+const user_check = async function() {
     $('#loader_connection').css("visibility", "visible");
 
-    $.ajax({
+    await $.ajax({
         type: 'get',
-        url: '/api/v1/home_user/user/',
+        url: 'http://127.0.0.1:5000/api/v1/home_user/user/',
         headers: {
             "APIKEY": sessionStorage.getItem("apikey"),
             'Accept': 'application/json',
@@ -234,9 +234,6 @@ const send_password = async function() {
 }
 
 const remove_account = function () {
-    // sessionStorage.setItem("pseudo", "test")
-    // sessionStorage.setItem("apikey", "test")
-
 
     $('#pseudo_remove_account').html(sessionStorage.getItem("pseudo"))
     var dialog = document.querySelector('dialog');
@@ -249,15 +246,37 @@ const remove_account = function () {
     dialog.querySelector('#btn_cancel_remove').addEventListener('click', function() {
         dialog.close();
     });
-    dialog.querySelector('#btn_valide_remove').addEventListener('click', function() {
+    dialog.querySelector('#btn_valide_remove').addEventListener('click', async function() {
         if (check_pseudo_remove()) {
             $('#loader_connection').css("visibility", "visible");
-            disconnected_func();
-            // TODO: lancer suppression du compte
-            setTimeout(() => {
-                $('#loader_connection').css("visibility", "hidden");
-                window.location.href = "/"
-            }, 1100);
+            await $.ajax({
+                type: 'delete',
+                url: '/api/v1/home_user/user/',
+                headers: {
+                    "APIKEY": sessionStorage.getItem("apikey"),
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $('.banner_validated').show().addClass("volet");
+                    setTimeout(() => {
+                        disconnected_func();
+                    }, 4000);
+                    setTimeout(() => {
+                        $('#loader_connection').css("visibility", "hidden");
+                        $('.banner_validated').hide().removeClass("volet");
+                        window.location.href = "/"
+                    }, 5000);
+                },
+                error: function (data) {
+                    $('.banner_error').show().addClass("volet");
+                    $('#loader_connection').css("visibility", "hidden");
+                    setTimeout(() => {
+                        $('.banner_error').hide().removeClass("volet");
+                    }, 5000);
+                },
+            });
         }
     });
 }

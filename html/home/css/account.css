@@ -67,7 +67,8 @@
 
 #pseudo_remove_account {
     color: #e96e27;
-    padding: 5px;
+    font-weight: 900;
+    font-size: 18px;
 }
 
 dialog div {
