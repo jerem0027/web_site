@@ -114,7 +114,7 @@ const before_pseudo = async function () {
         try {
             await $.ajax({
                 type: 'get',
-                url: "http://127.0.0.1:5000/api/v1/home_user/user/" + $('#pseudo_form').val(),
+                url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
                 success: function(data) {
                     $('.invalid_input').css("visibility", "visible");
                     $('.invalid_input').addClass('vibration');

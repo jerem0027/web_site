@@ -12,7 +12,7 @@ const user_check = async function() {
 
     await $.ajax({
         type: 'get',
-        url: 'http://127.0.0.1:5000/api/v1/home_user/user/',
+        url: '/api/v1/home_user/user/',
         headers: {
             "APIKEY": sessionStorage.getItem("apikey"),
             'Accept': 'application/json',
