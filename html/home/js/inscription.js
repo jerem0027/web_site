@@ -50,7 +50,7 @@ const send_inscription = async function() {
                     sessionStorage.clear();
                     sessionStorage.setItem("apikey", data.APIKEY);
                     sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
-                    $('.banner_validated').addClass("volet").show()
+                    $('.banner_validated').addClass("volet_inscription").show()
                     timer_redirect()
                     setTimeout(() => {
                         window.location.href = "/";
