@@ -36,3 +36,8 @@ account:
     - <link rel="stylesheet" href="css/account.css"/>
     - <script type="text/javascript" src="js/account.js"></script>
     - <script type="text/javascript" src="js/password.js"></script>
+
+connection:
+  head:
+    - <link rel="stylesheet" href="css/connection.css"/>
+    - <script type="text/javascript" src="js/password.js"></script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+{{loadpartial '../partials/head.html' 'head'}}{{> head}}
+        {{#each connection.head}}
+        {{{this}}}
+        {{/each}}
+    </head>
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <div class="mdl-layout__header mdl-layout__header--waterfall">
+{{loadpartial '../partials/header.html' 'header'}}{{> header}}
+            </div>
+
+{{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
+            <div class="mdl-layout__content">
+                    <div class="container_connection">
+                            <div class="mdl-card mdl-shadow--6dp">
+                                <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+                                    <div class="mdl-grid">
+                                        <h2 class="mdl-cell mdl-cell--12-col mdl-card__title-text">Connection</h2>
+                                    </div>
+                                </div>
+
+                                <div class="mdl-card__supporting-text">
+                                    <div class="mdl-grid">
+                                        <div class="mdl-cell--12-col">&nbsp;</div>
+                                        <div class="mdl-cell--12-col">&nbsp;</div>
+                                        <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input input_connection_page" id="pseudo_form_connection"/>
+                                            <label class="mdl-textfield__label" for="login">Pseudo</label>
+                                        </div>
+                                        <div class="mdl-cell mdl-cell--11-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input input_connection_page" type="password" id="password_form_connection"/>
+                                            <label class="mdl-textfield__label" for="password">Mot de passe</label>
+                                        </div>
+                                        <div class="mdl-cell mdl-cell--1-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <i id="password_form_connection-" class="material-icons showcreds">visibility</i>
+                                        </div>
+                                        
+                                        <div class="mdl-cell--12-col">&nbsp;</div>
+                                        <div class="mdl-cell--12-col">&nbsp;</div>
+                                        <div class="mdl-cell--12-col">&nbsp;</div>
+                                    </div>
+                                </div>
+
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <div class="mdl-grid">
+                                        <button id="btn_connection_page" class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                                            connection
+                                        </button>
+                                    </div>
+
+                                    <div class="mdl-grid" id="form_links">
+                                        <div class="mdl-cell mdl-cell--6-col">
+                                            <a id="link_insciption" href="/home/inscription.html">Insciption</a>
+                                        </div>
+                                        <div class="mdl-cell mdl-cell--6-col">
+                                            <a id="link_pass_forgot" onClick='flip("show-bottom")'>Lost Password?</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+{{!-- 
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+
+
+
+
+
+                            <div class="mdl-cell--12-col">
+                                <button
+                                    onclick="edit_user('name')"
+                                    class="btn_edit_user"
+                                    id="btn_edit_name"
+                                    >Modifier
+                                </button>
+                            </div>
+
+
+                            <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div> --}}

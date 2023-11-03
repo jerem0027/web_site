@@ -167,6 +167,7 @@ body {
     -ms-flex-negative: 0;
     flex-shrink: 0;
 }
+
 .wikipediie > .mdl-card__media {
     background-image: url('../images/wikipediie.png');
     height: 280px;
@@ -488,6 +489,10 @@ footer div div {
 
     footer div {
         margin: 0 !important;
+    }
+
+    .container_connection .showcreds {
+        display: none;
     }
 }
 

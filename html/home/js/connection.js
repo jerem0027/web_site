@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
+    $('#btn_connection_page').on("click", connection_page);
     if (sessionStorage.getItem('apikey')) {
         connected_func()
     }
@@ -15,12 +16,28 @@ jQuery(document).ready(function ($) {
             document.getElementById("btn_connection").click();
         }
     });
+    document.getElementById("pseudo_form_connection").addEventListener("keydown", function(event) {
+        if (event.key === "Enter" || event.key === 13) {
+            document.getElementById("btn_connection_page").click();
+        }
+    });
+    document.getElementById("password_form_connection").addEventListener("keydown", function(event) {
+        if (event.key === "Enter" || event.key === 13) {
+            document.getElementById("btn_connection_page").click();
+        }
+    });
 });
 
-const connection = async function () {
+const connection = async function (pseudo, pass) {
+    var from_page = true
+    if (pseudo == null && pass == null) {
+        pseudo=$('#pseudo').val().toLowerCase();
+        pass=$('#password').val();
+        from_page = false
+    }
     $('#loader_connection').css("visibility", "visible");
     if (sessionStorage.getItem('apikey')) {
-        connected_func()
+        connected_func();
     } else {
         try {
             await $.ajax({
@@ -40,26 +57,36 @@ const connection = async function () {
                     "Content-Type": "application/json"
                 },
                 data: JSON.stringify({
-                    "pseudo": $('#pseudo').val().toLowerCase(),
-                    "password": $('#password').val()
+                    "pseudo": pseudo,
+                    "password": pass
                 }),
                 success: function (data) {
                     sessionStorage.clear();
                     sessionStorage.setItem("apikey", data.APIKEY);
                     sessionStorage.setItem('pseudo', data.pseudo);
-                    connected_func()
+                    connected_func();
+                    setTimeout(() => {
+                        $('#loader_connection').css("visibility", "hidden");
+                        window.location.href = "/";
+                    }, 1000)
                 },
                 error: function(data) {
                     sessionStorage.clear();
                     $('#loader_connection').css("visibility", "hidden");
-                    $('.connection_input').addClass("vibration_input");
+                    if (from_page == true)
+                        $('.input_connection_page').addClass("vibration_input");
+                    else
+                        $('.connection_input').addClass("vibration_input");
                 }
             });
         } catch (error) {
             if (400 > error.status || error.status > 499) {
                 sessionStorage.clear();
                 $('#loader_connection').css("visibility", "hidden");
-                $('.connection_input').addClass("vibration_input");
+                if (from_page)
+                    $('.input_connection_page').addClass("vibration_input");
+                else
+                    $('.connection_input').addClass("vibration_input");
             }
         }
     }
@@ -93,4 +120,10 @@ const disconnected_func = function() {
 const format_date = function(date){
     date = date.split('-')
     return date[2] + '-' + date[1] + '-' + date[0];
+}
+
+const connection_page = function() {
+    let pseudo = $('#pseudo_form_connection').val().toLowerCase();
+    let pass = $('#password_form_connection').val();
+    connection(pseudo, pass)
 }
