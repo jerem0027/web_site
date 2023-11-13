@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-{{loadpartial '../partials/head.html' 'head'}}{{> head}}
-        {{#each index.head}}
-        {{{this}}}
-        {{/each}}
+{{loadpartial '../partials/head.html' 'head'}}{{> head page=index}}
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">

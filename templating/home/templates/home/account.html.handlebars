@@ -2,10 +2,7 @@
 
 <html lang="fr">
     <head>
-        {{loadpartial '../partials/head.html' 'head'}}{{> head}}
-        {{#each account.head}}
-        {{{this}}}
-        {{/each}}
+{{loadpartial '../partials/head.html' 'head'}}{{> head page=account}}
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <link rel="icon" href="img/favicon/favicon.ico" />
+        <title>MCU-FAN</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/menu.css" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    </head>
+    <body>
+        <nav id="fondmenu">
+            <a href="stones.html">
+                <img id="logo" src="img/logo/marvel_logo.png" height="50" alt="MARVEL"/>
+            </a>
+            <ul id="menu">
+                <li><a href="#MCU">MCU</a></li>
+                <li><a href="#films">Films</a></li>
+                <li><a href="temoignage.html">Témoignage</a></li>
+                <li><a href="actors.html">Acteurs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href='/'>Retour</a></li>
+            </ul>
+        </nav>
+
+        <section id="MCU">
+            <h1>A propos du MCU</h1>
+            <p style="text-align: justify;">
+                <img class="logo_mcu" src="img/logo/mcu_png.png" width="200" alt="Logo M C U"/>
+                <br /><b>L'univers cinematographique Marvel</b> (Marvel Cinematic
+                Universe en anglais, abrege en MCU) est une franchise de medias
+                cinematographique produite par <b>Marvel Studios</b> mettant en scene
+                des personnages inspires des comics de l'univers Marvel et publies par
+                <b>Marvel Comics</b>.<br />
+            </p>
+            <br />
+        
+            <p style="text-align: justify;">
+                <img class="logo_mcu" src="img/logo/marvel_stud_align.png" width="240" alt="Logo Marvel Studio"/>
+                Les films qui font partie de cet univers partage sont, a l'origine,
+                ceux mettant en vedette le groupe de super-heros Les Avengers (les
+                Vengeurs au Quebec) : <b>Iron Man</b>, <b>Hulk</b>, <b>Thor</b>,
+                <b>Black Widow</b>, <b>Hawkeye</b> et <b>Captain America</b>. C'est le
+                film <b>Iron Man</b>, sorti en <b>2008</b>, qui lance cet univers. Le
+                film <b>Les Gardiens de la Galaxie</b>, sorti en <b>aout 2014</b>, est
+                le premier dans lequel les Avengers n'apparaissent pas, et tous se
+                regroupent en <b>2018</b> dans <b>Avengers : Infinity War</b>.<br />
+
+                La creation d'un univers filmique s'apparente a ce que proposait
+                <b><a id="stan" href="">Stan Lee</a></b> dans les comics, ou les
+                personnages peuvent apparaitre dans d'autres series que la leur. Avec le
+                concept d'univers etendu, les productions cinematographiques Marvel ont
+                mis en scene une galerie de personnages et participe a rendre populaire
+                le genre de films de super-heros. Elles se renouvellent en puisant dans
+                les codes d'autres genres.<br />
+
+                Depuis 2013, avec la creation de la serie Marvel :
+                <b>Les Agents du SHIELD</b>, l'univers est aussi present a la
+                television. Plusieurs series televisees se deroulant dans le meme
+                univers que les films sont donc actuellement diffusees a la television,
+                notamment sur le reseau <b>ABC</b>, les services de video a la demande
+                <b>Netflix</b> et <b>Hulu</b> et la chaine du cable
+                <b>Freeform</b>.<br />
+
+                A l'ete 2018, vingt films sont sortis en salle, constituant en partie
+                les trois premieres "phases" de la construction de cet univers, et deux
+                films sont prevus jusqu'en mai 2019 pour conclure la phase III.
+            </p>
+            <br />
+        </section>
+
+        <section id="films">{{#each films}}{{#unless prochainement}}
+            <div>{{#if @first}}
+                <h1>Les Films de MCU</h1>{{/if}}
+                <img class="affiche" src="{{affiche}}" width="191" height="283" alt="{{titre}}"/>
+                <h3>{{titre}} ({{date}})</h3>
+                <p style="text-align: justify;">
+                    <br />
+                    {{synopsis}}
+                    <br />
+                </p>
+            </div>
+            <br />
+            <div class="film"></div>{{/unless}}{{/each}}
+        </section>
+        
+        {{setVariable "titleProchainement" true}}
+        <section id="films">{{#each films}}{{#if prochainement}}
+            <div>{{#if @root.titleProchainement}}{{setVariable "titleProchainement" false}}
+                <h1>Les Prochains Films</h1>{{/if}}
+                <img class="affiche" src="{{affiche}}" width="191" height="283" alt="{{titre}}"/>
+                <h3>{{titre}} ({{date}})</h3>
+                <p style="text-align: justify;">
+                    <br />
+                    {{synopsis}}
+                    <br />
+                </p>
+            </div>
+            <br />
+            <div class="film"></div>{{/if}}{{/each}}
+        </section>
+    </body>
+</html>

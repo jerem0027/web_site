@@ -1,5 +1,8 @@
 index:
-  head:
+  css:
+    - css/styles
+  js:
+    - js/connection
   cards:
     - name: wikipediie
       href: ../wikipediie/vue/home.php
@@ -10,7 +13,6 @@ index:
       techno: HTML/ CSS/ PHP/ JavaScript, permettant de crée et lire des articles
       site_link: /wikipediie/vue/home.php
       a_propos_link: /wikipediie/vue/apropos.php
-    
     - name: marvel_fan
       href: ../marvel-fan/index.html
       img: ../marvel-fan/img/logo/marvel_logo.png
@@ -22,22 +24,32 @@ index:
       a_propos_link: /marvel-fan/contact.html
 
 inscription:
-  head:
-    - <script type="text/javascript" src="js/inscription.js"></script>
-    - <script type="text/javascript" src="js/password.js"></script>
-
-guest:
-  head:
-    - <link rel="stylesheet" href="css/secret_santa.css"/>
-    - <script type="text/javascript" src="js/guest.js"></script>
+  css:
+    - css/styles
+  js:
+    - js/connection
+    - js/inscription
+    - js/password
 
 account:
-  head:
-    - <link rel="stylesheet" href="css/account.css"/>
-    - <script type="text/javascript" src="js/account.js"></script>
-    - <script type="text/javascript" src="js/password.js"></script>
+  css:
+    - css/styles
+    - css/account
+  js:
+    - js/connection
+    - js/account
+    - js/password
 
 connection:
-  head:
-    - <link rel="stylesheet" href="css/connection.css"/>
-    - <script type="text/javascript" src="js/password.js"></script>
+  css:
+    - css/styles
+    - css/connection
+  js:
+    - js/connection
+    - js/password
+
+about_us:
+  css:
+    - css/styles
+  js:
+    - js/connection

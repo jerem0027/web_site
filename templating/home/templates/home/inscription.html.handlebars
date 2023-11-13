@@ -2,10 +2,7 @@
 
 <html lang="fr">
     <head>
-{{loadpartial '../partials/head.html' 'head'}}{{> head}}
-        {{#each inscription.head}}
-        {{{this}}}
-        {{/each}}
+{{loadpartial '../partials/head.html' 'head'}}{{> head page=inscription}}
     </head>
     <body>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">

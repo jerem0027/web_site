@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <link rel='icon' href='img/favicon/favicon.ico' />
+        <title>MCU-FAN</title>
+        <meta charset='utf-8' />
+        <link rel='stylesheet' type='text/css' href='css/menu.css' />
+        <link rel='stylesheet' type='text/css' href='css/layout.css' />
+        <link rel='stylesheet' type='text/css' href='css/temoignage_layout.css' />
+    </head>
+    <body>
+        <nav id='fondmenu'>
+            <a href='stones.html'>
+                <img id='logo' src='img/logo/marvel_logo.png' height='50'/>
+            </a>
+            <ul id='menu'>
+                <li><a href='index.html#MCU'>MCU</a></li>
+                <li><a href='index.html#films'>Films</a></li>
+                <li><a href='temoignage.html'>Témoignage</a></li>
+                <li><a href='actors.html'>Acteurs</a></li>
+                <li><a href='contact.html'>Contact</a></li>
+                <li><a href='/'>Retour</a></li>
+            </ul>
+        </nav>
+{{#each temoignages}}
+        <section id='MCU'>{{#if @first}}
+            <h1>Témoignages</h1><br />{{/if}}
+            <p>"{{commentaire}}"</p>
+            <p class='italique'>{{auteur}}{{#if surname}} (aka <u>{{surname}}</u>){{/if}}</p>
+            <br />
+        </section>
+{{/each}}
+    </body>
+</html>
