@@ -25,8 +25,8 @@ const guest_check = function() {
         },
         error: function (data) {
             setTimeout(() => {
-                $(".mdl-card__supporting-text").addClass("volet")
-                $(".banner_error").addClass("volet")
+                $(".mdl-card__supporting-text").addClass("volet_guest")
+                $(".banner_error").addClass("volet_guest")
                 $(".banner_error").show()
                 $('#loader_connection').css("visibility", "hidden");
             }, '1000');
