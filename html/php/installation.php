@@ -7,7 +7,7 @@
     <meta name="description" content="Page de presentation des projet réaliser par Jérémie Henrion.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <link rel="icon" href="logo/icon.png">
+    <link rel="icon" href="../logo/icon.png">
     <title>Jeremie H</title>
 
     <!-- Page styles -->
@@ -25,7 +25,7 @@
       <div class="mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">
-          <a href="/home/index.html"><img class="logo-image" id="logo_large" alt="logo large + white version" src="logo/logo_large_white.png"></a>          </span>
+          <a href="/home/index.html"><img class="logo-image" id="logo_large" alt="logo large + white version" src="../logo/logo_large_white.png"></a>          </span>
           <div class="mdl-layout-spacer"></div>
           <form onsubmit = "event.preventDefault(); check_connection();"  method="POST" id="form">
                     <nav class="mdl-navigation">
@@ -49,7 +49,7 @@
 
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">
-            <a href="/home/index.html"><img class="icon-image" src="logo/icon.png"></a>
+            <a href="/home/index.html"><img class="icon-image" src="../logo/icon.png"></a>
         </span>
         <nav class="mdl-navigation">
           <span class="mdl-navigation__link" href="">Liens</span>
