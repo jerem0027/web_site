@@ -12,38 +12,83 @@
 {{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
-
-                    <p>WORK IN PROGRESS</p>
-
-{{#each index.cards}}
-                    <div class="mdl-card {{this.name}} mdl-cell mdl-cell--12-col">
-                        <div class="mdl-card__media"></div>
-                        <div class="mdl-cell mdl-cell--12-col">
-                            <h3>
-                                <a href="{{this.href}}">
-                                    <img alt="Preview site {{this.name}}" src="{{this.img}}">{{this.titre}}
-                                </a>
-                            </h3>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="mdl-cell mdl-cell--12-col"><b>{{this.description}}</b>({{this.date}})</div>
-                            <div class="mdl-cell mdl-cell--12-col">Site en {{this.techno}}.</div>
-                        </div>
-                        <div class="mdl-typography--text-center mdl-cell mdl-cell--12-col">
-                            <a href="{{this.site_link}}"> 
-                                <button class="button_card">Voir le site</button>
-                            </a>
-                            <a href="{{this.a_propos_link}}">
-                                <button class="button_card">A propos</button>
-                            </a>
-                        </div>
-                        <div class="mdl-cell--12-col">&nbsp;</div>
-                        {{#unless @last}}<div class="separator_content"></div>{{/unless}}
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
                     </div>
-                {{/each}}
+
+                    <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__media"></div>
+                        {{!-- <div class="mdl-cell mdl-cell--12-col">
+                            <div id="guest_error" class="mdl-cell--12-col banner banner_error">
+                                <img src="../logo/logo-white.png" />
+                                <h1>Votre guest ID n'est pas reconnu ou n'existe pas</h1>
+                                <h3>Merci de vérifier l'URL et de réessayer</h3>
+                            </div>
+                        </div> --}}
+                        {{!-- <div class="mdl-card__supporting-text">
+                            <div class="mdl-cell mdl-cell--12-col context_title">
+                                Context
+                            </div>
+                            <div class="mdl-cell mdl-cell--12-col context_content">
+                                Vous avez été ajouté dans un Secret Santa. Si vos information
+                                ne sont pas correctes merci de contacter la personne qui a
+                                créé le Secret Santa. <br />Une personne vous a été attribuée
+                                et vous trouverez son nom et son adresse email juste en
+                                dessous. N'hésitez pas à la contacter si vous ne savez pas de
+                                qui il s'agit.
+                            </div>
+                        </div> --}}
+                    </div>
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
+                        <a class="link_create" href="#">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <div class="container">
+                                    <div class="left-div">
+                                            <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
+                                    </div>
+                                    <div class="center-div">
+                                        CRÉER UN SECRET SANTA
+                                    </div>
+                                    <button class="button_card">CRÉER</button>
+                                </div>
+                            </div>
+
+                            {{!-- <div class="mdl-card__supporting-text">
+                                <div class="mdl-cell mdl-cell--12-col">TEST TEST TEST</div>
+                            </div>
+                            <div class="mdl-typography--text-center mdl-cell mdl-cell--12-col">
+                                <a href="{{this.site_link}}"> 
+                                    <button class="button_card">Voir le site</button>
+                                </a>
+                                <a href="{{this.a_propos_link}}">
+                                    <button class="button_card">A propos</button>
+                                </a>
+                            </div> --}}
+                        </a>
+                    </div>
+
+                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
+                        <a class="link_create" href="#">
+                            <div class="mdl-cell mdl-cell--12-col">
+                                <div class="container">
+                                    <div class="left-div">
+                                            <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
+                                    </div>
+                                    <div class="center-div">
+                                        JE SUIS UN GUEST
+                                    </div>
+                                    <button class="button_card">ACCÉDER</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
             </div>
+
+{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
         </div>
     </body>
 </html>
