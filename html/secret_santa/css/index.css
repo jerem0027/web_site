@@ -1,7 +1,7 @@
-.secret_santa_card {
+.secret_santa_card, .secret_santa_card_special {
     border: solid 5px #8abfb7;
     min-height: fit-content;
-    max-height: 130px;
+    max-height: 300px;
     border-radius: 10px;
 }
 
@@ -26,14 +26,15 @@
 
 .left-div {
     text-align: left;
-    font-style: bolder !important;
+    font-weight: bolder !important;
 }
 
 .center-div {
     text-align: center;
-    font-style: bolder !important;
-    line-height: 100px;
     font-weight: 700;
+    min-width: 300px;
+    align-items: center;
+    vertical-align: text-top;
 }
 
 .button_card {
@@ -46,6 +47,10 @@
     line-height: 100px;
     background-color: inherit;
     border-left: dashed 2px #8abfb7;
+}
+
+.button_card:active {
+    transform: scale(0.98);
 }
 
 .secret_santa_card:hover {
@@ -61,6 +66,24 @@
     transition: all 0.3s ease;
 }
 
+.secret_santa_card_special button:hover {
+    background-color: #8abfb7;
+    transition: all 0.5s ease;
+    border-color: #8abfb7;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.secret_santa_input {
+    padding: 9px;
+    border-radius: 25px;
+    text-indent: 5%;
+    font-size: 15px;
+    background-color: #8abfb7;
+    outline: none;
+    margin: 15px 0 15px 0;
+    color: #ffffff;
+}
 
 /**** Mobile layout ****/
 @media (max-width: 650px) {

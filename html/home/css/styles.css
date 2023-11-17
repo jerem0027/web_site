@@ -306,6 +306,10 @@ div {
     background-color: #424242;
 }
 
+.connection_button:active, .button_card:active, .btn_insctiption:active {
+    transform: scale(0.98);
+}
+
 .connection_button {
     color:#fff;
     border: solid 2px #424242;

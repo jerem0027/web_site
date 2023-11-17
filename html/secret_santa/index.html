@@ -18,8 +18,9 @@
         <link rel="stylesheet" href="css/index.css" />
         <!-- Scripts -->
         <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="../home/js/connection.js"></script>
+        <script type="text/javascript" src="js/secret_santa.js"></script>
 
     </head>
     <body>
@@ -134,7 +135,7 @@
                                             <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
                                     </div>
                                     <div class="center-div">
-                                        CRÉER UN SECRET SANTA
+                                        <div style="margin-top: 40px;">CRÉER UN SECRET SANTA</div>
                                     </div>
                                     <button class="button_card">CRÉER</button>
                                 </div>
@@ -145,20 +146,24 @@
 
                     <div class="mdl-cell--12-col separator_content">&nbsp;</div>
 
-                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
-                        <a class="link_create" href="#">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <div class="container">
-                                    <div class="left-div">
-                                            <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
-                                    </div>
-                                    <div class="center-div">
-                                        JE SUIS UN GUEST
-                                    </div>
-                                    <button class="button_card">ACCÉDER</button>
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card_special">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="container">
+                                <div class="left-div">
+                                    <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
                                 </div>
+                                <div class="center-div">
+                                    <div style="margin-top: 15px;">JE SUIS UN GEST</div>
+                                    <input
+                                        placeholder="Guest ID"
+                                        class="mdl-textfield__input secret_santa_input"
+                                        type="text"
+                                        id="guest_input"
+                                    />
+                                </div>
+                                <button class="button_card" onclick="guest_button()">ACCÉDER</button>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>

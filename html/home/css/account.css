@@ -27,6 +27,10 @@
     line-height: 15px;
 }
 
+.btn_edit_user:active, .btn_save_user:active, .btn_cancel_user:active, .btn_remove_account:active {
+    transform: scale(0.98);
+}
+
 .btn_remove_account {
     width: 200%;
     line-height: 25px;

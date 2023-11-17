@@ -6,26 +6,30 @@ jQuery(document).ready(function ($) {
         connected_func()
     }
 
-    document.getElementById("pseudo").addEventListener("keydown", function(event) {
+    $("#pseudo").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            document.getElementById("btn_connection").click();
+            $("#btn_connection").click();
+            console.log("test ICI")
         }
-    });
-    document.getElementById("password").addEventListener("keydown", function(event) {
+    })
+
+    $("#password").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            document.getElementById("btn_connection").click();
+            $("#btn_connection").click();
         }
-    });
-    document.getElementById("pseudo_form_connection").addEventListener("keydown", function(event) {
+    })
+
+    $("#pseudo_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            document.getElementById("btn_connection_page").click();
+            $("#btn_connection_page").click();
         }
-    });
-    document.getElementById("password_form_connection").addEventListener("keydown", function(event) {
+    })
+
+    $("#password_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            document.getElementById("btn_connection_page").click();
+            $("#btn_connection_page").click();
         }
-    });
+    })
 });
 
 const connection = async function (pseudo, pass) {
