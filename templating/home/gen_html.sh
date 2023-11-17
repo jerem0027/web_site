@@ -11,3 +11,5 @@ node ../../tools/create_file.js ./templates/home/connection.html.handlebars ./ho
 # Secret santa
 node ../../tools/create_file.js ./templates/secret_santa/guest.html.handlebars ./secret_santa.yml ../../html/secret_santa/guest.html
 node ../../tools/create_file.js ./templates/secret_santa/index.html.handlebars ./secret_santa.yml ../../html/secret_santa/index.html
+node ../../tools/create_file.js ./templates/secret_santa/create.html.handlebars ./secret_santa.yml ../../html/secret_santa/create.html
+node ../../tools/create_file.js ./templates/secret_santa/manage.html.handlebars ./secret_santa.yml ../../html/secret_santa/manage.html

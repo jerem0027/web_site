@@ -12,10 +12,6 @@
 {{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
-                    </div>
-
                     <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
                         <div class="mdl-card__media"></div>
                         {{!-- <div class="mdl-cell mdl-cell--12-col">
@@ -40,44 +36,34 @@
                         </div> --}}
                     </div>
 
-                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
-                        <a class="link_create" href="#">
-                            <div class="mdl-cell mdl-cell--12-col">
-                                <div class="container">
-                                    <div class="left-div">
-                                            <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
-                                    </div>
-                                    <div class="center-div">
-                                        <div style="margin-top: 40px;">CRÉER UN SECRET SANTA</div>
-                                    </div>
-                                    <button class="button_card">CRÉER</button>
-                                </div>
-                            </div>
-
-                            {{!-- <div class="mdl-card__supporting-text">
-                                <div class="mdl-cell mdl-cell--12-col">TEST TEST TEST</div>
-                            </div>
-                            <div class="mdl-typography--text-center mdl-cell mdl-cell--12-col">
-                                <a href="{{this.site_link}}"> 
-                                    <button class="button_card">Voir le site</button>
-                                </a>
-                                <a href="{{this.a_propos_link}}">
-                                    <button class="button_card">A propos</button>
-                                </a>
-                            </div> --}}
-                        </a>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
                     </div>
 
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
-
-                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card_special">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
                         <div class="mdl-cell mdl-cell--12-col">
                             <div class="container">
                                 <div class="left-div">
                                     <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
                                 </div>
                                 <div class="center-div">
-                                    <div style="margin-top: 15px;">JE SUIS UN GEST</div>
+                                    <div class="center_div_classic">CRÉER UN SECRET SANTA</div>
+                                </div>
+                                <button class="button_card" onclick="window.location.href = '/secret_santa/create.html';">CRÉER</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="container">
+                                <div class="left-div">
+                                    <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
+                                </div>
+                                <div class="center-div">
+                                    <div id="center_div_gest">JE SUIS UN GEST</div>
                                     <input
                                         placeholder="Guest ID"
                                         class="mdl-textfield__input secret_santa_input"
@@ -86,6 +72,22 @@
                                     />
                                 </div>
                                 <button class="button_card" onclick="guest_button()">ACCÉDER</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="container">
+                                <div class="left-div">
+                                    <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
+                                </div>
+                                <div class="center-div">
+                                    <div class="center_div_classic">GÉRER MES SECRET SANTA</div>
+                                </div>
+                                <button class="button_card" onclick="window.location.href = '/secret_santa/manage.html';">LISTER</button>
                             </div>
                         </div>
                     </div>
