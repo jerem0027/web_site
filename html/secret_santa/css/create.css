@@ -1,0 +1,171 @@
+.sesa_create_title {
+    color: #db0e1c;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.sesa_create_title span {
+    color: #4242427a;
+    font-size: 16px;
+}
+
+.sesa_create_input::placeholder, #sesa_end_date::placeholder {
+    color: #4242427a;
+}
+
+.sesa_create_input {
+    color: #8abfb7;
+    border: solid 2px #ffffff;
+    border-bottom-color: #52867e;
+    transition: all 0.7s ease-in-out;
+}
+
+.sesa_create_input:focus {
+    border: solid 2px #52867e;
+    border-radius: 25px;
+    transition: all 0.7s ease-in-out;
+}
+
+#sesa_end_date {
+    color: #8abfb7;
+    padding-right: 5px;
+    width: calc(100% - 5px);
+    text-indent: 10px;
+}
+
+#sesa_end_date::-webkit-datetime-edit-text {
+    padding: 0 0 0 0px;
+}
+
+.info_sesa {
+    color: #4242427a;
+}
+
+input {
+    text-indent: 15px;
+    padding: 5px 0px 5px 0;
+}
+
+
+.sesa_guest_element {
+    margin-top: 10px;
+    color: #8abfb7;
+}
+
+.sesa_guest_title {
+    color: #8abfb7;
+    font-size: 20px;
+}
+
+#div_button_add_guest {
+    border: solid 2px #8abfb7;
+    border-radius: 25px;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
+    background-size: 200%;
+    transition: .5s ease-out;
+    max-width: fit-content;
+    padding-right: 10px;
+}
+
+#div_button_add_guest:active, #div_button_create:active {
+    transform: scale(0.90);
+}
+
+#div_button_add_guest::selection, #add_guest_button::selection,
+#div_button_create::selection, #create_button::selection {
+    background-color: rgba(0, 0, 0, 0);
+    color: inherit;
+}
+
+#div_button_add_guest:hover {
+    background-position: right;
+    color: #8abfb7;
+    cursor: pointer;
+}
+
+#div_button_add_guest #add_guest_button {
+    text-align: center;
+    color: #8abfb7;
+    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
+    background-size: 200%;
+    transition: .4s ease-out;
+    transition-delay: .2s;
+}
+
+#div_button_add_guest:hover #add_guest_button {
+    color: #ffffff;
+    background-position: right;
+    transform: rotate(-90deg);
+}
+
+#add_guest_button {
+    vertical-align: middle;
+    color: #8abfb7;
+    border: solid 1px #8abfb7;
+    border-radius: 25px;
+    padding: 4px;
+    margin: -1px 5px -1px -0px;
+    background-color: #ffffff;
+}
+
+.remove_guest_button {
+    font-size: 15px;
+    vertical-align: middle;
+    color: #ffffff;
+    background-color: #db0e1c;
+    border: solid 1px #db0e1c;
+    border-radius: 25px;
+    padding: 2px;
+    margin-left: 3px;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.remove_guest_button:hover {
+    color: #db0e1c;
+    background-color: #ffffff;
+    transform: rotate(-180deg);
+}
+
+#div_button_create {
+    border: solid 2px #4caf4fc0;
+    border-radius: 25px;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #4caf4fc0 50%) left;
+    background-size: 200%;
+    transition: .7s ease-out;
+    max-width: fit-content;
+    padding-right: 10px;
+}
+
+#div_button_create:hover {
+    background-position: right;
+    color: #4caf4fc0;
+    cursor: pointer;
+}
+
+#div_button_create #create_button {
+    text-align: center;
+    color: #4caf4fc0;
+    background: linear-gradient(to left, #4caf4fc0 50%, #ffffff 50%) left;
+    background-size: 200%;
+    transition: .4s ease-out;
+    transition-delay: .4s;
+}
+
+#div_button_create:hover #create_button {
+    color: #ffffff;
+    background-position: right;
+    transform: rotate(-360deg);
+}
+
+#create_button {
+    vertical-align: middle;
+    color: #4caf4fc0;
+    border: solid 1px #4caf4fc0;
+    border-radius: 25px;
+    padding: 4px;
+    margin: -1px 5px -1px -0px;
+    background-color: #ffffff;
+}

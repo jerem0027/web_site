@@ -45,7 +45,7 @@ body {
 
 .vibration_input {
     animation: shake 0.5s ease 0s;
-    border-color: red;
+    border-bottom-color: red !important;
 }
 
 .volet {
@@ -112,7 +112,7 @@ body {
     color: red;
 }
 
-.mdl-textfield__input:focus{
+.mdl-textfield__input:focus {
     outline: none;
     border-bottom-color: #2385b3
 }

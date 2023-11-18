@@ -12,8 +12,105 @@
 {{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
+
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
+                    </div>
+
                     <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
                         <div class="mdl-card__media"></div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">CÉATION D'UN NOUVEAU SECRET SANTA</p>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--4-col sesa_create_title">Titre <span>(optionnel)</span></div>
+                    <div class="mdl-cell--7-col">
+                        <input
+                            class="mdl-textfield__input sesa_create_input"
+                            type="text"
+                            id="sesa_title"
+                            name="sesa_title"
+                            placeholder="Secret santa des champions"
+                        />
+                    </div>
+                    <div class="mdl-cell--1-col">&nbsp;</div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--4-col sesa_create_title">Date de fin prévu</div>
+                    <div class="mdl-cell--7-col">
+                        <input
+                            class="mdl-textfield__input sesa_create_input"
+                            type="date"
+                            id="sesa_end_date"
+                            name="sesa_end_date"
+                        />
+                    </div>
+                    <div class="mdl-cell--1-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col info_sesa">Le respect de cette date n'est pas obligatoire, et ne sert qu'à fournir un aperçu de la date de fin.</div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col sesa_create_title">Participants</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+
+                    <div id="guests_content" class="mdl-grid">
+                        
+                        {{!-- <div class="mdl-cell--1-col">&nbsp;</div>
+                        <div class="mdl-cell--11-col sesa_guest_title">Guest TEST
+                            <i id="remove_guest_TEST_button" class="material-icons remove_guest_button">remove</i>
+                        </div>
+
+
+                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--9-col sesa_guest_element">Nom</div>
+                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--8-col">
+                            <input
+                                class="mdl-textfield__input sesa_create_input"
+                                type="text"
+                                id="guest_TEST_name"
+                                name="guest_TEST_name"
+                                placeholder="Peter P."
+                            />
+                        </div><div class="mdl-cell--1-col">&nbsp;</div>
+                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--9-col sesa_guest_element">Email</div>
+                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--8-col">
+                            <input
+                                class="mdl-textfield__input sesa_create_input"
+                                type="text"
+                                id="guest_TEST_mail"
+                                name="guest_TEST_mail"
+                                placeholder="peter.parker@gmail.com"
+                            />
+                        </div><div class="mdl-cell--1-col">&nbsp;</div>
+                        <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div> --}}
+                    
+                    {{!-- Guest content manage via JS --}}
+                    </div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--1-col"></div>
+                    <div class="mdl-cell--11-col">
+                        <div style="display:flex; justify-content: space-between;">
+                            <div id="div_button_add_guest">
+                                <i id="add_guest_button" class="material-icons">add</i>Ajouter un Guest
+                            </div>
+                            <div id="div_button_create">
+                                <i id="create_button" class="material-icons">done</i>Crée le secret santa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+
+                </div>
+            </div>
+
+{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
+        </div>
+    </body>
+</html>
                         {{!-- <div class="mdl-cell mdl-cell--12-col">
                             <div id="guest_error" class="mdl-cell--12-col banner banner_error">
                                 <img src="../logo/logo-white.png" />
@@ -34,21 +131,3 @@
                                 qui il s'agit.
                             </div>
                         </div> --}}
-                    </div>
-
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
-                    </div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">PAGE CREATE SECRET SANTA</p>
-                    </div>
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
-
-                </div>
-            </div>
-
-{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
-        </div>
-    </body>
-</html>

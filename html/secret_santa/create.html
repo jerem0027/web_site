@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css"/>
         <link rel="stylesheet" href="../home/css/styles.css" />
         <link rel="stylesheet" href="css/secret_santa.css" />
+        <link rel="stylesheet" href="css/create.css" />
         <!-- Scripts -->
         <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -118,18 +119,69 @@
             </div>
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
-                    <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
-                        <div class="mdl-card__media"></div>
-                    </div>
 
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
                     <div class="mdl-cell mdl-cell--12-col">
                         <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
                     </div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">PAGE CREATE SECRET SANTA</p>
+
+                    <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__media"></div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">CÉATION D'UN NOUVEAU SECRET SANTA</p>
+                        </div>
                     </div>
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--4-col sesa_create_title">Titre <span>(optionnel)</span></div>
+                    <div class="mdl-cell--7-col">
+                        <input
+                            class="mdl-textfield__input sesa_create_input"
+                            type="text"
+                            id="sesa_title"
+                            name="sesa_title"
+                            placeholder="Secret santa des champions"
+                        />
+                    </div>
+                    <div class="mdl-cell--1-col">&nbsp;</div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--4-col sesa_create_title">Date de fin prévu</div>
+                    <div class="mdl-cell--7-col">
+                        <input
+                            class="mdl-textfield__input sesa_create_input"
+                            type="date"
+                            id="sesa_end_date"
+                            name="sesa_end_date"
+                        />
+                    </div>
+                    <div class="mdl-cell--1-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col info_sesa">Le respect de cette date n'est pas obligatoire, et ne sert qu'à fournir un aperçu de la date de fin.</div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col sesa_create_title">Participants</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+
+                    <div id="guests_content" class="mdl-grid">
+                        
+                    
+                    </div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--1-col"></div>
+                    <div class="mdl-cell--11-col">
+                        <div style="display:flex; justify-content: space-between;">
+                            <div id="div_button_add_guest">
+                                <i id="add_guest_button" class="material-icons">add</i>Ajouter un Guest
+                            </div>
+                            <div id="div_button_create">
+                                <i id="create_button" class="material-icons">done</i>Crée le secret santa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
 
                 </div>
             </div>
