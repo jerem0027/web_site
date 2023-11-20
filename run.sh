@@ -15,7 +15,7 @@ _completion() {
         network)
             ;;
         *)
-            local opts="start stop restart network"
+            local opts="${commandes[*]}"
             COMPREPLY=($(compgen -W "$opts" -- "$cur"))
             ;;
     esac
