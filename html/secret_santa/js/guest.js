@@ -15,10 +15,10 @@ const guest_check = function() {
         dataType: 'json',
         success: function (data) {
             setTimeout(() => {
-                $('#guest_name').html(data.name);
-                $('#guest_email').html(data.email);
-                $('#target_name').html(data.target);
-                $('#target_email').html(data.target_email);
+                $('#guest_name').html(data.content.name);
+                $('#guest_email').html(data.content.email);
+                $('#target_name').html(data.content.target);
+                $('#target_email').html(data.content.target_email);
                 $("#guest_content").show()
                 $('#loader_connection').css("visibility", "hidden");
             }, '1000');
