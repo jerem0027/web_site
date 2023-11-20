@@ -43,7 +43,7 @@ exist=false
 if [[ $docker != "" ]]; then
     for name in "${dockers[@]}"; do
         if [ "$name" == "$docker" ]; then
-            trouve=true
+            exist=true
             break
         fi
     done
@@ -123,17 +123,3 @@ case "$cmd" in
         fi
         ;;
 esac
-
-
-
-# # Flask API
-# docker run \
-#     --network website-network \
-#     -d -p 5000:5000 \
-#     --restart unless-stopped \
-#     --name api-flask \
-#     --env-file configs/flask.env \
-#     flask_api:1.0.6
-
-# # Flask API
-# docker stop api-flask && docker rm api-flask
