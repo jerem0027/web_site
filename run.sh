@@ -1,0 +1,139 @@
+#!/bin/bash
+
+dockers=("nginx" "php" "mariadb" "phpmyadmin")
+commandes=("start" "stop" "restart" "remove" "network")
+
+_completion() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local prev=${COMP_WORDS[COMP_CWORD-1]}
+
+    case "$prev" in
+        start|stop|restart|remove)
+            local opts="${dockers[*]}"
+            COMPREPLY=($(compgen -W "$opts" -- "$cur"))
+            ;;
+        network)
+            ;;
+        *)
+            local opts="start stop restart network"
+            COMPREPLY=($(compgen -W "$opts" -- "$cur"))
+            ;;
+    esac
+}
+
+complete -F _completion -o default ./run.sh
+
+if [[ $0 != "$BASH_SOURCE" ]]; then
+    return
+fi
+
+cmd=$1
+docker=$2
+
+if [[ $cmd == "" ]]; then
+    echo "please set a commande"
+    echo "${commandes[*]}"
+fi
+
+if [[ $cmd == "network" ]]; then
+    docker network create website-network
+fi
+
+exist=false
+if [[ $docker != "" ]]; then
+    for name in "${dockers[@]}"; do
+        if [ "$name" == "$docker" ]; then
+            trouve=true
+            break
+        fi
+    done
+
+    if [[ $exist == false ]]; then
+        echo "Aucun docker à ce nom n'existe"
+        exit 0
+    fi
+fi
+
+case "$cmd" in
+    stop)
+        if [[ $docker != "" ]]; then
+            docker stop $docker
+        else
+            for container in "${dockers[@]}"; do
+                docker stop $container
+            done
+        fi
+        ;;
+    remove)
+        if [[ $docker != "" ]]; then
+            docker stop $docker && docker rm $docker
+        else
+            for container in "${dockers[@]}"; do
+                docker stop $container && docker rm $container
+            done
+        fi
+        ;;
+    restart)
+        if [[ $docker != "" ]]; then
+            docker restart $docker
+        else
+            for container in "${dockers[@]}"; do
+                docker restart $container
+            done
+        fi
+        ;;
+    start)
+        if [[ $docker == "nginx" || $docker == "" ]]; then
+            docker run \
+            --network website-network \
+            -d -p 80:80 -p 443:443 \
+            --restart unless-stopped \
+            --name nginx \
+            -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
+            jerem0027/nginx:1.24.0
+        fi
+
+        if [[ $docker == "php" || $docker == "" ]]; then
+            docker run \
+            --network website-network \
+            -d --restart unless-stopped \
+            --name php \
+            --env-file configs/php.env \
+            jerem0027/php:8.2
+        fi
+
+        if [[ $docker == "mariadb" || $docker == "" ]]; then
+            docker run \
+            --network website-network \
+            -d -p 3306:3306 \
+            --restart unless-stopped \
+            --name mariadb \
+            --env-file configs/mariadb.env \
+            -v db_content:/var/lib/mysql \
+            jerem0027/mariadb:10.3.39
+        fi
+
+        if [[ $docker == "phpmyadmin" || $docker == "" ]]; then
+            docker run \
+            --network website-network \
+            -d --restart unless-stopped \
+            --name phpmyadmin \
+            --env-file configs/phpmyadmin.env \
+            jerem0027/phpmyadmin:5.2.1
+        fi
+        ;;
+esac
+
+
+
+# # Flask API
+# docker run \
+#     --network website-network \
+#     -d -p 5000:5000 \
+#     --restart unless-stopped \
+#     --name api-flask \
+#     --env-file configs/flask.env \
+#     flask_api:1.0.6
+
+# # Flask API
+# docker stop api-flask && docker rm api-flask
