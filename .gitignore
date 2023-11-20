@@ -12,8 +12,5 @@ virtualenv/
 node_modules/
 package-lock.json
 
-# SSL cert
-cert/
-
 # Envconfig
 *.env

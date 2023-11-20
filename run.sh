@@ -90,6 +90,7 @@ case "$cmd" in
             --restart unless-stopped \
             --name nginx \
             -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
+            -v /ssl/:/ssl/ \
             jerem0027/nginx:1.24.0
         fi
 
@@ -98,6 +99,7 @@ case "$cmd" in
             --network website-network \
             -d --restart unless-stopped \
             --name php \
+            -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
             --env-file configs/php.env \
             jerem0027/php:8.2
         fi
@@ -118,6 +120,7 @@ case "$cmd" in
             --network website-network \
             -d --restart unless-stopped \
             --name phpmyadmin \
+            -v /ssl/:/etc/apache2/ssl/ \
             --env-file configs/phpmyadmin.env \
             jerem0027/phpmyadmin:5.2.1
         fi

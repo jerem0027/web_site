@@ -44,7 +44,6 @@ services:
     restart: unless-stopped
     env_file:
       - configs/phpmyadmin.env
-    #ajouter ssl
     links:
       - mariadb
 
