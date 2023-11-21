@@ -21,12 +21,12 @@ const user_check = async function() {
         dataType: 'json',
         success: function (data) {
             setTimeout(() => {
-                $('#form_pseudo').html(data.pseudo)
-                $('#form_inscription_date').html(format_date(data.inscription_date))
-                $('#form_name').html(data.name);
-                $('#form_first_name').html(data.first_name);
-                $('#form_email').html(data.email);
-                $('#form_birthdate').html(format_date(data.birthdate));
+                $('#form_pseudo').html(data.content.pseudo)
+                $('#form_inscription_date').html(format_date(data.content.inscription_date))
+                $('#form_name').html(data.content.name);
+                $('#form_first_name').html(data.content.first_name);
+                $('#form_email').html(data.content.email);
+                $('#form_birthdate').html(format_date(data.content.birthdate));
                 $('#loader_connection').css("visibility", "hidden");
             }, '1000');
         },
