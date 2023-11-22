@@ -146,7 +146,7 @@ const send_secret_santa = async function() {
     }
 
     data_send = {
-        "title": ($("#sesa_title").val() !== "") ? $("#sesa_title").val():"Secret Santa " + new Date().getFullYear(),
+        "title": ($("#sesa_new_title").val() !== "") ? $("#sesa_new_title").val():"Secret Santa " + new Date().getFullYear(),
         "date_end": format_date($("#sesa_end_date").val()),
         "guests": []
     }
