@@ -228,8 +228,9 @@ const send_password = async function() {
                     "password": $('#password1').val()
                 }),
                 success: function (data) {
-                    $('#password1').val("")
-                    $('#password2').val("")
+                    $('#password0').val("");
+                    $('#password1').val("");
+                    $('#password2').val("");
                     $('.banner_validated').show().addClass("volet");
                     $('#loader_connection').css("visibility", "hidden");
                     setTimeout(() => {
