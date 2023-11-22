@@ -1,6 +1,5 @@
 jQuery(document).ready(function () {
-    $(".banner_validated").hide();
-    $(".banner_error").hide();
+    $(".banner").hide();
     $(".user_input").hide();
     $(".btn_save_user").hide();
     $(".invalid_input").css("visibility", "hidden");
@@ -9,18 +8,17 @@ jQuery(document).ready(function () {
 
 const user_check = async function() {
     $('#loader_connection').css("visibility", "visible");
-
-    await $.ajax({
-        type: 'get',
-        url: '/api/v1/home_user/user/',
-        headers: {
-            "APIKEY": sessionStorage.getItem("apikey"),
-            'Accept': 'application/json',
-            "Content-Type": "application/json"
-        },
-        dataType: 'json',
-        success: function (data) {
-            setTimeout(() => {
+    try {
+        await $.ajax({
+            type: 'get',
+            url: '/api/v1/home_user/user/',
+            headers: {
+                "APIKEY": sessionStorage.getItem("apikey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            dataType: 'json',
+            success: function (data) {
                 $('#form_pseudo').html(data.content.pseudo)
                 $('#form_inscription_date').html(format_date(data.content.inscription_date))
                 $('#form_name').html(data.content.name);
@@ -28,14 +26,20 @@ const user_check = async function() {
                 $('#form_email').html(data.content.email);
                 $('#form_birthdate').html(format_date(data.content.birthdate));
                 $('#loader_connection').css("visibility", "hidden");
-            }, '1000');
-        },
-        error: function (data) {
-            setTimeout(() => {
+            },
+            error: function (data) {
                 $('#loader_connection').css("visibility", "hidden");
-            }, '1000');
-        },
-    });
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
+            $('.banner_error').show().addClass("volet");
+            $('#loader_connection').css("visibility", "hidden");
+            setTimeout(() => {
+                $('.banner_error').hide().removeClass("volet");
+            }, 5000);
+        }
+    }
 }
 
 const edit_user = function(field){
@@ -95,38 +99,47 @@ const send_user = async function(field) {
     data_send[field] = "" + $("#" + field + "_user").val()
     if (field == 'birthdate')
         data_send[field] = format_date(data_send[field])
-
-    await $.ajax({
-        type: 'put',
-        url: '/api/v1/home_user/user/',
-        headers: {
-            "APIKEY": sessionStorage.getItem("apikey"),
-            'Accept': 'application/json',
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(data_send),
-        dataType: 'json',
-        success: function (data) {
-            user_check();
-            $("#btn_edit_" + field).show();
-            $("#btn_save_" + field).hide();
-            $("#form_" + field).show();
-            $("#form_input_" + field).hide();
-            $("#btn_save_" + field).html("Enregistrer");
-            $('.banner_validated').show().addClass("volet");
-            $('#loader_connection').css("visibility", "hidden");
-            setTimeout(() => {
-                $('.banner_validated').hide().removeClass("volet");
-            }, 5000);
-        },
-        error: function (data) {
+    try {
+        await $.ajax({
+            type: 'put',
+            url: '/api/v1/home_user/user/',
+            headers: {
+                "APIKEY": sessionStorage.getItem("apikey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(data_send),
+            dataType: 'json',
+            success: function (data) {
+                user_check();
+                $("#btn_edit_" + field).show();
+                $("#btn_save_" + field).hide();
+                $("#form_" + field).show();
+                $("#form_input_" + field).hide();
+                $("#btn_save_" + field).html("Enregistrer");
+                $('.banner_validated').show().addClass("volet");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    $('.banner_validated').hide().removeClass("volet");
+                }, 5000);
+            },
+            error: function (data) {
+                $('.banner_error').show().addClass("volet");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    $('.banner_error').hide().removeClass("volet");
+                }, 5000);
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
             $('.banner_error').show().addClass("volet");
             $('#loader_connection').css("visibility", "hidden");
             setTimeout(() => {
                 $('.banner_error').hide().removeClass("volet");
             }, 5000);
-        },
-    });
+        }
+    }
 }
 
 var before_submit_bool = false
@@ -202,34 +215,44 @@ const before_submit = async function () {
 const send_password = async function() {
     if (before_submit_bool && before_pass_bool) {
         $('#loader_connection').css("visibility", "visible");
-        await $.ajax({
-            type: 'PUT',
-            url: "/api/v1/home_user/user/password/",
-            headers: {
-                "APIKEY": sessionStorage.getItem("apikey"),
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                "password": $('#password1').val()
-            }),
-            success: function (data) {
-                $('#password1').val("")
-                $('#password2').val("")
-                $('.banner_validated').show().addClass("volet");
-                $('#loader_connection').css("visibility", "hidden");
-                setTimeout(() => {
-                    $('.banner_validated').hide().removeClass("volet");
-                }, 5000);
-            },
-            error: function (data) {
+        try {
+            await $.ajax({
+                type: 'PUT',
+                url: "/api/v1/home_user/user/password/",
+                headers: {
+                    "APIKEY": sessionStorage.getItem("apikey"),
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify({
+                    "password": $('#password1').val()
+                }),
+                success: function (data) {
+                    $('#password1').val("")
+                    $('#password2').val("")
+                    $('.banner_validated').show().addClass("volet");
+                    $('#loader_connection').css("visibility", "hidden");
+                    setTimeout(() => {
+                        $('.banner_validated').hide().removeClass("volet");
+                    }, 5000);
+                },
+                error: function (data) {
+                    $('.banner_error').show().addClass("volet");
+                    $('#loader_connection').css("visibility", "hidden");
+                    setTimeout(() => {
+                        $('.banner_error').hide().removeClass("volet");
+                    }, 5000);
+                }
+            });
+        } catch (error) {
+            if (400 > error.status || error.status > 499) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
                     $('.banner_error').hide().removeClass("volet");
                 }, 5000);
             }
-        });
+        }
     }
 }
 
@@ -249,34 +272,44 @@ const remove_account = function () {
     dialog.querySelector('#btn_valide_remove').addEventListener('click', async function() {
         if (check_pseudo_remove()) {
             $('#loader_connection').css("visibility", "visible");
-            await $.ajax({
-                type: 'delete',
-                url: '/api/v1/home_user/user/',
-                headers: {
-                    "APIKEY": sessionStorage.getItem("apikey"),
-                    'Accept': 'application/json',
-                    "Content-Type": "application/json"
-                },
-                dataType: 'json',
-                success: function (data) {
-                    $('.banner_validated').show().addClass("volet");
-                    setTimeout(() => {
-                        disconnected_func();
-                    }, 4000);
-                    setTimeout(() => {
+            try {
+                await $.ajax({
+                    type: 'delete',
+                    url: '/api/v1/home_user/user/',
+                    headers: {
+                        "APIKEY": sessionStorage.getItem("apikey"),
+                        'Accept': 'application/json',
+                        "Content-Type": "application/json"
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('.banner_validated').show().addClass("volet");
+                        setTimeout(() => {
+                            disconnected_func();
+                        }, 4000);
+                        setTimeout(() => {
+                            $('#loader_connection').css("visibility", "hidden");
+                            $('.banner_validated').hide().removeClass("volet");
+                            window.location.href = "/"
+                        }, 5000);
+                    },
+                    error: function (data) {
+                        $('.banner_error').show().addClass("volet");
                         $('#loader_connection').css("visibility", "hidden");
-                        $('.banner_validated').hide().removeClass("volet");
-                        window.location.href = "/"
-                    }, 5000);
-                },
-                error: function (data) {
+                        setTimeout(() => {
+                            $('.banner_error').hide().removeClass("volet");
+                        }, 5000);
+                    },
+                });
+            } catch (error) {
+                if (400 > error.status || error.status > 499) {
                     $('.banner_error').show().addClass("volet");
                     $('#loader_connection').css("visibility", "hidden");
                     setTimeout(() => {
                         $('.banner_error').hide().removeClass("volet");
                     }, 5000);
-                },
-            });
+                }
+            }
         }
     });
 }

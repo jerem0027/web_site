@@ -13,11 +13,26 @@
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
 
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+                    <div class="mdl-cell--8-col banner banner_validated">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Secret Santa créé avec succès</h1>
+                        <h3>Redirection...<span id="timer_inscription">7</span></h3>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+
                     <div class="mdl-cell mdl-cell--12-col">
                         <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
                     </div>
 
-                    <div class="mdl-card secret_santa_guest mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card secret_santa_class mdl-cell mdl-cell--12-col">
                         <div class="mdl-card__media"></div>
                         <div class="mdl-cell mdl-cell--12-col">
                             <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">CÉATION D'UN NOUVEAU SECRET SANTA</p>
@@ -57,36 +72,7 @@
                     <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
 
                     <div id="guests_content" class="mdl-grid">
-                        
-                        {{!-- <div class="mdl-cell--1-col">&nbsp;</div>
-                        <div class="mdl-cell--11-col sesa_guest_title">Guest TEST
-                            <i id="remove_guest_TEST_button" class="material-icons remove_guest_button">remove</i>
-                        </div>
-
-
-                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--9-col sesa_guest_element">Nom</div>
-                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--8-col">
-                            <input
-                                class="mdl-textfield__input sesa_create_input"
-                                type="text"
-                                id="guest_TEST_name"
-                                name="guest_TEST_name"
-                                placeholder="Peter P."
-                            />
-                        </div><div class="mdl-cell--1-col">&nbsp;</div>
-                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--9-col sesa_guest_element">Email</div>
-                        <div class="mdl-cell--3-col">&nbsp;</div><div class="mdl-cell--8-col">
-                            <input
-                                class="mdl-textfield__input sesa_create_input"
-                                type="text"
-                                id="guest_TEST_mail"
-                                name="guest_TEST_mail"
-                                placeholder="peter.parker@gmail.com"
-                            />
-                        </div><div class="mdl-cell--1-col">&nbsp;</div>
-                        <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div> --}}
-                    
-                    {{!-- Guest content manage via JS --}}
+                        {{!-- Guest content manage via JS --}}
                     </div>
 
                     <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
@@ -106,28 +92,7 @@
 
                 </div>
             </div>
-
 {{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
         </div>
     </body>
 </html>
-                        {{!-- <div class="mdl-cell mdl-cell--12-col">
-                            <div id="guest_error" class="mdl-cell--12-col banner banner_error">
-                                <img src="../logo/logo-white.png" />
-                                <h1>Votre guest ID n'est pas reconnu ou n'existe pas</h1>
-                                <h3>Merci de vérifier l'URL et de réessayer</h3>
-                            </div>
-                        </div> --}}
-                        {{!-- <div class="mdl-card__supporting-text">
-                            <div class="mdl-cell mdl-cell--12-col context_title">
-                                Context
-                            </div>
-                            <div class="mdl-cell mdl-cell--12-col context_content">
-                                Vous avez été ajouté dans un Secret Santa. Si vos information
-                                ne sont pas correctes merci de contacter la personne qui a
-                                créé le Secret Santa. <br />Une personne vous a été attribuée
-                                et vous trouverez son nom et son adresse email juste en
-                                dessous. N'hésitez pas à la contacter si vous ne savez pas de
-                                qui il s'agit.
-                            </div>
-                        </div> --}}

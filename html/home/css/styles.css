@@ -1,7 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
 .mld_grid {
@@ -23,19 +22,20 @@ body {
 }
 
 @keyframes volet {
-    0% { transform: translateY(-200px); }
-    35% { transform: translateY(0px); }
-    50% { transform: translateY(0px); }
-    75% { transform: translateY(0px); }
-    100% { transform: translateY(-200px); }
+    0% { transform: translateY(0); }
+    35% { transform: translateY(calc(100% + 20px)); }
+    50% { transform: translateY(calc(100% + 20px)); }
+    75% { transform: translateY(calc(100% + 20px)); }
+    99% { transform: translateY(0px); }
+    100% { transform: translateY(-100px); }
 }
 
-@keyframes volet_inscription {
-    0% { transform: translateY(-200px); }
-    35% { transform: translateY(0px); }
-    50% { transform: translateY(0px); }
-    75% { transform: translateY(0px); }
-    100% { transform: translateY(0px); }
+@keyframes volet-10s {
+    0% { transform: translateY(0); }
+    17.5% { transform: translateY(calc(100% + 20px)); }
+    50% { transform: translateY(calc(100% + 20px)); }
+    75% { transform: translateY(calc(100% + 20px)); }
+    100% { transform: translateY(calc(100% + 20px)); }
 }
 
 .vibration {
@@ -48,7 +48,7 @@ body {
     border-bottom-color: red !important;
 }
 
-.volet {
+.volet, .volet-10s {
     animation: volet 5s linear 0s;
     z-index: 10;
     position: fixed;
@@ -56,12 +56,8 @@ body {
     margin-right: 10%;
 }
 
-.volet_inscription {
-    animation: volet_inscription 5s linear 0s;
-    z-index: 10;
-    position: fixed;
-    margin-left: 10%;
-    margin-right: 10%;
+.volet-10s {
+    animation: volet-10s 10s linear 0s;
 }
 
 #content_inscription h1, #content_account h3 {
@@ -82,6 +78,7 @@ body {
     color: #fff;
     text-align: center;
     border-radius: 25px;
+    bottom:calc(100% - 68px);
 }
 
 .banner img{
@@ -273,6 +270,7 @@ img {
     height: 4px;
     background-color: #424242;
     margin: 8px 0;
+    width: 100%;
 }
 
 span.mdl-navigation__link {
@@ -497,6 +495,10 @@ footer div div {
 
     .container_connection .showcreds {
         display: none;
+    }
+
+    .banner {
+        width: fit-content;
     }
 }
 

@@ -131,3 +131,12 @@ const connection_page = function() {
     let pass = $('#password_form_connection').val();
     connection(pseudo, pass)
 }
+
+const timer_redirect = function(cpt) {
+    var time = setInterval(function(){
+        cpt--;
+        $("#timer_inscription").text(cpt.toString());
+        if (cpt === 0)
+            clearInterval(time)
+    }, 1000)
+}

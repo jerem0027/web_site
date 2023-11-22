@@ -57,17 +57,6 @@ input {
     font-size: 20px;
 }
 
-#div_button_add_guest {
-    border: solid 2px #8abfb7;
-    border-radius: 25px;
-    color: #ffffff;
-    background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
-    background-size: 200%;
-    transition: .5s ease-out;
-    max-width: fit-content;
-    padding-right: 10px;
-}
-
 #div_button_add_guest:active, #div_button_create:active {
     transform: scale(0.90);
 }
@@ -76,6 +65,17 @@ input {
 #div_button_create::selection, #create_button::selection {
     background-color: rgba(0, 0, 0, 0);
     color: inherit;
+}
+
+#div_button_add_guest {
+    border: solid 5px #8abfb7;
+    border-radius: 25px;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
+    background-size: 200%;
+    transition: .5s ease-out;
+    max-width: fit-content;
+    padding-right: 10px;
 }
 
 #div_button_add_guest:hover {
@@ -99,13 +99,13 @@ input {
     transform: rotate(-90deg);
 }
 
-#add_guest_button {
+#add_guest_button, #create_button  {
     vertical-align: middle;
     color: #8abfb7;
     border: solid 1px #8abfb7;
     border-radius: 25px;
     padding: 4px;
-    margin: -1px 5px -1px -0px;
+    margin: -1px 5px -1px -1px;
     background-color: #ffffff;
 }
 
@@ -129,10 +129,10 @@ input {
 }
 
 #div_button_create {
-    border: solid 2px #4caf4fc0;
+    border: solid 5px #7ecc7f;
     border-radius: 25px;
     color: #ffffff;
-    background: linear-gradient(to left, #ffffff 50%, #4caf4fc0 50%) left;
+    background: linear-gradient(to left, #ffffff 50%, #7ecc7f 50%) left;
     background-size: 200%;
     transition: .7s ease-out;
     max-width: fit-content;
@@ -141,14 +141,14 @@ input {
 
 #div_button_create:hover {
     background-position: right;
-    color: #4caf4fc0;
+    color: #7ecc7f;
     cursor: pointer;
 }
 
 #div_button_create #create_button {
     text-align: center;
-    color: #4caf4fc0;
-    background: linear-gradient(to left, #4caf4fc0 50%, #ffffff 50%) left;
+    color: #7ecc7f;
+    background: linear-gradient(to left, #7ecc7f 50%, #ffffff 50%) left;
     background-size: 200%;
     transition: .4s ease-out;
     transition-delay: .4s;
@@ -161,11 +161,6 @@ input {
 }
 
 #create_button {
-    vertical-align: middle;
-    color: #4caf4fc0;
-    border: solid 1px #4caf4fc0;
-    border-radius: 25px;
-    padding: 4px;
-    margin: -1px 5px -1px -0px;
-    background-color: #ffffff;
+    color: #7ecc7f;
+    border: solid 1px #7ecc7f;
 }

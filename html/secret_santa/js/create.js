@@ -1,10 +1,49 @@
 jQuery(document).ready(function () {
+    $('.banner').hide();
     setup_guest();
+    default_content();
     $("#div_button_add_guest").on("click", add_guest)
+    $("#div_button_create").on("click", send_secret_santa)
 });
 
-var guest_cpt = 0
+const default_content = async function() {
+    $('#loader_connection').css("visibility", "visible");
+    $("#sesa_end_date").val(new Date().getFullYear() + "-12-25")
+    try {
+        await $.ajax({
+            type: 'get',
+            url: '/api/v1/home_user/user/',
+            headers: {
+                "APIKEY": sessionStorage.getItem("apikey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#guest_1_name').val(data.content.first_name + " " + data.content.name[0] + ".")
+                $('#guest_1_email').val(data.content.email)
+                $('#loader_connection').css("visibility", "hidden");
+            },
+            error: function (data) {
+                $('.banner_error').show().addClass("volet");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    $('.banner_error').hide().removeClass("volet");
+                }, 5000);
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
+            $('.banner_error').show().addClass("volet");
+            $('#loader_connection').css("visibility", "hidden");
+            setTimeout(() => {
+                $('.banner_error').hide().removeClass("volet");
+            }, 5000);
+        }
+    }
+}
 
+var guest_cpt = 0
 const setup_guest = function () {
     content_block = $("#guests_content");
     var final_block = ""
@@ -36,7 +75,6 @@ const setup_guest = function () {
     }
     content_block.html(final_block);
 }
-
 
 const add_guest = function () {
     content_block = $("#guests_content")
@@ -99,4 +137,61 @@ const check_all = function () {
         }
     }
     return check
+}
+
+const send_secret_santa = async function() {
+    $('#loader_connection').css("visibility", "visible");
+    if (! check_all()) {
+        return
+    }
+
+    data_send = {
+        "title": ($("#sesa_title").val() !== "") ? $("#sesa_title").val():"Secret Santa " + new Date().getFullYear(),
+        "date_end": format_date($("#sesa_end_date").val()),
+        "guests": []
+    }
+
+    for(var i=1; i < guest_cpt; i++) {
+        let name = $("#guest_" + i + "_name");
+        let email = $("#guest_" + i + "_email");
+        if (name.val() == "" && email.val() == "")
+            break
+        data_send.guests.push({"name": name.val(), "email": email.val()})
+    }
+    try {
+        await $.ajax({
+            type: 'post',
+            url: '/api/v1/secret_santa/create/',
+            headers: {
+                "APIKEY": sessionStorage.getItem("apikey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(data_send),
+            dataType: 'json',
+            success: function (data) {
+                timer_redirect(7);
+                $('.banner_validated').show().addClass("volet-10s");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    window.location.href = "./manage.html";
+                }, 7000);
+            },
+            error: function (data) {
+                $('.banner_error').show().addClass("volet");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    $('.banner_error').hide().removeClass("volet");
+                }, 8000);
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
+            $('.banner_error').show().addClass("volet");
+            $('#loader_connection').css("visibility", "hidden");
+            setTimeout(() => {
+                $('.banner_error').hide().removeClass("volet");
+            }, 5000);
+        }
+    }
 }

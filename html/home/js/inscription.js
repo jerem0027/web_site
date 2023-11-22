@@ -46,12 +46,12 @@ const send_inscription = async function() {
                     "password": $('#password1').val()
                 }),
                 success: function (data) {
+                    timer_redirect(10);
                     $('#loader_connection').css("visibility", "hidden");
                     sessionStorage.clear();
                     sessionStorage.setItem("apikey", data.APIKEY);
                     sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
-                    $('.banner_validated').addClass("volet_inscription").show()
-                    timer_redirect()
+                    $('.banner_validated').addClass("volet-10s").show();
                     setTimeout(() => {
                         window.location.href = "/";
                     }, 10000);
@@ -142,14 +142,4 @@ const before_pseudo = async function () {
             }
         }
     }
-}
-
-const timer_redirect = function() {
-    var cpt = 10
-    var time = setInterval(function(){
-        cpt--;
-        $("#timer_inscription").text(cpt.toString());
-        if (cpt === 0)
-            clearInterval(time)
-    }, 1000)
 }
