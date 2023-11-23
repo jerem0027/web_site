@@ -1,8 +1,4 @@
 jQuery(function() {
-    if (!sessionStorage.getItem('apikey')) {
-        $(".connection_on_keep").addClass("sesa_hatched");
-    }
-
     $("#btn_check_guest").on("click", guest_button)
     $("#btn_create").on("click", create_button)
     $("#btn_manage").on("click", manage_button)

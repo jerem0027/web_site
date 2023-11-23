@@ -2,9 +2,10 @@ jQuery(function() {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
     $('#btn_connection_page').on("click", connection_page);
-    if (sessionStorage.getItem('apikey')) {
+    if (sessionStorage.getItem('apikey'))
         connected_func();
-    }
+    else
+        disconnected_func();
 
     $("#pseudo").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
@@ -103,6 +104,7 @@ const connection = async function(pseudo, pass) {
 }
 
 const disconnected_pages = ["inscription", "connection"]
+const connected_pages = ["account", "manage", "create"]
 
 const connected_func = function(){
     $('.connection_off').hide();
@@ -131,6 +133,10 @@ const disconnected_func = function() {
             $('.connection_input').removeClass("vibration_input")
             $('#loader_connection').css("visibility", "hidden");
             $(".connection_on_keep").addClass("sesa_hatched");
+            for(var i=0; i < connected_pages.length; i++) {
+                if (window.location.href.endsWith(connected_pages[i]+".html"))
+                    window.location.href = "./index.html";
+            }
         }, 1000);
     });
 }
