@@ -1,0 +1,114 @@
+.guest_title {
+    color: #a96950;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+#sesa_title {
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+#guest_content .mdl-cell--6-col {
+    margin: 8px 0 8px 0;
+    padding: 0 8px 0 8px;
+    width: 50%;
+}
+
+.context_content {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-weight: normal;
+    color: rgba(0,0,0,.65);
+}
+
+.guest_info, .guest_info ol {
+    font-size: 20px;
+    margin-top: 10px;
+    color:#8abfb7;
+    font-weight: bold;
+}
+
+#target_gifts li, #guest_gifts li {
+    margin: 10px 0;
+}
+
+.guest_info span {
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: normal;
+}
+
+@keyframes fade_guest {
+    0% {max-height: 0;}
+    100% {max-height: 750px;}
+}
+
+.fade_guest {
+    overflow: hidden;
+    padding: 0px 8px;
+    margin: 0px 8px;
+    animation: fade_guest 3s ease 0s;
+}
+
+@media (max-width: 650px) {
+    #guest_content .mdl-cell--6-col {
+        margin: 8px 0 8px 0;
+        padding: 0 8px 0 8px;
+        width: 100%;
+    }
+
+    #guest_content, #guest_content .mdl-cell--6-col {
+        border: none;
+    }
+}
+
+/* EDIT BUTTON */
+#div_button_edit_gift {
+    border-color: #8abfb7;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
+    transition-duration: 0.5s;
+}
+
+#div_button_edit_gift:hover {
+    color: #8abfb7;
+}
+
+#edit_gift_button {
+    color: #8abfb7;
+    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
+    border-color: #8abfb7;
+    background-color: #ffffff;
+}
+
+.div_custom_button:hover #edit_gift_button {
+    color: #ffffff;
+}
+
+
+/* SAVE BUTTON */
+#div_button_save_gift {
+    border-color: #7ecc7f;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #7ecc7f 50%) left;
+    transition-duration: 0.5s;
+}
+
+#div_button_save_gift:hover {
+    color: #7ecc7f;
+}
+
+#save_gift_button {
+    color: #7ecc7f;
+    background: linear-gradient(to left, #7ecc7f 50%, #ffffff 50%) left;
+    border-color: #7ecc7f;
+    background-color: #ffffff;
+}
+
+.div_custom_button:hover #save_gift_button {
+    color: #ffffff;
+}
