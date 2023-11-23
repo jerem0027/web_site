@@ -1,5 +1,5 @@
 .sesa_create_title {
-    color: #db0e1c;
+    color: #a96950;
     font-size: 25px;
     font-weight: bold;
 }
@@ -57,57 +57,53 @@ input {
     font-size: 20px;
 }
 
-#div_button_add_guest:active, #div_button_create:active {
-    transform: scale(0.90);
+/* Button Create */
+#div_button_create {
+    border-color: #7ecc7f;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #7ecc7f 50%) left;
+    transition-duration: 0.5s;
 }
 
-#div_button_add_guest::selection, #add_guest_button::selection,
-#div_button_create::selection, #create_button::selection {
-    background-color: rgba(0, 0, 0, 0);
-    color: inherit;
+#div_button_create:hover {
+    color: #7ecc7f;
 }
 
+#create_button {
+    color: #7ecc7f;
+    background: linear-gradient(to left, #7ecc7f 50%, #ffffff 50%) left;
+    border-color: #7ecc7f;
+    background-color: #ffffff;
+}
+
+.div_custom_button:hover #create_button {
+    color: #ffffff;
+}
+
+
+/* Button Add Guest */
 #div_button_add_guest {
-    border: solid 5px #8abfb7;
-    border-radius: 25px;
+    border-color: #8abfb7;
     color: #ffffff;
     background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
-    background-size: 200%;
-    transition: .5s ease-out;
-    max-width: fit-content;
-    padding-right: 10px;
+    transition-duration: 0.5s;
 }
 
 #div_button_add_guest:hover {
-    background-position: right;
     color: #8abfb7;
-    cursor: pointer;
 }
 
-#div_button_add_guest #add_guest_button {
-    text-align: center;
+#add_guest_button {
     color: #8abfb7;
     background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
-    background-size: 200%;
-    transition: .4s ease-out;
-    transition-delay: .2s;
-}
-
-#div_button_add_guest:hover #add_guest_button {
-    color: #ffffff;
-    background-position: right;
-    transform: rotate(-90deg);
-}
-
-#add_guest_button, #create_button  {
-    vertical-align: middle;
-    color: #8abfb7;
-    border: solid 1px #8abfb7;
-    border-radius: 25px;
-    padding: 4px;
-    margin: -1px 5px -1px -1px;
+    border-color: #8abfb7;
     background-color: #ffffff;
 }
+
+.div_custom_button:hover #add_guest_button {
+    color: #ffffff;
+}
+
 
 .remove_guest_button {
     font-size: 15px;
@@ -125,42 +121,5 @@ input {
 .remove_guest_button:hover {
     color: #db0e1c;
     background-color: #ffffff;
-    transform: rotate(-180deg);
-}
-
-#div_button_create {
-    border: solid 5px #7ecc7f;
-    border-radius: 25px;
-    color: #ffffff;
-    background: linear-gradient(to left, #ffffff 50%, #7ecc7f 50%) left;
-    background-size: 200%;
-    transition: .7s ease-out;
-    max-width: fit-content;
-    padding-right: 10px;
-}
-
-#div_button_create:hover {
-    background-position: right;
-    color: #7ecc7f;
-    cursor: pointer;
-}
-
-#div_button_create #create_button {
-    text-align: center;
-    color: #7ecc7f;
-    background: linear-gradient(to left, #7ecc7f 50%, #ffffff 50%) left;
-    background-size: 200%;
-    transition: .4s ease-out;
-    transition-delay: .4s;
-}
-
-#div_button_create:hover #create_button {
-    color: #ffffff;
-    background-position: right;
     transform: rotate(-360deg);
-}
-
-#create_button {
-    color: #7ecc7f;
-    border: solid 1px #7ecc7f;
 }
