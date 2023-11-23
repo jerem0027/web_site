@@ -107,6 +107,10 @@ const disconnected_pages = ["inscription", "connection"]
 const connected_pages = ["account", "manage", "create"]
 
 const connected_func = function(){
+    for(var i=0; i < disconnected_pages.length; i++) {
+        if (window.location.pathname.endsWith(disconnected_pages[i]+".html"))
+            window.location.href = "./index.html";
+    }
     $('.connection_off').hide();
     $('.connection_on').show();
     $(".connection_on_keep").removeClass("sesa_hatched");
@@ -114,15 +118,16 @@ const connected_func = function(){
         sessionStorage.getItem('pseudo')
     );
     $('#loader_connection').css("visibility", "hidden");
-    for(var i=0; i < disconnected_pages.length; i++) {
-        if (window.location.pathname.endsWith(disconnected_pages[i]+".html"))
-            window.location.href = "./index.html";
-    }
 }
 
 const disconnected_func = function() {
     return new Promise((resolve, reject) => {
         $('#loader_connection').css("visibility", "visible");
+        for(var i=0; i < connected_pages.length; i++) {
+            if (window.location.pathname.endsWith(connected_pages[i]+".html")) {
+                window.location.href = "./index.html";
+            }
+        }
         setTimeout(() => {
             localStorage.clear();
             sessionStorage.clear();
@@ -133,11 +138,6 @@ const disconnected_func = function() {
             $('.connection_input').removeClass("vibration_input")
             $('#loader_connection').css("visibility", "hidden");
             $(".connection_on_keep").addClass("sesa_hatched");
-            for(var i=0; i < connected_pages.length; i++) {
-                if (window.location.pathname.endsWith(connected_pages[i]+".html")) {
-                    window.location.href = "./index.html";
-                }
-            }
         }, 1000);
     });
 }
