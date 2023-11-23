@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     $('.connection_on').hide();
     $('#btn_connection_page').on("click", connection_page);
     if (sessionStorage.getItem('apikey')) {
-        connected_func()
+        connected_func();
     }
 
     $("#pseudo").on("keydown", function(event) {
