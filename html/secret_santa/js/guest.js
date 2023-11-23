@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+jQuery(function () {
     $(".banner").hide();
     $("#guest_content").hide();
     $("#div_button_save_gift").hide();

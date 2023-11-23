@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+jQuery(function () {
     $('.banner').hide();
     setup_guest();
     default_content();

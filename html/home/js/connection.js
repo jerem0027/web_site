@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
     $('#btn_connection_page').on("click", connection_page);

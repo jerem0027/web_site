@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+jQuery(function () {
     if (!sessionStorage.getItem('apikey')) {
         $(".connection_on_keep").addClass("sesa_hatched");
     }

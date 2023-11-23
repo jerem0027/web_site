@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+jQuery(function () {
     $('.showcreds').click(function () {
         const id = $(this)[0].id.replace('-', "")
         if ($('#' + id).attr("type") === "text")

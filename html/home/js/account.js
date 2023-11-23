@@ -1,4 +1,4 @@
-jQuery(document).ready(function () {
+jQuery(function () {
     $(".banner").hide();
     $(".user_input").hide();
     $(".btn_save_user").hide();
