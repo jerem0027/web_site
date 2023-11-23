@@ -121,6 +121,8 @@ const connected_func = function(){
 }
 
 const disconnected_func = function() {
+    localStorage.clear();
+    sessionStorage.clear();
     return new Promise((resolve, reject) => {
         $('#loader_connection').css("visibility", "visible");
         for(var i=0; i < connected_pages.length; i++) {
@@ -129,8 +131,6 @@ const disconnected_func = function() {
             }
         }
         setTimeout(() => {
-            localStorage.clear();
-            sessionStorage.clear();
             $('.connection_input').removeAttr("style").val('');
             $('.connection_button').removeAttr("style");
             $('.connection_off').removeAttr("style");
