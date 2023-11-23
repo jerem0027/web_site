@@ -31,8 +31,6 @@ jQuery(function() {
     })
 });
 
-const disconnected_pages = ["inscription", "connection"]
-
 const connection = async function(pseudo, pass) {
     var from_page = true
     if (pseudo == null && pass == null) {
@@ -72,10 +70,6 @@ const connection = async function(pseudo, pass) {
                     connected_func();
                     setTimeout(() => {
                         $('#loader_connection').css("visibility", "hidden");
-                        for(var i; i < disconnected_pages.length; i++) {
-                            if (window.location.href.endsWith(disconnected_pages[i]+".html"));
-                                window.location.href = "../";
-                        }
                     }, 1000)
                 },
                 error: function(data) {
@@ -108,6 +102,8 @@ const connection = async function(pseudo, pass) {
     }
 }
 
+const disconnected_pages = ["inscription", "connection"]
+
 const connected_func = function(){
     $('.connection_off').hide();
     $('.connection_on').show();
@@ -116,6 +112,10 @@ const connected_func = function(){
         sessionStorage.getItem('pseudo')
     );
     $('#loader_connection').css("visibility", "hidden");
+    for(var i=0; i < disconnected_pages.length; i++) {
+        if (window.location.href.endsWith(disconnected_pages[i]+".html"));
+            window.location.href = "../";
+    }
 }
 
 const disconnected_func = function() {
