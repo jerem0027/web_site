@@ -113,8 +113,8 @@ const connected_func = function(){
     );
     $('#loader_connection').css("visibility", "hidden");
     for(var i=0; i < disconnected_pages.length; i++) {
-        if (window.location.href.endsWith(disconnected_pages[i]+".html"));
-            window.location.href = "../";
+        if (window.location.href.endsWith(disconnected_pages[i]+".html"))
+            window.location.href = "./index.html";
     }
 }
 
