@@ -291,7 +291,7 @@ const remove_account = function() {
                         setTimeout(() => {
                             $('#loader_connection').css("visibility", "hidden");
                             $('.banner_validated').hide().removeClass("volet");
-                            window.location.href = "/"
+                            window.location.href = "/home/"
                         }, 5000);
                     },
                     error: function(data) {

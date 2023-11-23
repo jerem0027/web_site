@@ -115,7 +115,7 @@ const connected_func = function(){
     );
     $('#loader_connection').css("visibility", "hidden");
     for(var i=0; i < disconnected_pages.length; i++) {
-        if (window.location.href.endsWith(disconnected_pages[i]+".html"))
+        if (window.location.pathname.endsWith(disconnected_pages[i]+".html"))
             window.location.href = "./index.html";
     }
 }
@@ -134,8 +134,9 @@ const disconnected_func = function() {
             $('#loader_connection').css("visibility", "hidden");
             $(".connection_on_keep").addClass("sesa_hatched");
             for(var i=0; i < connected_pages.length; i++) {
-                if (window.location.href.endsWith(connected_pages[i]+".html"))
+                if (window.location.pathname.endsWith(connected_pages[i]+".html")) {
                     window.location.href = "./index.html";
+                }
             }
         }, 1000);
     });

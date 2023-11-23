@@ -53,7 +53,7 @@ const send_inscription = async function() {
                     sessionStorage.setItem("pseudo", $('#pseudo_form').val().toLowerCase());
                     $('.banner_validated').addClass("volet-10s").show();
                     setTimeout(() => {
-                        window.location.href = "/";
+                        window.location.href = "/home/";
                     }, 10000);
                 },
                 error: function(data) {
