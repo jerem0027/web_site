@@ -42,8 +42,16 @@
     padding: -0;
     line-height: 100px;
     background-color: inherit;
-    border-left: dashed 2px #8abfb7;
+    /* border-left: solid 2px #8abfb7; */
     border-radius: 0;
+    background-size: 200% !important;
+    transition-timing-function: ease-out;
+}
+
+.button_card:hover {
+    cursor: pointer;
+    background-position: right !important;
+    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
 }
 
 .button_card:active {
@@ -81,6 +89,33 @@
 
 .center_div_classic {
     margin-top: 45px;
+}
+
+.sesa_hatched {
+    background: repeating-linear-gradient(
+        45deg,
+        #424242,
+        #424242 10px,
+        #616161 10px,
+        #616161 20px
+        );
+    opacity: 50%;
+    color: #ffffff !important;
+    border-color: #616161;
+}
+
+.sesa_hatched .button_card, .sesa_hatched .container {
+    color: #ffffff !important;
+}
+
+.sesa_hatched img {
+    filter: grayscale(1);
+}
+
+.sesa_hatched div:hover, .sesa_hatched button:hover, .sesa_hatched button:active {
+    background: transparent !important;
+    cursor: default;
+    transform: none;
 }
 
 @media (max-width: 1050px) {

@@ -20,7 +20,7 @@
         <script type="text/javascript" src="../mdl/material.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="../home/js/connection.js"></script>
-        <script type="text/javascript" src="js/secret_santa.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
     </head>
     <body>
@@ -135,22 +135,6 @@
                                     <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
                                 </div>
                                 <div class="center-div">
-                                    <div class="center_div_classic">CRÉER UN SECRET SANTA</div>
-                                </div>
-                                <button class="button_card" onclick="window.location.href = '/secret_santa/create.html';">CRÉER</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
-
-                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
-                        <div class="mdl-cell mdl-cell--12-col">
-                            <div class="container">
-                                <div class="left-div">
-                                    <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
-                                </div>
-                                <div class="center-div">
                                     <div id="center_div_gest">JE SUIS UN GEST</div>
                                     <input
                                         placeholder="Guest ID"
@@ -159,14 +143,30 @@
                                         id="guest_input"
                                     />
                                 </div>
-                                <button class="button_card" onclick="guest_button()">ACCÉDER</button>
+                                <button class="button_card" id="btn_check_guest">ACCÉDER</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="mdl-cell--12-col separator_content">&nbsp;</div>
 
-                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card connection_on_keep">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="container">
+                                <div class="left-div">
+                                    <img class="santa_logo" alt="Preview site" src="images/secret_santa_logo.jpg">
+                                </div>
+                                <div class="center-div">
+                                    <div class="center_div_classic">CRÉER UN SECRET SANTA</div>
+                                </div>
+                                <button class="button_card" id="btn_create">CRÉER</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell--12-col separator_content connection_on_keep">&nbsp;</div>
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col secret_santa_card connection_on_keep">
                         <div class="mdl-cell mdl-cell--12-col">
                             <div class="container">
                                 <div class="left-div">
@@ -175,7 +175,7 @@
                                 <div class="center-div">
                                     <div class="center_div_classic">GÉRER MES SECRET SANTA</div>
                                 </div>
-                                <button class="button_card" onclick="window.location.href = '/secret_santa/manage.html';">LISTER</button>
+                                <button class="button_card" id="btn_manage">LISTER</button>
                             </div>
                         </div>
                     </div>

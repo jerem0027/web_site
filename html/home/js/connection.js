@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
     $("#pseudo").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
             $("#btn_connection").click();
-            console.log("test ICI")
         }
     })
 
@@ -31,6 +30,8 @@ jQuery(document).ready(function ($) {
         }
     })
 });
+
+const disconnected_pages = ["inscription", "connection"]
 
 const connection = async function (pseudo, pass) {
     var from_page = true
@@ -71,7 +72,10 @@ const connection = async function (pseudo, pass) {
                     connected_func();
                     setTimeout(() => {
                         $('#loader_connection').css("visibility", "hidden");
-                        window.location.href = "/";
+                        for(var i; i < disconnected_pages.length; i++) {
+                            if (window.location.href.endsWith(disconnected_pages[i]+".html"));
+                                window.location.href = "../";
+                        }
                     }, 1000)
                 },
                 error: function(data) {
@@ -99,6 +103,7 @@ const connection = async function (pseudo, pass) {
 const connected_func = function(){
     $('.connection_off').hide();
     $('.connection_on').show();
+    $(".connection_on_keep").removeClass("sesa_hatched");
     $('#display_username').html(
         sessionStorage.getItem('pseudo')
     );
