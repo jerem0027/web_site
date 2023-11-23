@@ -1,5 +1,5 @@
-jQuery(function () {
-    $('.showcreds').click(function () {
+jQuery(function() {
+    $('.showcreds').on("click", function() {
         const id = $(this)[0].id.replace('-', "")
         if ($('#' + id).attr("type") === "text")
             $('#' + id).attr("type", "password");

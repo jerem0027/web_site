@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery(function() {
     if (!sessionStorage.getItem('apikey')) {
         $(".connection_on_keep").addClass("sesa_hatched");
     }
@@ -26,13 +26,13 @@ const guest_button = function() {
             type: 'get',
             url: '/api/v1/secret_santa/guest/' + guest_id,
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 setTimeout(() => {
                     window.location.href = "/secret_santa/guest.html?guest=" + guest_id;
                 }, 1000);
                 $('#loader_connection').css("visibility", "hidden");
             },
-            error: function (data) {
+            error: function(data) {
                 $('#loader_connection').css("visibility", "visible");
                 $('#guest_input').addClass("vibration_input");
                 setTimeout(() => {

@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery(function() {
     $(".banner").hide();
     $(".user_input").hide();
     $(".btn_save_user").hide();
@@ -18,7 +18,7 @@ const user_check = async function() {
                 "Content-Type": "application/json"
             },
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 $('#form_pseudo').html(data.content.pseudo)
                 $('#form_inscription_date').html(format_date(data.content.inscription_date))
                 $('#form_name').html(data.content.name);
@@ -27,7 +27,7 @@ const user_check = async function() {
                 $('#form_birthdate').html(format_date(data.content.birthdate));
                 $('#loader_connection').css("visibility", "hidden");
             },
-            error: function (data) {
+            error: function(data) {
                 $('#loader_connection').css("visibility", "hidden");
             },
         });
@@ -110,7 +110,7 @@ const send_user = async function(field) {
             },
             data: JSON.stringify(data_send),
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 user_check();
                 $("#btn_edit_" + field).show();
                 $("#btn_save_" + field).hide();
@@ -123,7 +123,7 @@ const send_user = async function(field) {
                     $('.banner_validated').hide().removeClass("volet");
                 }, 5000);
             },
-            error: function (data) {
+            error: function(data) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
@@ -145,7 +145,7 @@ const send_user = async function(field) {
 var before_submit_bool = false
 var before_pass_bool = false
 
-const before_pass = async function () {
+const before_pass = async function() {
     old_pass_val = $('#password0').val()
     try {
         await $.ajax({
@@ -168,7 +168,7 @@ const before_pass = async function () {
                 "pseudo": sessionStorage.getItem("pseudo"),
                 "password": old_pass_val
             }),
-            success: function (data) {
+            success: function(data) {
                 sessionStorage.removeItem("masterkey");
                 $('.not_same_as_old').css("visibility", "hidden")
                 before_pass_bool = true
@@ -193,7 +193,7 @@ const before_pass = async function () {
     }
 }
 
-const before_submit = async function () {
+const before_submit = async function() {
     if (check_pattern($('#password1').val())){
         $('#loader_connection').css("visibility", "hidden");
         before_submit_bool = false
@@ -227,7 +227,7 @@ const send_password = async function() {
                 data: JSON.stringify({
                     "password": $('#password1').val()
                 }),
-                success: function (data) {
+                success: function(data) {
                     $('#password0').val("");
                     $('#password1').val("");
                     $('#password2').val("");
@@ -237,7 +237,7 @@ const send_password = async function() {
                         $('.banner_validated').hide().removeClass("volet");
                     }, 5000);
                 },
-                error: function (data) {
+                error: function(data) {
                     $('.banner_error').show().addClass("volet");
                     $('#loader_connection').css("visibility", "hidden");
                     setTimeout(() => {
@@ -257,7 +257,7 @@ const send_password = async function() {
     }
 }
 
-const remove_account = function () {
+const remove_account = function() {
 
     $('#pseudo_remove_account').html(sessionStorage.getItem("pseudo"))
     var dialog = document.querySelector('dialog');
@@ -283,7 +283,7 @@ const remove_account = function () {
                         "Content-Type": "application/json"
                     },
                     dataType: 'json',
-                    success: function (data) {
+                    success: function(data) {
                         $('.banner_validated').show().addClass("volet");
                         setTimeout(() => {
                             disconnected_func();
@@ -294,7 +294,7 @@ const remove_account = function () {
                             window.location.href = "/"
                         }, 5000);
                     },
-                    error: function (data) {
+                    error: function(data) {
                         $('.banner_error').show().addClass("volet");
                         $('#loader_connection').css("visibility", "hidden");
                         setTimeout(() => {
@@ -315,7 +315,7 @@ const remove_account = function () {
     });
 }
 
-const check_pseudo_remove = function () {
+const check_pseudo_remove = function() {
     if (sessionStorage.getItem("pseudo") === $('#input_remove_account').val()) {
         $('#input_remove_account').css('border-bottom-color', '#2385b3')
         return true

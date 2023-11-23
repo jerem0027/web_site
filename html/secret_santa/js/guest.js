@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery(function() {
     $(".banner").hide();
     $("#guest_content").hide();
     $("#div_button_save_gift").hide();
@@ -16,7 +16,7 @@ const guest_check = function() {
             type: 'get',
             url: '/api/v1/secret_santa/guest/' + product,
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 setTimeout(() => {
                     set_gift_list(data.content.gift_list, data.content.target_gift_list);
                     $('#sesa_title').html(data.content.secret_santa);
@@ -32,7 +32,7 @@ const guest_check = function() {
                     $('#loader_connection').css("visibility", "hidden");
                 }, '1000');
             },
-            error: function (data) {
+            error: function(data) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
@@ -51,7 +51,7 @@ const guest_check = function() {
     }
 }
 
-const set_gift_list = function (gift_list, target_gift_list) {
+const set_gift_list = function(gift_list, target_gift_list) {
     $('#loader_connection').css("visibility", "visible");
     content_block = $("#guest_gifts")
     content_block.html("")
@@ -86,7 +86,7 @@ const set_gift_list = function (gift_list, target_gift_list) {
     $('#loader_connection').css("visibility", "hidden");
 }
 
-const edit_gift_list = function () {
+const edit_gift_list = function() {
     $('#loader_connection').css("visibility", "visible");
     $("#div_button_edit_gift").hide()
     $("#div_button_save_gift").show()
@@ -109,7 +109,7 @@ const edit_gift_list = function () {
     $('#loader_connection').css("visibility", "hidden");
 }
 
-const save_gift_list = async function () {
+const save_gift_list = async function() {
     $('#loader_connection').css("visibility", "visible");
     $("#div_button_edit_gift").show()
     $("#div_button_save_gift").hide()
@@ -141,10 +141,10 @@ const save_gift_list = async function () {
                 "Content-Type": "application/json"
             },
             data: JSON.stringify(data_send),
-            success: function (data) {
+            success: function(data) {
                 $('#loader_connection').css("visibility", "hidden");
             },
-            error: function (data) {
+            error: function(data) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {

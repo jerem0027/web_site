@@ -1,4 +1,4 @@
-jQuery(function ($) {
+jQuery(function() {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
     $('#btn_connection_page').on("click", connection_page);
@@ -8,32 +8,32 @@ jQuery(function ($) {
 
     $("#pseudo").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            $("#btn_connection").click();
+            $("#btn_connection").trigger("click");
         }
     })
 
     $("#password").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            $("#btn_connection").click();
+            $("#btn_connection").trigger("click");
         }
     })
 
     $("#pseudo_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            $("#btn_connection_page").click();
+            $("#btn_connection_page").trigger("click");
         }
     })
 
     $("#password_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
-            $("#btn_connection_page").click();
+            $("#btn_connection_page").trigger("click");
         }
     })
 });
 
 const disconnected_pages = ["inscription", "connection"]
 
-const connection = async function (pseudo, pass) {
+const connection = async function(pseudo, pass) {
     var from_page = true
     if (pseudo == null && pass == null) {
         pseudo=$('#pseudo').val().toLowerCase();
@@ -65,7 +65,7 @@ const connection = async function (pseudo, pass) {
                     "pseudo": pseudo,
                     "password": pass
                 }),
-                success: function (data) {
+                success: function(data) {
                     sessionStorage.clear();
                     sessionStorage.setItem("apikey", data.APIKEY);
                     sessionStorage.setItem('pseudo', data.pseudo);
@@ -85,6 +85,11 @@ const connection = async function (pseudo, pass) {
                         $('.input_connection_page').addClass("vibration_input");
                     else
                         $('.connection_input').addClass("vibration_input");
+                    setTimeout(() => {
+                        $('.input_connection_page').removeClass("vibration_input");
+                        $('.connection_input').removeClass("vibration_input");
+                    }, 3000)
+
                 }
             });
         } catch (error) {
@@ -95,6 +100,9 @@ const connection = async function (pseudo, pass) {
                     $('.input_connection_page').addClass("vibration_input");
                 else
                     $('.connection_input').addClass("vibration_input");
+                setTimeout(() => {
+                    $('.input_connection_page, .connection_input').removeClass("vibration_input");
+                }, 3000)
             }
         }
     }
@@ -122,6 +130,7 @@ const disconnected_func = function() {
             $('.connection_on').hide();
             $('.connection_input').removeClass("vibration_input")
             $('#loader_connection').css("visibility", "hidden");
+            $(".connection_on_keep").addClass("sesa_hatched");
         }, 1000);
     });
 }

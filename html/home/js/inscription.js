@@ -1,4 +1,4 @@
-jQuery(function ($) {
+jQuery(function() {
     init();
 });
 
@@ -7,11 +7,11 @@ const init = function() {
     $('.banner').hide();
 
     // Enregistre elements
-    $('.inscription_input_save').change(function () {
+    $('.inscription_input_save').change(function() {
         localStorage.setItem($(this)[0].name, $('#' + $(this)[0].name).val());
     });
     
-    $('.inscription_input_save').each(function () {
+    $('.inscription_input_save').each(function() {
         $('#' + $(this)[0].name).val(localStorage.getItem($(this)[0].name));
     });
     before_pseudo()
@@ -45,7 +45,7 @@ const send_inscription = async function() {
                     "email": $('#email').val(),
                     "password": $('#password1').val()
                 }),
-                success: function (data) {
+                success: function(data) {
                     timer_redirect(10);
                     $('#loader_connection').css("visibility", "hidden");
                     sessionStorage.clear();
@@ -56,7 +56,7 @@ const send_inscription = async function() {
                         window.location.href = "/";
                     }, 10000);
                 },
-                error: function (data) {
+                error: function(data) {
                     $('.banner_error').show().addClass("volet");
                     $('#loader_connection').css("visibility", "hidden");
                     setTimeout(() => {
@@ -79,9 +79,9 @@ const send_inscription = async function() {
 var before_submit_bool = false
 var before_pseudo_bool = false
 
-const before_submit = function () {
+const before_submit = function() {
     $('#loader_connection').css("visibility", "visible");
-    $('.inscription_input').each(function () {
+    $('.inscription_input').each(function() {
         if (!$(this).val()) {
             $(this).css('borderColor', 'red');
             before_submit_bool = false;
@@ -109,7 +109,7 @@ const before_submit = function () {
     before_submit_bool = true
 }
 
-const before_pseudo = async function () {
+const before_pseudo = async function() {
     if ($('#pseudo_form').val() != "") {
         try {
             await $.ajax({
@@ -123,7 +123,7 @@ const before_pseudo = async function () {
                     }, 1500);
                     before_pseudo_bool = false;
                 },
-                error: function (data, status, xml) {
+                error: function(data, status, xml) {
                     $('.invalid_input').css("visibility", "hidden");
                     before_pseudo_bool = true
                 }

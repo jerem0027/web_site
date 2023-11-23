@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery(function() {
     $('.banner').hide();
     setup_guest();
     default_content();
@@ -19,12 +19,12 @@ const default_content = async function() {
                 "Content-Type": "application/json"
             },
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 $('#guest_1_name').val(data.content.first_name + " " + data.content.name[0] + ".")
                 $('#guest_1_email').val(data.content.email)
                 $('#loader_connection').css("visibility", "hidden");
             },
-            error: function (data) {
+            error: function(data) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
@@ -44,7 +44,7 @@ const default_content = async function() {
 }
 
 var guest_cpt = 0
-const setup_guest = function () {
+const setup_guest = function() {
     content_block = $("#guests_content");
     var final_block = ""
     for (guest_cpt=1; guest_cpt<=3; guest_cpt++) {
@@ -76,7 +76,7 @@ const setup_guest = function () {
     content_block.html(final_block);
 }
 
-const add_guest = function () {
+const add_guest = function() {
     content_block = $("#guests_content")
     content_block.append(`
         <div class="mdl-cell--1-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--11-col element_${guest_cpt} sesa_guest_title">Guest ${guest_cpt}
@@ -107,7 +107,7 @@ const add_guest = function () {
     guest_cpt+=1
 }
 
-const remove_guest = function (id) {
+const remove_guest = function(id) {
     $(".element_" + id).remove();
     content_block = $("#guests_content");
     if (id > 4) {
@@ -116,7 +116,7 @@ const remove_guest = function (id) {
     guest_cpt-=1
 }
 
-const check_all = function () {
+const check_all = function() {
     let check = true;
     for(var i=1; i < guest_cpt; i++) {
         let name = $("#guest_" + i + "_name");
@@ -169,7 +169,7 @@ const send_secret_santa = async function() {
             },
             data: JSON.stringify(data_send),
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 timer_redirect(7);
                 $('.banner_validated').show().addClass("volet-10s");
                 $('#loader_connection').css("visibility", "hidden");
@@ -177,7 +177,7 @@ const send_secret_santa = async function() {
                     window.location.href = "./manage.html";
                 }, 7000);
             },
-            error: function (data) {
+            error: function(data) {
                 $('.banner_error').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
