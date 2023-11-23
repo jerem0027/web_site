@@ -21,7 +21,7 @@
 .left-div {
     text-align: left;
     font-weight: bolder !important;
-    border-right: dashed 2px #8abfb7;
+    border-right: solid 2px #8abfb7;
     margin: -10px -10px -10px -10px;
     padding: 5px 20px 5px 20px;
 }
@@ -33,37 +33,36 @@
     padding: 0 30px 0 30px;
 }
 
-.button_card {
+.sesa_button_card {
     font-weight: bolder;
     color: #db0e1c;
     text-align: center;
     width: 200px;
+    max-height: 130px;
+    line-height: 136px;
     margin: -10px -10px -10px -10px;
-    padding: -0;
-    line-height: 100px;
-    background-color: inherit;
-    border-left: dashed 2px #8abfb7;
+    padding: 0;
+    border-left: solid 2px #8abfb7;
     border-radius: 0;
     background-size: 200% !important;
+    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
+    transition: all 0.5s;
     transition-timing-function: ease-out;
 }
 
-.button_card:hover {
+.sesa_button_card:hover {
     cursor: pointer;
     background-position: right !important;
-    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
+    color:#ffffff;
 }
 
-.button_card:active {
+.sesa_button_card:active {
     transform: scale(0.98);
 }
 
 .secret_santa_card button:hover, .left-div:hover {
     background-color: #8abfb7;
-    transition: all 0.5s ease;
-    border-color: #8abfb7;
     color: white;
-    transition: all 0.3s ease;
 }
 
 .secret_santa_input {
@@ -104,15 +103,16 @@
     border-color: #616161;
 }
 
-.sesa_hatched .button_card, .sesa_hatched .container {
+.sesa_hatched .sesa_button_card, .sesa_hatched .container {
     color: #ffffff !important;
+    background: transparent !important;
 }
 
 .sesa_hatched img {
     filter: grayscale(1);
 }
 
-.sesa_hatched div:hover, .sesa_hatched button:hover, .sesa_hatched button:active {
+.sesa_hatched div:hover, .sesa_hatched .sesa_button_card:hover, .sesa_hatched .sesa_button_card:active {
     background: transparent !important;
     cursor: default;
     transform: none;
