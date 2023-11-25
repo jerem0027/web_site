@@ -1,14 +1,14 @@
 #!/bin/bash
 
 dockers=("nginx" "php" "mariadb" "phpmyadmin")
-commandes=("start" "stop" "restart" "remove" "network")
+commandes=("start" "stop" "restart" "rm" "network")
 
 _completion() {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local prev=${COMP_WORDS[COMP_CWORD-1]}
 
     case "$prev" in
-        start|stop|restart|remove)
+        start|stop|restart|rm)
             local opts="${dockers[*]}"
             COMPREPLY=($(compgen -W "$opts" -- "$cur"))
             ;;
@@ -64,7 +64,7 @@ case "$cmd" in
             done
         fi
         ;;
-    remove)
+    rm)
         if [[ $docker != "" ]]; then
             docker stop $docker && docker rm $docker
         else

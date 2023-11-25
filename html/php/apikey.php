@@ -11,7 +11,7 @@ $curl = curl_init(URL_API);
 $options = [
     CURLOPT_HTTPHEADER => ['Content-type: application/json', 'APIKEY:'.$_ENV["MASTERKEY"]],
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_CONNECTTIMEOUT => 20,
+    CURLOPT_CONNECTTIMEOUT => 3,
 ];
 
 curl_setopt_array($curl, $options);
@@ -20,10 +20,10 @@ curl_setopt_array($curl, $options);
 $response = curl_exec($curl);
 
 // Check requestion respond
-if (!str_contains($response, "502 Bad Gateway")) {
+if (!str_contains($response, "502 Bad Gateway") && "$response" !== "") {
     echo $response;
 } else {
-    echo json_encode(array('status' => "API not responding"));
+    echo json_encode(array('error' => array("massage" => "API not responding", "type" => "ServerError", "code" => 500), "message" => "API not responding"));
 }
 
 // Close cURL session
