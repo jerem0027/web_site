@@ -19,8 +19,8 @@ const user_check = async function() {
             },
             dataType: 'json',
             success: function(data) {
-                $('#form_pseudo').html(data.content.pseudo)
-                $('#form_inscription_date').html(format_date(data.content.inscription_date))
+                $('#form_pseudo').html(data.content.pseudo);
+                $('#form_inscription_date').html(format_date(data.content.inscription_date));
                 $('#form_name').html(data.content.name);
                 $('#form_first_name').html(data.content.first_name);
                 $('#form_email').html(data.content.email);
@@ -43,46 +43,46 @@ const user_check = async function() {
 }
 
 const edit_user = function(field){
-    $("#btn_edit_" + field).hide()
-    $("#btn_save_" + field).show()
+    $("#btn_edit_" + field).hide();
+    $("#btn_save_" + field).show();
 
-    $("#form_" + field).hide()
-    $("#form_input_" + field).show()
-    let input = $("#form_input_" + field + " input")
-    input.focus()
+    $("#form_" + field).hide();
+    $("#form_input_" + field).show();
+    let input = $("#form_input_" + field + " input");
+    input.focus();
     if (input.attr("type") === "date")
-        input.val(format_date($("#form_" + field).html()))
+        input.val(format_date($("#form_" + field).html()));
     else
-        input.attr("placeholder", $("#form_" + field).html())
-    check_field(field)
+        input.attr("placeholder", $("#form_" + field).html());
+    check_field(field);
 }
 
 const check_field = function(field) {
-    let input = $("#form_input_" + field + " input")
+    let input = $("#form_input_" + field + " input");
 
     if (input.val() === "" || input.val() === format_date($("#form_" + field).html())) {
-        $("#btn_save_" + field).addClass("btn_cancel_user")
-        $("#btn_save_" + field).removeClass("btn_save_user")
-        $("#btn_save_" + field).html("Annuler")
-        return
+        $("#btn_save_" + field).addClass("btn_cancel_user");
+        $("#btn_save_" + field).removeClass("btn_save_user");
+        $("#btn_save_" + field).html("Annuler");
+        return;
     }
 
-    $("#btn_save_" + field).removeClass("btn_cancel_user")
-    $("#btn_save_" + field).addClass("btn_save_user")
-    $("#btn_save_" + field).html("Enregistrer")
+    $("#btn_save_" + field).removeClass("btn_cancel_user");
+    $("#btn_save_" + field).addClass("btn_save_user");
+    $("#btn_save_" + field).html("Enregistrer");
 }
 
 const send_user = async function(field) {
     $('#loader_connection').css("visibility", "visible");
-    let input = $("#form_input_" + field + " input")
+    let input = $("#form_input_" + field + " input");
     if (input.val() === "" || input.val() === format_date($("#form_" + field).html())) {
-        $("#btn_edit_" + field).show()
-        $("#btn_save_" + field).hide()
-        $("#form_" + field).show()
-        $("#form_input_" + field).hide()
-        $("#btn_save_" + field).html("Enregistrer")
+        $("#btn_edit_" + field).show();
+        $("#btn_save_" + field).hide();
+        $("#form_" + field).show();
+        $("#form_input_" + field).hide();
+        $("#btn_save_" + field).html("Enregistrer");
         $('#loader_connection').css("visibility", "hidden");
-        return
+        return;
     }
 
     if (field == 'email') {
@@ -96,9 +96,9 @@ const send_user = async function(field) {
     }
 
     data_send = {}
-    data_send[field] = "" + $("#" + field + "_user").val()
+    data_send[field] = "" + $("#" + field + "_user").val();
     if (field == 'birthdate')
-        data_send[field] = format_date(data_send[field])
+        data_send[field] = format_date(data_send[field]);
     try {
         await $.ajax({
             type: 'put',
@@ -142,11 +142,11 @@ const send_user = async function(field) {
     }
 }
 
-var before_submit_bool = false
-var before_pass_bool = false
+var before_submit_bool = false;
+var before_pass_bool = false;
 
 const before_pass = async function() {
-    old_pass_val = $('#password0').val()
+    old_pass_val = $('#password0').val();
     try {
         await set_masterkey();
         await $.ajax({
@@ -163,14 +163,14 @@ const before_pass = async function() {
             }),
             success: function(data) {
                 sessionStorage.removeItem("masterkey");
-                $('.not_same_as_old').css("visibility", "hidden")
-                before_pass_bool = true
+                $('.not_same_as_old').css("visibility", "hidden");
+                before_pass_bool = true;
             },
             error: function(data) {
                 sessionStorage.removeItem("masterkey");
                 $('.not_same_as_old').css("visibility", "visible").addClass('vibration');
                 $('.not_same_as_old').removeClass('vibration');
-                before_pass_bool = false
+                before_pass_bool = false;
             }
         });
     } catch (error) {
@@ -182,14 +182,14 @@ const before_pass = async function() {
                 $('.banner_error').hide().removeClass("volet");
             }, 5000);
         }
-        before_pass_bool = false
+        before_pass_bool = false;
     }
 }
 
 const before_submit = async function() {
     if (check_pattern($('#password1').val())){
         $('#loader_connection').css("visibility", "hidden");
-        before_submit_bool = false
+        before_submit_bool = false;
     }
 
     if ($('#password1').val() != $('#password2').val()) {
@@ -197,7 +197,7 @@ const before_submit = async function() {
         setTimeout(() => {
             $('.not_same_error').removeClass('vibration');
         }, 1500);
-        before_submit_bool = false
+        before_submit_bool = false;
     } else {
         $('.not_same_error').css("visibility", "hidden");
     }
@@ -252,7 +252,7 @@ const send_password = async function() {
 
 const remove_account = function() {
 
-    $('#pseudo_remove_account').html(sessionStorage.getItem("pseudo"))
+    $('#pseudo_remove_account').html(sessionStorage.getItem("pseudo"));
     var dialog = document.querySelector('dialog');
     if (! dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
@@ -284,7 +284,7 @@ const remove_account = function() {
                         setTimeout(() => {
                             $('#loader_connection').css("visibility", "hidden");
                             $('.banner_validated').hide().removeClass("volet");
-                            window.location.href = "/home/"
+                            window.location.href = "/home/";
                         }, 5000);
                     },
                     error: function(data) {
@@ -310,9 +310,9 @@ const remove_account = function() {
 
 const check_pseudo_remove = function() {
     if (sessionStorage.getItem("pseudo") === $('#input_remove_account').val()) {
-        $('#input_remove_account').css('border-bottom-color', '#2385b3')
-        return true
+        $('#input_remove_account').css('border-bottom-color', '#2385b3');
+        return true;
     }
-    $('#input_remove_account').css('border-bottom-color', 'red')
-    return false
+    $('#input_remove_account').css('border-bottom-color', 'red');
+    return false;
 }

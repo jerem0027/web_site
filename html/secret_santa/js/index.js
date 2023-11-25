@@ -1,7 +1,7 @@
 jQuery(function() {
-    $("#btn_check_guest").on("click", guest_button)
-    $("#btn_create").on("click", create_button)
-    $("#btn_manage").on("click", manage_button)
+    $("#btn_check_guest").on("click", guest_button);
+    $("#btn_create").on("click", create_button);
+    $("#btn_manage").on("click", manage_button);
 });
 
 const create_button = function() {
@@ -32,7 +32,7 @@ const guest_button = function() {
                 $('#loader_connection').css("visibility", "visible");
                 $('#guest_input').addClass("vibration_input");
                 setTimeout(() => {
-                    $('#guest_input').removeClass("vibration_input")
+                    $('#guest_input').removeClass("vibration_input");
                     $('#loader_connection').css("visibility", "hidden");
                 }, '1000');
             }
@@ -42,7 +42,7 @@ const guest_button = function() {
             $('#loader_connection').css("visibility", "visible");
             $('#guest_input').addClass("vibration_input");
             setTimeout(() => {
-                $('#guest_input').removeClass("vibration_input")
+                $('#guest_input').removeClass("vibration_input");
                 $('#loader_connection').css("visibility", "hidden");
             }, '1000');
         }

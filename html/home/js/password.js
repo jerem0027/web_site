@@ -1,6 +1,6 @@
 jQuery(function() {
     $('.showcreds').on("click", function() {
-        const id = $(this)[0].id.replace('-', "")
+        const id = $(this)[0].id.replace('-', "");
         if ($('#' + id).attr("type") === "text")
             $('#' + id).attr("type", "password");
         else
@@ -13,7 +13,7 @@ jQuery(function() {
 });
 
 const check_pattern = function(value) {
-    var tests = false
+    var tests = false;
 
     pattern_min = /[a-z]/;
     if (!pattern_min.test(value)) {
@@ -58,5 +58,5 @@ const check_pattern = function(value) {
     } else {
         $('#pattern_spe').css('color', 'limegreen');
     }
-    return tests
+    return tests;
 }

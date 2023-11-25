@@ -10,11 +10,11 @@ const init = function() {
     $('.inscription_input_save').change(function() {
         localStorage.setItem($(this)[0].name, $('#' + $(this)[0].name).val());
     });
-    
+
     $('.inscription_input_save').each(function() {
         $('#' + $(this)[0].name).val(localStorage.getItem($(this)[0].name));
     });
-    before_pseudo()
+    before_pseudo();
 }
 
 const send_inscription = async function() {
@@ -69,8 +69,8 @@ const send_inscription = async function() {
     }
 }
 
-var before_submit_bool = false
-var before_pseudo_bool = false
+var before_submit_bool = false;
+var before_pseudo_bool = false;
 
 const before_submit = function() {
     $('#loader_connection').css("visibility", "visible");
@@ -85,8 +85,8 @@ const before_submit = function() {
 
     if (check_pattern($('#password1').val())){
         $('#loader_connection').css("visibility", "hidden");
-        before_submit_bool = false
-        return
+        before_submit_bool = false;
+        return;
     }
 
     if ($('#password1').val() != $('#password2').val()) {
@@ -99,7 +99,7 @@ const before_submit = function() {
         $('.not_same_error').css("visibility", "hidden");
     }
     $('#loader_connection').css("visibility", "hidden");
-    before_submit_bool = true
+    before_submit_bool = true;
 }
 
 const before_pseudo = async function() {
@@ -118,9 +118,9 @@ const before_pseudo = async function() {
                 },
                 error: function(data, status, xml) {
                     $('.invalid_input').css("visibility", "hidden");
-                    before_pseudo_bool = true
+                    before_pseudo_bool = true;
                 }
-            })
+            });
             $('#loader_connection').css("visibility", "hidden");
         } catch (error) {
             if (400 > error.status || error.status > 499) {

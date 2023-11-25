@@ -2,13 +2,14 @@ jQuery(function() {
     $('.banner').hide();
     setup_guest();
     default_content();
-    $("#div_button_add_guest").on("click", add_guest)
-    $("#div_button_create").on("click", send_secret_santa)
+    $("#div_button_add_guest").on("click", add_guest);
+    $("#div_button_create").on("click", send_secret_santa);
 });
 
 const default_content = async function() {
     $('#loader_connection').css("visibility", "visible");
-    $("#sesa_end_date").val(new Date().getFullYear() + "-12-25")
+    $("#sesa_new_title").attr('placeholder', "Secret Santa " + new Date().getFullYear());
+    $("#sesa_end_date").val(new Date().getFullYear() + "-12-25");
     try {
         await $.ajax({
             type: 'get',
@@ -20,8 +21,8 @@ const default_content = async function() {
             },
             dataType: 'json',
             success: function(data) {
-                $('#guest_0_name').html(data.content.first_name + " " + data.content.name[0] + ".")
-                $('#guest_0_email').html(data.content.email)
+                $('#guest_0_name').html(data.content.first_name + " " + data.content.name[0] + ".");
+                $('#guest_0_email').html(data.content.email);
                 $('#loader_connection').css("visibility", "hidden");
             },
             error: function(data) {
@@ -43,10 +44,10 @@ const default_content = async function() {
     }
 }
 
-var guest_cpt = 0
+var guest_cpt = 0;
 const setup_guest = function() {
     content_block = $("#guests_content");
-    var final_block = ""
+    var final_block = "";
     for (guest_cpt=1; guest_cpt<=2; guest_cpt++) {
         final_block += `
         <div class="mdl-cell--1-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--11-col element_${guest_cpt} sesa_guest_title">Guest ${guest_cpt}</div>
@@ -77,7 +78,7 @@ const setup_guest = function() {
 }
 
 const add_guest = function() {
-    content_block = $("#guests_content")
+    content_block = $("#guests_content");
     content_block.append(`
         <div class="mdl-cell--1-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--11-col element_${guest_cpt} sesa_guest_title">Guest ${guest_cpt}
             <i id="remove_guest_${guest_cpt}_button" onclick="remove_guest(${guest_cpt})" class="material-icons element_${guest_cpt} remove_guest_button">remove</i></div>
@@ -104,7 +105,7 @@ const add_guest = function() {
         <div class="mdl-cell--12-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--12-col element_${guest_cpt}">&nbsp;</div>
     `);
     $("#remove_guest_" + (guest_cpt - 1) + "_button").hide();
-    guest_cpt+=1
+    guest_cpt+=1;
     $("#page").animate({ scrollTop: $("#guests_content").height()}, 500);
 }
 
@@ -114,7 +115,7 @@ const remove_guest = function(id) {
     if (id > 4) {
         $("#remove_guest_" + (id - 1) + "_button").show();
     }
-    guest_cpt-=1
+    guest_cpt-=1;
 }
 
 const check_all = function() {
@@ -123,27 +124,27 @@ const check_all = function() {
         let name = $("#guest_" + i + "_name");
         let email = $("#guest_" + i + "_email");
         if (name.val() == "") {
-            name.addClass("vibration_input")
+            name.addClass("vibration_input");
             setTimeout(() => {
-                name.removeClass("vibration_input")
+                name.removeClass("vibration_input");
             }, 5000);
             check = false;
         }
         if (email.val() == "") {
             email.addClass("vibration_input");
             setTimeout(() => {
-                email.removeClass("vibration_input")
+                email.removeClass("vibration_input");
             }, 5000);
             check = false;
         }
     }
-    return check
+    return check;
 }
 
 const send_secret_santa = async function() {
     $('#loader_connection').css("visibility", "visible");
     if (! check_all()) {
-        return
+        return;
     }
 
     data_send = {
@@ -156,8 +157,8 @@ const send_secret_santa = async function() {
         let name = $("#guest_" + i + "_name");
         let email = $("#guest_" + i + "_email");
         if (name.val() == "" && email.val() == "")
-            break
-        data_send.guests.push({"name": name.val(), "email": email.val()})
+            break;
+        data_send.guests.push({"name": name.val(), "email": email.val()});
     }
     try {
         await $.ajax({

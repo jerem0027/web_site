@@ -11,25 +11,25 @@ jQuery(function() {
         if (event.key === "Enter" || event.key === 13) {
             $("#btn_connection").trigger("click");
         }
-    })
+    });
 
     $("#password").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
             $("#btn_connection").trigger("click");
         }
-    })
+    });
 
     $("#pseudo_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
             $("#btn_connection_page").trigger("click");
         }
-    })
+    });
 
     $("#password_form_connection").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
             $("#btn_connection_page").trigger("click");
         }
-    })
+    });
 });
 
 const set_masterkey = async function () {
@@ -51,11 +51,11 @@ const set_masterkey = async function () {
 
 
 const connection = async function(pseudo, pass) {
-    var from_page = true
+    var from_page = true;
     if (pseudo == null && pass == null) {
         pseudo=$('#pseudo').val().toLowerCase();
         pass=$('#password').val();
-        from_page = false
+        from_page = false;
     }
     $('#loader_connection').css("visibility", "visible");
     if (sessionStorage.getItem('apikey')) {
@@ -82,7 +82,7 @@ const connection = async function(pseudo, pass) {
                     connected_func();
                     setTimeout(() => {
                         $('#loader_connection').css("visibility", "hidden");
-                    }, 1000)
+                    }, 1000);
                 },
                 error: function(data) {
                     sessionStorage.clear();
@@ -94,7 +94,7 @@ const connection = async function(pseudo, pass) {
                     setTimeout(() => {
                         $('.input_connection_page').removeClass("vibration_input");
                         $('.connection_input').removeClass("vibration_input");
-                    }, 3000)
+                    }, 3000);
 
                 }
             });
@@ -108,14 +108,14 @@ const connection = async function(pseudo, pass) {
                     $('.connection_input').addClass("vibration_input");
                 setTimeout(() => {
                     $('.input_connection_page, .connection_input').removeClass("vibration_input");
-                }, 3000)
+                }, 3000);
             }
         }
     }
 }
 
-const disconnected_pages = ["inscription", "connection"]
-const connected_pages = ["account", "manage", "create"]
+const disconnected_pages = ["inscription", "connection"];
+const connected_pages = ["account", "manage", "create"];
 
 const connected_func = function(){
     for(var i=0; i < disconnected_pages.length; i++) {
@@ -125,9 +125,7 @@ const connected_func = function(){
     $('.connection_off').hide();
     $('.connection_on').show();
     $(".connection_on_keep").removeClass("sesa_hatched");
-    $('#display_username').html(
-        sessionStorage.getItem('pseudo')
-    );
+    $('#display_username').html(sessionStorage.getItem('pseudo'));
     $('#loader_connection').css("visibility", "hidden");
 }
 
@@ -146,7 +144,7 @@ const disconnected_func = function() {
             $('.connection_button').removeAttr("style");
             $('.connection_off').removeAttr("style");
             $('.connection_on').hide();
-            $('.connection_input').removeClass("vibration_input")
+            $('.connection_input').removeClass("vibration_input");
             $('#loader_connection').css("visibility", "hidden");
             $(".connection_on_keep").addClass("sesa_hatched");
         }, 1000);
@@ -154,14 +152,14 @@ const disconnected_func = function() {
 }
 
 const format_date = function(date){
-    date = date.split('-')
+    date = date.split('-');
     return date[2] + '-' + date[1] + '-' + date[0];
 }
 
 const connection_page = function() {
     let pseudo = $('#pseudo_form_connection').val().toLowerCase();
     let pass = $('#password_form_connection').val();
-    connection(pseudo, pass)
+    connection(pseudo, pass);
 }
 
 const timer_redirect = function(cpt) {
@@ -169,6 +167,6 @@ const timer_redirect = function(cpt) {
         cpt--;
         $("#timer_inscription").text(cpt.toString());
         if (cpt === 0)
-            clearInterval(time)
-    }, 1000)
+            clearInterval(time);
+    }, 1000);
 }

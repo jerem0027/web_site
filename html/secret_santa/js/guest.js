@@ -53,34 +53,25 @@ const guest_check = function() {
 
 const set_gift_list = function(gift_list, target_gift_list) {
     $('#loader_connection').css("visibility", "visible");
-    content_block = $("#guest_gifts")
-    content_block.html("")
+    content_block = $("#guest_gifts");
+    content_block.html("");
     for (var i=0; i < 5; i++) {
-        $("#gift_list" + i).remove()
-        value = 
+        $("#gift_list" + i).remove();
         sessionStorage.setItem("gift" + i, (gift_list[i] != "") ? gift_list[i]:"");
         if (i < gift_list.length) {
-            content_block.append(`
-                <li id="gift_list${i}">${gift_list[i]}</li>
-            `)
+            content_block.append(`<li id="gift_list${i}">${gift_list[i]}</li>`);
         } else {
-            content_block.append(`
-            <li id="gift_list${i}"></li>
-        `)
+            content_block.append(`<li id="gift_list${i}"></li>`);
         }
     }
 
-    content_block = $("#target_gifts")
-    content_block.html("")
+    content_block = $("#target_gifts");
+    content_block.html("");
     for (var i=0; i < 5; i++) {
         if (i < target_gift_list.length) {
-            content_block.append(`
-                <li id="gift_list${i}">${(target_gift_list[i] != "") ? target_gift_list[i]:""}</li>
-            `)
+            content_block.append(`<li id="gift_list${i}">${(target_gift_list[i] != "") ? target_gift_list[i]:""}</li>`);
         } else {
-            content_block.append(`
-            <li id="gift_list${i}"></li>
-        `)
+            content_block.append(`<li id="gift_list${i}"></li>`);
         }
     }
     $('#loader_connection').css("visibility", "hidden");
@@ -88,11 +79,11 @@ const set_gift_list = function(gift_list, target_gift_list) {
 
 const edit_gift_list = function() {
     $('#loader_connection').css("visibility", "visible");
-    $("#div_button_edit_gift").hide()
-    $("#div_button_save_gift").show()
+    $("#div_button_edit_gift").hide();
+    $("#div_button_save_gift").show();
 
-    content_block = $("#guest_gifts")
-    content_block.html("")
+    content_block = $("#guest_gifts");
+    content_block.html("");
     for(var i=0; i < 5; i++) {
         content_block.append(`
             <li id="gift_list${i}">
@@ -104,31 +95,27 @@ const edit_gift_list = function() {
                     value="${sessionStorage.getItem("gift" + i)}"
                 />
             </li>
-        `)
+        `);
     }
     $('#loader_connection').css("visibility", "hidden");
 }
 
 const save_gift_list = async function() {
     $('#loader_connection').css("visibility", "visible");
-    $("#div_button_edit_gift").show()
-    $("#div_button_save_gift").hide()
+    $("#div_button_edit_gift").show();
+    $("#div_button_save_gift").hide();
 
     data_send = {"gift_list": []}
     for (var i=0; i < 5; i++) {
-        value = $("#input_guest_gift" + i).val()
-        value = (value != "") ? value:""
-        $("#gift_list" + i).remove()
+        value = $("#input_guest_gift" + i).val();
+        value = (value != "") ? value:"";
+        $("#gift_list" + i).remove();
         sessionStorage.setItem("gift" + i, value);
-        data_send.gift_list.push(value)
+        data_send.gift_list.push(value);
         if (value != "") {
-            content_block.append(`
-                <li id="gift_list${i}">${value}</li>
-            `)
+            content_block.append(`<li id="gift_list${i}">${value}</li>`);
         } else {
-            content_block.append(`
-            <li id="gift_list${i}"></li>
-        `)
+            content_block.append(`<li id="gift_list${i}"></li>`);
         }
     }
     const product = new URLSearchParams(window.location.search).get('guest');
