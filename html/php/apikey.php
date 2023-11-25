@@ -1,6 +1,31 @@
 <?php
 header("Content-Type: application/json");
 
-echo json_encode(array('masterkey' => $_ENV["MASTERKEY"]));
+// Set constante for request
+define('URL_API', 'https://jeremiehenrion.serveblog.net/api/v1/apikey/masterkey/');
 
+// Initialisation cURL session
+$curl = curl_init(URL_API);
+
+// Header Configuration
+$options = [
+    CURLOPT_HTTPHEADER => ['Content-type: application/json', 'APIKEY:'.$_ENV["MASTERKEY"]],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_CONNECTTIMEOUT => 20,
+];
+
+curl_setopt_array($curl, $options);
+
+// Execute cURL
+$response = curl_exec($curl);
+
+// Check requestion respond
+if (!str_contains($response, "502 Bad Gateway")) {
+    echo $response;
+} else {
+    echo json_encode(array('status' => "API not responding"));
+}
+
+// Close cURL session
+curl_close($curl);
 ?>
