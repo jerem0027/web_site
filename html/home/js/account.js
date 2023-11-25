@@ -11,7 +11,7 @@ const user_check = async function() {
     try {
         await $.ajax({
             type: 'get',
-            url: '/api/v1/home_user/user/',
+            url: `${api_url}/api/v1/home_user/user/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',
@@ -102,7 +102,7 @@ const send_user = async function(field) {
     try {
         await $.ajax({
             type: 'put',
-            url: '/api/v1/home_user/user/',
+            url: `${api_url}/api/v1/home_user/user/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',
@@ -148,17 +148,10 @@ var before_pass_bool = false
 const before_pass = async function() {
     old_pass_val = $('#password0').val()
     try {
-        await $.ajax({
-            type: 'GET',
-            url: '/php/apikey.php',
-            dataType: 'json',
-            success: function(data) {
-                sessionStorage.setItem("masterkey", data.masterkey);
-            }
-        });
+        await set_masterkey();
         await $.ajax({
             type: 'PUT',
-            url: "/api/v1/identity/connection/",
+            url: `${api_url}/api/v1/identity/connection/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("masterkey"),
                 'Accept': 'application/json',
@@ -218,7 +211,7 @@ const send_password = async function() {
         try {
             await $.ajax({
                 type: 'PUT',
-                url: "/api/v1/home_user/user/password/",
+                url: `${api_url}/api/v1/home_user/user/password/`,
                 headers: {
                     "APIKEY": sessionStorage.getItem("apikey"),
                     'Accept': 'application/json',
@@ -276,7 +269,7 @@ const remove_account = function() {
             try {
                 await $.ajax({
                     type: 'delete',
-                    url: '/api/v1/home_user/user/',
+                    url: `${api_url}/api/v1/home_user/user/`,
                     headers: {
                         "APIKEY": sessionStorage.getItem("apikey"),
                         'Accept': 'application/json',

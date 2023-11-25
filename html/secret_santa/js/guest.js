@@ -14,7 +14,7 @@ const guest_check = function() {
     try {
         $.ajax({
             type: 'get',
-            url: '/api/v1/secret_santa/guest/' + product,
+            url: `${api_url}/api/v1/secret_santa/guest/${product}`,
             dataType: 'json',
             success: function(data) {
                 setTimeout(() => {
@@ -135,7 +135,7 @@ const save_gift_list = async function() {
     try {
         await $.ajax({
             type: 'put',
-            url: '/api/v1/secret_santa/guest/' + product,
+            url: `${api_url}/api/v1/secret_santa/guest/${product}`,
             headers: {
                 'Accept': 'application/json',
                 "Content-Type": "application/json"

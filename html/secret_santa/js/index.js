@@ -20,7 +20,7 @@ const guest_button = function() {
     try {
         $.ajax({
             type: 'get',
-            url: '/api/v1/secret_santa/guest/' + guest_id,
+            url: `${api_url}/api/v1/secret_santa/guest/${guest_id}`,
             dataType: 'json',
             success: function(data) {
                 setTimeout(() => {

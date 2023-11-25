@@ -32,6 +32,24 @@ jQuery(function() {
     })
 });
 
+const set_masterkey = async function () {
+    // sessionStorage.setItem("masterkey", "test");
+    // return 0;
+    try {
+        await $.ajax({
+            type: 'GET',
+            url: '/php/apikey.php',
+            dataType: 'json',
+            success: function(data) {
+                sessionStorage.setItem("masterkey", data.MASTERKEY);
+            }
+        });
+    } catch (error) {
+            throw new Error("ERROR: API is not responsing");
+        }
+}
+
+
 const connection = async function(pseudo, pass) {
     var from_page = true
     if (pseudo == null && pass == null) {
@@ -44,17 +62,10 @@ const connection = async function(pseudo, pass) {
         connected_func();
     } else {
         try {
-            await $.ajax({
-                type: 'GET',
-                url: '/php/apikey.php',
-                dataType: 'json',
-                success: function(data) {
-                    sessionStorage.setItem("masterkey", data.masterkey);
-                }
-            });
+            await set_masterkey();
             await $.ajax({
                 type: 'PUT',
-                url: "/api/v1/identity/connection/",
+                url: `${api_url}/api/v1/identity/connection/`,
                 headers: {
                     "APIKEY": sessionStorage.getItem("masterkey"),
                     'Accept': 'application/json',

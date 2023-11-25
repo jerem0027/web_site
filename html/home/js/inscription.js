@@ -21,17 +21,10 @@ const send_inscription = async function() {
     if (before_submit_bool && before_pseudo_bool) {
         $('#loader_connection').css("visibility", "visible");
         try {
-            await $.ajax({
-                type: 'GET',
-                url: '/php/apikey.php',
-                dataType: 'json',
-                success: function(data) {
-                    sessionStorage.setItem("masterkey", data.masterkey);
-                }
-            });
+            await set_masterkey();
             await $.ajax({
                 type: 'POST',
-                url: "/api/v1/home_user/user/",
+                url: `${api_url}/api/v1/home_user/user/`,
                 headers: {
                     "APIKEY": sessionStorage.getItem("masterkey"),
                     'Accept': 'application/json',
@@ -114,7 +107,7 @@ const before_pseudo = async function() {
         try {
             await $.ajax({
                 type: 'get',
-                url: "/api/v1/home_user/user/" + $('#pseudo_form').val(),
+                url: `${api_url}/api/v1/home_user/user/${$('#pseudo_form').val()}`,
                 success: function(data) {
                     $('.invalid_input').css("visibility", "visible");
                     $('.invalid_input').addClass('vibration');
