@@ -20,8 +20,8 @@ const default_content = async function() {
             },
             dataType: 'json',
             success: function(data) {
-                $('#guest_1_name').val(data.content.first_name + " " + data.content.name[0] + ".")
-                $('#guest_1_email').val(data.content.email)
+                $('#guest_0_name').html(data.content.first_name + " " + data.content.name[0] + ".")
+                $('#guest_0_email').html(data.content.email)
                 $('#loader_connection').css("visibility", "hidden");
             },
             error: function(data) {
@@ -47,7 +47,7 @@ var guest_cpt = 0
 const setup_guest = function() {
     content_block = $("#guests_content");
     var final_block = ""
-    for (guest_cpt=1; guest_cpt<=3; guest_cpt++) {
+    for (guest_cpt=1; guest_cpt<=2; guest_cpt++) {
         final_block += `
         <div class="mdl-cell--1-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--11-col element_${guest_cpt} sesa_guest_title">Guest ${guest_cpt}</div>
         <div class="mdl-cell--3-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--9-col element_${guest_cpt} sesa_guest_element">Nom</div>
@@ -73,7 +73,7 @@ const setup_guest = function() {
         <div class="mdl-cell--12-col element_${guest_cpt}">&nbsp;</div><div class="mdl-cell--12-col element_${guest_cpt}">&nbsp;</div>
         `;
     }
-    content_block.html(final_block);
+    content_block.append(final_block);
 }
 
 const add_guest = function() {
@@ -105,6 +105,7 @@ const add_guest = function() {
     `);
     $("#remove_guest_" + (guest_cpt - 1) + "_button").hide();
     guest_cpt+=1
+    $("#page").animate({ scrollTop: $("#guests_content").height()}, 500);
 }
 
 const remove_guest = function(id) {
@@ -148,7 +149,7 @@ const send_secret_santa = async function() {
     data_send = {
         "title": ($("#sesa_new_title").val() !== "") ? $("#sesa_new_title").val():"Secret Santa " + new Date().getFullYear(),
         "date_end": format_date($("#sesa_end_date").val()),
-        "guests": []
+        "guests": [{"name": $("#guest_" + 0 + "_name").html(), "email": $("#guest_" + 0 + "_email").html()}]
     }
 
     for(var i=1; i < guest_cpt; i++) {

@@ -1,3 +1,9 @@
+#guest_0_name, #guest_0_email {
+    font-size: 20px;
+    text-indent: 15px;
+    color: #4242427a;
+}
+
 .sesa_create_title {
     color: #a96950;
     font-size: 25px;
@@ -42,6 +48,7 @@
 }
 
 input {
+    font-size: 20px !important;
     text-indent: 15px;
     padding: 5px 0px 5px 0;
 }
