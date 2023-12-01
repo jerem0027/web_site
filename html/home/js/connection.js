@@ -80,9 +80,7 @@ const connection = async function(pseudo, pass) {
                     sessionStorage.setItem("apikey", data.APIKEY);
                     sessionStorage.setItem('pseudo', data.pseudo);
                     connected_func();
-                    setTimeout(() => {
-                        $('#loader_connection').css("visibility", "hidden");
-                    }, 1000);
+                    $('#loader_connection').css("visibility", "hidden");
                 },
                 error: function(data) {
                     sessionStorage.clear();
@@ -139,15 +137,13 @@ const disconnected_func = function() {
                 window.location.href = "./index.html";
             }
         }
-        setTimeout(() => {
-            $('.connection_input').removeAttr("style").val('');
-            $('.connection_button').removeAttr("style");
-            $('.connection_off').removeAttr("style");
-            $('.connection_on').hide();
-            $('.connection_input').removeClass("vibration_input");
-            $('#loader_connection').css("visibility", "hidden");
-            $(".connection_on_keep").addClass("sesa_hatched");
-        }, 1000);
+        $('.connection_input').removeAttr("style").val('');
+        $('.connection_button').removeAttr("style");
+        $('.connection_off').removeAttr("style");
+        $('.connection_on').hide();
+        $('.connection_input').removeClass("vibration_input");
+        $('#loader_connection').css("visibility", "hidden");
+        $(".connection_on_keep").addClass("sesa_hatched");
     });
 }
 

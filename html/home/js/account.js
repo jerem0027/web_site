@@ -11,7 +11,7 @@ const user_check = async function() {
     try {
         await $.ajax({
             type: 'get',
-            url: `${api_url}/api/v1/home_user/user/`,
+            url: `${api_url}/api/v1/home_user/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',
@@ -102,7 +102,7 @@ const send_user = async function(field) {
     try {
         await $.ajax({
             type: 'put',
-            url: `${api_url}/api/v1/home_user/user/`,
+            url: `${api_url}/api/v1/home_user/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',
@@ -150,7 +150,7 @@ const before_pass = async function() {
     try {
         await set_masterkey();
         await $.ajax({
-            type: 'PUT',
+            type: 'put',
             url: `${api_url}/api/v1/identity/connection/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("masterkey"),
@@ -210,8 +210,8 @@ const send_password = async function() {
         $('#loader_connection').css("visibility", "visible");
         try {
             await $.ajax({
-                type: 'PUT',
-                url: `${api_url}/api/v1/home_user/user/password/`,
+                type: 'put',
+                url: `${api_url}/api/v1/home_user/password/`,
                 headers: {
                     "APIKEY": sessionStorage.getItem("apikey"),
                     'Accept': 'application/json',
@@ -269,7 +269,7 @@ const remove_account = function() {
             try {
                 await $.ajax({
                     type: 'delete',
-                    url: `${api_url}/api/v1/home_user/user/`,
+                    url: `${api_url}/api/v1/home_user/`,
                     headers: {
                         "APIKEY": sessionStorage.getItem("apikey"),
                         'Accept': 'application/json',

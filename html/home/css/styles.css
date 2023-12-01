@@ -101,7 +101,7 @@ body {
     background-color: #4caf4fc0;
 }
 
-.banner_error {
+.banner_error, .banner_error_id {
     background-color: #af4c4cc0;
 }
 

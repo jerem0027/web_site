@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../required/css//material.min.css" />
         <link rel="stylesheet" href="../home/css/styles.css" />
         <link rel="stylesheet" href="css/secret_santa.css" />
+        <link rel="stylesheet" href="css/manage.css" />
         <!-- Scripts -->
         <script type="text/javascript" src="../required/js/material.min.js"></script>
         <script type="text/javascript" src="../required/js/jquery-3.7.1.min.js"></script>
@@ -117,26 +118,57 @@
                     <a class="mdl-navigation__link" href="/secret_santa/">Secret Santa</a>
                 </nav>
             </div>
-            <div class="mdl-layout__content">
+            <div class="mdl-layout__content" id="page">
                 <div class="demo-blog__posts mdl-grid" id="top">
-
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
                     </div>
-
+                    <div class="mdl-cell--2-col banner banner_error"></div>
                     <div class="mdl-card secret_santa_class mdl-cell mdl-cell--12-col">
                         <div class="mdl-card__media"></div>
+                        <div class="mdl-cell mdl-cell--12-col" id="page_title">GESTION DE SES SECRET SANTA</div>
                     </div>
 
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
-                    </div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">PAGE MANAGE SECRET SANTA</p>
-                    </div>
-                    <div class="mdl-cell--12-col separator_content">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
 
+                    <div class="mdl-cell--1-col"></div>
+                    <div class="mdl-cell--10-col" id="banner_manage_sesa">
+                        <div class="banner_manage flex_space">
+                            <div class="manage_title">
+                                Mes secret santa
+                            </div>
+                            <div id="button_down_sesa">
+                                <i class="mdl-cell--1-col material-icons manage_title">keyboard_arrow_up</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell--1-col"></div>
+
+                    <div id="sesa_content" class="mdl-cell mdl-cell--12-col mdl-grid"></div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div>
+
+                    <div class="mdl-cell--1-col"></div>
+                    <div class="mdl-cell--10-col" id="banner_manage_guest">
+                        <div class="banner_manage flex_space">
+                            <div class="manage_title">
+                                Mes guests
+                            </div>
+                            <div id="button_down_guest">
+                                <i class="mdl-cell--1-col material-icons manage_title">keyboard_arrow_up</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell--1-col"></div>
+
+                    <div id="guest_content" class="mdl-cell mdl-cell--12-col mdl-grid"></div>
+
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
+                    <div class="mdl-cell--12-col">&nbsp;</div><div class="mdl-cell--12-col">&nbsp;</div>
                 </div>
             </div>
                 <footer>

@@ -112,3 +112,27 @@
 .div_custom_button:hover #save_gift_button {
     color: #ffffff;
 }
+
+/* ADD PROFIL BUTTON */
+#div_button_add_profil {
+    border-color: #a96950;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #a96950 50%) left;
+    transition-duration: 0.5s;
+}
+
+#div_button_add_profil:hover {
+    color: #a96950;
+}
+
+#add_profil_button {
+    color: #a96950;
+    background: linear-gradient(to left, #a96950 50%, #ffffff 50%) left;
+    border-color: #a96950;
+    background-color: #ffffff;
+    padding-right: 5px;
+}
+
+.div_custom_button:hover #add_profil_button {
+    color: #ffffff;
+}

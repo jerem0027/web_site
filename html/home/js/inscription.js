@@ -24,7 +24,7 @@ const send_inscription = async function() {
             await set_masterkey();
             await $.ajax({
                 type: 'POST',
-                url: `${api_url}/api/v1/home_user/user/`,
+                url: `${api_url}/api/v1/home_user/`,
                 headers: {
                     "APIKEY": sessionStorage.getItem("masterkey"),
                     'Accept': 'application/json',
@@ -107,7 +107,7 @@ const before_pseudo = async function() {
         try {
             await $.ajax({
                 type: 'get',
-                url: `${api_url}/api/v1/home_user/user/${$('#pseudo_form').val()}`,
+                url: `${api_url}/api/v1/home_user/${$('#pseudo_form').val()}`,
                 success: function(data) {
                     $('.invalid_input').css("visibility", "visible");
                     $('.invalid_input').addClass('vibration');

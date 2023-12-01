@@ -16,15 +16,15 @@ const manage_button = function() {
 const guest_button = function() {
     $('#loader_connection').css("visibility", "visible");
 
-    const guest_id = $("#guest_input").val();
+    const link = $("#guest_input").val();
     try {
         $.ajax({
             type: 'get',
-            url: `${api_url}/api/v1/secret_santa/guest/${guest_id}`,
+            url: `${api_url}/api/v1/secret_santa/guest/${link}`,
             dataType: 'json',
             success: function(data) {
                 setTimeout(() => {
-                    window.location.href = "/secret_santa/guest.html?guest=" + guest_id;
+                    window.location.href = "/secret_santa/guest.html?guest=" + link;
                 }, 1000);
                 $('#loader_connection').css("visibility", "hidden");
             },

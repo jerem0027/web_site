@@ -1,0 +1,169 @@
+.manage_title, .manage_title:focus {
+    font-size: 40px;
+}
+
+i.manage_title {
+    font-size: 60px;
+}
+
+.flex_space {
+    display:flex; 
+    justify-content: space-between;
+}
+
+.banner_manage {
+    color: #a96950;
+    border-bottom: solid 2px #a96950;
+    height: 52px;
+}
+
+.manage_title::selection {
+    background-color: inherit;
+    color: inherit;
+}
+
+#button_down_sesa, #button_down_guest {
+    rotate: -90deg;
+}
+
+.sesa_manage_input::placeholder, #sesa_end_date::placeholder {
+    color: #4242427a;
+}
+
+.sesa_manage_input {
+    color: #8abfb7;
+    border: solid 2px #ffffff;
+    border-bottom-color: #52867e;
+    transition: all 0.7s ease-in-out;
+}
+
+.sesa_manage_input:focus {
+    border: solid 2px #52867e;
+    border-radius: 25px;
+    transition: all 0.7s ease-in-out;
+}
+
+#banner_manage_sesa:hover, #banner_manage_guest:hover {
+    cursor: pointer;
+}
+
+.sesa_info {
+    font-weight: 700;
+    border-bottom: solid 1px #8abfb7;
+    margin: 0;
+    padding: 0 0 10px 0;
+}
+
+.sesa_title, .sesa_manage_title_input {
+    font-size: 30px;
+    color: #8abfb7;
+}
+
+.sesa_title a {
+    color: inherit
+}
+
+.sesa_title a:hover {
+    opacity: 75%;
+}
+
+.sesa_date, .sesa_manage_date_input {
+    font-size: 16px;
+    color: #8abfb7;
+}
+
+.value_date, .sesa_manage_date_input {
+    color: #a96950;
+}
+
+
+#sesa_content, #guest_content {
+    max-height: 0;
+    overflow: hidden;
+    margin: 0 8px 0 8px;
+}
+
+/* Button Add Guest */
+.div_button_edit {
+    border-color: #8abfb7;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #8abfb7 50%) left;
+    transition-duration: 0.5s;
+    margin-right: 10px;
+}
+
+.div_button_edit:hover {
+    color: #8abfb7;
+}
+
+.div_button_edit i {
+    color: #8abfb7;
+    background: linear-gradient(to left, #8abfb7 50%, #ffffff 50%) left;
+    border-color: #8abfb7;
+    background-color: #ffffff;
+}
+
+/* Button remove sesa */
+.div_button_remove {
+    border-color: #db0e1c;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #db0e1c 50%) left;
+    transition-duration: 0.5s;
+}
+
+.div_button_remove:hover {
+    color: #db0e1c;
+}
+
+.div_button_remove i {
+    color: #db0e1c;
+    background: linear-gradient(to left, #db0e1c 50%, #ffffff 50%) left;
+    border-color: #db0e1c;
+    background-color: #ffffff;
+}
+
+/* Button save changes */
+.div_button_save {
+    border-color: #7ecc7f;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #7ecc7f 50%) left;
+    transition-duration: 0.5s;
+}
+
+.div_button_save:hover {
+    color: #7ecc7f;
+}
+
+.div_button_save i {
+    color: #7ecc7f;
+    background: linear-gradient(to left, #7ecc7f 50%, #ffffff 50%) left;
+    border-color: #7ecc7f;
+    background-color: #ffffff;
+}
+
+/* Button see link */
+.div_button_see {
+    border-color: #a96950;
+    color: #ffffff;
+    background: linear-gradient(to left, #ffffff 50%, #a96950 50%) left;
+    transition-duration: 0.5s;
+}
+
+.div_button_see:hover {
+    color: #a96950;
+}
+
+.div_button_see i {
+    color: #a96950;
+    background: linear-gradient(to left, #a96950 50%, #ffffff 50%) left;
+    border-color: #a96950;
+    background-color: #ffffff;
+}
+
+/* Button all */
+.div_button_edit:hover i,
+.div_button_remove:hover i,
+.div_button_save:hover i,
+.div_button_see:hover i {
+    color: #ffffff;
+}

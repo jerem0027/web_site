@@ -2,19 +2,22 @@ jQuery(function() {
     $(".banner").hide();
     $("#guest_content").hide();
     $("#div_button_save_gift").hide();
+    if (sessionStorage.getItem("apikey"))
+        $("#add_to_profil_msg").hide();
     guest_check();
     $("#div_button_edit_gift").on("click", edit_gift_list);
     $("#div_button_save_gift").on("click", save_gift_list);
+    $("#div_button_add_profil").on("click", add_to_profile);
 });
 
 const guest_check = function() {
     $('#loader_connection').css("visibility", "visible");
 
-    const product = new URLSearchParams(window.location.search).get('guest');
+    const link = new URLSearchParams(window.location.search).get('guest');
     try {
         $.ajax({
             type: 'get',
-            url: `${api_url}/api/v1/secret_santa/guest/${product}`,
+            url: `${api_url}/api/v1/secret_santa/guest/${link}`,
             dataType: 'json',
             success: function(data) {
                 setTimeout(() => {
@@ -30,22 +33,27 @@ const guest_check = function() {
                     $('#target_email').html(data.content.target_email);
                     $("#guest_content").addClass("fade_guest").show();
                     $('#loader_connection').css("visibility", "hidden");
+                    if (data.content.user || !sessionStorage.getItem("apikey")) {
+                        $("#div_button_add_profil").hide();
+                    } else {
+                        $("#div_button_add_profil").show();
+                    }
                 }, '1000');
             },
             error: function(data) {
-                $('.banner_error').show().addClass("volet");
+                $('.banner_error_id').show().addClass("volet");
                 $('#loader_connection').css("visibility", "hidden");
                 setTimeout(() => {
-                    $('.banner_error').hide().removeClass("volet");
+                    $('.banner_error_id').hide().removeClass("volet");
                 }, 5000);
             },
         });
     } catch (error) {
         if (400 > error.status || error.status > 499) {
-            $('.banner_error').show().addClass("volet");
+            $('.banner_error_id').show().addClass("volet");
             $('#loader_connection').css("visibility", "hidden");
             setTimeout(() => {
-                $('.banner_error').hide().removeClass("volet");
+                $('.banner_error_id').hide().removeClass("volet");
             }, 5000);
         }
     }
@@ -102,27 +110,18 @@ const edit_gift_list = function() {
 
 const save_gift_list = async function() {
     $('#loader_connection').css("visibility", "visible");
-    $("#div_button_edit_gift").show();
-    $("#div_button_save_gift").hide();
-
     data_send = {"gift_list": []}
     for (var i=0; i < 5; i++) {
         value = $("#input_guest_gift" + i).val();
         value = (value != "") ? value:"";
-        $("#gift_list" + i).remove();
         sessionStorage.setItem("gift" + i, value);
         data_send.gift_list.push(value);
-        if (value != "") {
-            content_block.append(`<li id="gift_list${i}">${value}</li>`);
-        } else {
-            content_block.append(`<li id="gift_list${i}"></li>`);
-        }
     }
-    const product = new URLSearchParams(window.location.search).get('guest');
+    const link = new URLSearchParams(window.location.search).get('guest');
     try {
         await $.ajax({
             type: 'put',
-            url: `${api_url}/api/v1/secret_santa/guest/${product}`,
+            url: `${api_url}/api/v1/secret_santa/guest/${link}`,
             headers: {
                 'Accept': 'application/json',
                 "Content-Type": "application/json"
@@ -130,6 +129,65 @@ const save_gift_list = async function() {
             data: JSON.stringify(data_send),
             success: function(data) {
                 $('#loader_connection').css("visibility", "hidden");
+                $('.banner_validated').show().addClass("volet");
+                setTimeout(() => {
+                    $('.banner_validated').hide().removeClass("volet");
+                }, 5000);
+                for (var i=0; i < 5; i++) {
+                    value = $("#input_guest_gift" + i).val();
+                    value = (value != "") ? value:"";
+                    $("#gift_list" + i).remove();
+                    if (value != "") {
+                        content_block.append(`<li id="gift_list${i}">${value}</li>`);
+                    } else {
+                        content_block.append(`<li id="gift_list${i}"></li>`);
+                    }
+                }
+                $("#div_button_edit_gift").show();
+                $("#div_button_save_gift").hide();
+            },
+            error: function(data) {
+                $('.banner_error').show().addClass("volet");
+                $('#loader_connection').css("visibility", "hidden");
+                setTimeout(() => {
+                    $('.banner_error').hide().removeClass("volet");
+                }, 5000);
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
+            $('.banner_error').show().addClass("volet");
+            $('#loader_connection').css("visibility", "hidden");
+            setTimeout(() => {
+                $('.banner_error').hide().removeClass("volet");
+            }, 5000);
+        }
+    }
+}
+
+const add_to_profile = async function() {
+    $('#loader_connection').css("visibility", "visible");
+    const link = new URLSearchParams(window.location.search).get('guest');
+    try {
+        await $.ajax({
+            type: 'put',
+            url: `${api_url}/api/v1/secret_santa/guest/${link}`,
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(
+                {
+                    "user": sessionStorage.getItem("pseudo")
+                }
+            ),
+            success: function(data) {
+                $('#loader_connection').css("visibility", "hidden");
+                $("#div_button_add_profil").hide();
+                $('.banner_validated').show().addClass("volet");
+                setTimeout(() => {
+                    $('.banner_validated').hide().removeClass("volet");
+                }, 5000);
             },
             error: function(data) {
                 $('.banner_error').show().addClass("volet");

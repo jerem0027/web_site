@@ -13,17 +13,28 @@
 {{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
             <div class="mdl-layout__content">
                 <div class="demo-blog__posts mdl-grid" id="top">
-                    <div class="mdl-cell--2-col banner banner_error"></div>
-                    <div class="mdl-cell--8-col banner banner_error">
+                    <div class="mdl-cell--2-col banner banner_error_id"></div>
+                    <div class="mdl-cell--8-col banner banner_error_id">
                         <img src="../logo/logo-white.png" />
                         <h1>Votre guest ID n'est pas reconnu ou n'existe pas</h1>
                         <h3>Merci de vérifier l'URL et de réessayer</h3>
                     </div>
+                    <div class="mdl-cell--2-col banner banner_error_id"></div>
+
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
+                    </div>
                     <div class="mdl-cell--2-col banner banner_error"></div>
 
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <p style="text-align: center; color: #c51426; font-size: 30px; font-style: bold;">WORK IN PROGRESS</p>
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+                    <div class="mdl-cell--8-col banner banner_validated">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Modification prise en compte</h1>
                     </div>
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+
                     <div class="mdl-card secret_santa_class mdl-cell mdl-cell--12-col">
                         <div class="mdl-card__media"></div>
                     </div>
@@ -38,6 +49,9 @@
                         la personne qui vous a été attribuée (nom et adresse email) 
                         juste en dessous. Si vous ne savez pas de qui il s'agit, n'hésitez 
                         pas à la contacter le créateur du secret Santa.
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col context_content" id="add_to_profil_msg">
+                        <span style="color:red">*</span>Connectez-vous pour ajouter ce secret santa à votre profile
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid" id="guest_content">
                         <div class="mdl-cell mdl-cell--12-col guest_title" id="sesa_title"></div>
@@ -117,6 +131,9 @@
                             <div class="mdl-cell mdl-cell--12-col">&nbsp;</div>
                             <div class="mdl-cell mdl-cell--12-col guest_info">
                                 <ol id="target_gifts"></ol>
+                                <div class="div_custom_button" id="div_button_add_profil">
+                                    <i id="add_profil_button" class="i_custom_button material-icons">person_add</i>Ajouter au profile
+                                </div>
                             </div>
                         </div>
                     </div>

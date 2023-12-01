@@ -13,7 +13,7 @@ const default_content = async function() {
     try {
         await $.ajax({
             type: 'get',
-            url: `${api_url}/api/v1/home_user/user/`,
+            url: `${api_url}/api/v1/home_user/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',
@@ -163,7 +163,7 @@ const send_secret_santa = async function() {
     try {
         await $.ajax({
             type: 'post',
-            url: `${api_url}/api/v1/secret_santa/create/`,
+            url: `${api_url}/api/v1/secret_santa/`,
             headers: {
                 "APIKEY": sessionStorage.getItem("apikey"),
                 'Accept': 'application/json',

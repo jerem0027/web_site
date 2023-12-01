@@ -2,7 +2,7 @@
 header("Content-Type: application/json");
 
 // Set constante for request
-define('URL_API', 'https://jeremiehenrion.serveblog.net/api/v1/apikey/masterkey/');
+define('URL_API', 'https://jeremiehenrion.serveblog.net/api/v1/identity/masterkey/');
 
 // Initialisation cURL session
 $curl = curl_init(URL_API);
