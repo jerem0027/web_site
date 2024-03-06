@@ -12,11 +12,33 @@ jQuery(function() {
 
 });
 
+
+const pattern_email = function(value) {
+    pattern=/^[a-zA-Z0-9][a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,15}$/;
+    return pattern.test(value);
+}
+
+const pattern_min = function(value) {
+    pattern = /[a-z]/;
+    return pattern.test(value);
+}
+const pattern_maj = function(value) {
+    pattern = /[A-Z]/;
+    return pattern.test(value);
+}
+const pattern_dig = function(value) {
+    pattern = /^(?=.*\d).*$/;
+    return pattern.test(value);
+}
+const pattern_spe = function(value) {
+    pattern = /^(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\/]).*$/;
+    return pattern.test(value);
+}
+
 const check_pattern = function(value) {
     var tests = false;
 
-    pattern_min = /[a-z]/;
-    if (!pattern_min.test(value)) {
+    if (!pattern_min(value)) {
         $('#pattern_min').css('color', 'red').addClass('vibration');
         setTimeout(() => {
         $('#pattern_min').removeClass('vibration');
@@ -26,8 +48,7 @@ const check_pattern = function(value) {
         $('#pattern_min').css('color', 'limegreen');
     }
 
-    pattern_maj = /[A-Z]/;
-    if (!pattern_maj.test(value)) {
+    if (!pattern_maj(value)) {
         $('#pattern_maj').css('color', 'red').addClass('vibration');
         setTimeout(() => {
         $('#pattern_maj').removeClass('vibration');
@@ -37,8 +58,7 @@ const check_pattern = function(value) {
         $('#pattern_maj').css('color', 'limegreen');
     }
 
-    pattern_dig = /^(?=.*\d).*$/;
-    if (!pattern_dig.test(value)) {
+    if (!pattern_dig(value)) {
         $('#pattern_dig').css('color', 'red').addClass('vibration');
         setTimeout(() => {
         $('#pattern_dig').removeClass('vibration');
@@ -48,8 +68,7 @@ const check_pattern = function(value) {
         $('#pattern_dig').css('color', 'limegreen');
     }
 
-    pattern_spe = /^(?=.*[!@#$%^&*()_+|~\-=`{}\[\]:;"'<>,.?\\/]).*$/;
-    if (!pattern_spe.test(value)) {
+    if (!pattern_spe(value)) {
         $('#pattern_spe').css('color', 'red').addClass('vibration');
         setTimeout(() => {
         $('#pattern_spe').removeClass('vibration');
