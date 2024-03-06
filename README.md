@@ -42,6 +42,20 @@ sudo npm install -g npm to update
 npm install js-yaml
 ```
 
+### Run cmd
+
+dockers: nginx, php, mariadb, phpmyadmin
+all cmd: start, stop, restart, rm, network
+
+```sh
+./run <cmd> <docker> 
+./run start nginx
+./run stop mariadb
+
+./run network
+./run start
+```
+
 ### Contribution
 
 - Jérémie Henrion
