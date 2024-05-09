@@ -91,7 +91,7 @@ case "$cmd" in
             --name nginx \
             -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
             -v /ssl/:/ssl/ \
-            jerem0027/nginx:1.24.0
+            jerem0027/nginx:1.24.2
         fi
 
         if [[ $docker == "php" || $docker == "" ]]; then
@@ -122,7 +122,7 @@ case "$cmd" in
             --name phpmyadmin \
             -v /ssl/:/etc/apache2/ssl/ \
             --env-file configs/phpmyadmin.env \
-            jerem0027/phpmyadmin:5.2.1
+            jerem0027/phpmyadmin:5.2.2
         fi
         ;;
 esac
