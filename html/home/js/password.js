@@ -1,10 +1,14 @@
 jQuery(function() {
     $('.showcreds').on("click", function() {
         const id = $(this)[0].id.replace('-', "");
-        if ($('#' + id).attr("type") === "text")
+        if ($('#' + id).attr("type") === "text") {
             $('#' + id).attr("type", "password");
-        else
+            $(this).text("visibility")
+        }
+        else {
             $('#' + id).attr("type", "text");
+            $(this).text("visibility_off")
+        }
     });
 
     $('.not_same_error, .not_same_as_old').css("visibility", "hidden");
