@@ -60,6 +60,10 @@ body {
     animation: volet-10s 10s linear 0s;
 }
 
+#content_inscription {
+    min-height: 86vh;
+}
+
 #content_inscription h1, #content_account h3 {
     color:#e96e27;
     font-weight: 500;
@@ -185,17 +189,6 @@ body {
     background-image: url('../images/marvel.png');
     background-repeat: no-repeat;
     background-position: top;
-}
-
-.about_us > .mdl-card__media {
-    background-image: url('../images/about_us.jpg');
-    height: 400px !important;
-}
-
-.about_us .mdl-card__media {
-    background-image: url('../images/about_us.jpg');
-    background-repeat: no-repeat;
-    background-position: middle;
 }
 
 .wikipediie h3 a {
@@ -395,21 +388,35 @@ div {
 }
 
 footer {
-    background-color: #424242;
-    color: #e96e27;
-    line-height: 30px;
+    color: #424242;
+    position: sticky;
+    bottom: -100vh;
 }
 
 #watermark {
-    text-align: center; 
-    padding-top: 2px;
+    text-align: center;
+    margin-top: 5px !important;
     font-size: 13px;
+    border-top: solid 2px #424242;
+    padding-top: 8px !important;
 }
 
 #link_top a {
     text-align: right;
     font-weight: bold !important;
-    font-size: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 1px 10px;
+    color: inherit;
+}
+
+#link_top a:hover {
+    border-color: #d6d6d6;
+    background-color: #d6d6d6;
+}
+
+#link_top {
+    text-align: right;
 }
 
 footer div div div i {
@@ -419,6 +426,7 @@ footer div div div i {
 
 footer div div {
     padding: 0 !important;
+    margin: 0 !important;
 }
 
 /**** Mobile layout ****/

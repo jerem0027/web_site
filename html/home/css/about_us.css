@@ -1,0 +1,43 @@
+.separator_content {
+    background-color: #8ABFB7;
+}
+
+.about_us > .mdl-card__media {
+    background-image: url('../images/about_us.png');
+    height: 400px;
+}
+
+.about_us .mdl-card__media {
+    background-repeat: no-repeat;
+    background-position: 60% 40%;
+    background-color: inherit;
+}
+
+.about_us_title h3{
+    color: #e96e27;
+    text-align: center;
+    margin-top: 0;
+}
+
+.about_us_content {
+    font-size: 20px;
+    text-align: justify;
+    color: #424242;
+}
+
+.about_us_content b {
+    color:#e96e27;
+}
+
+.about_us_content b:hover {
+    color:#e96e2794;
+}
+
+.about_us_content .about_us_list {
+    margin-left: 30px;
+    line-height: 30px;
+}
+
+#myname {
+    color:#e96e27
+}

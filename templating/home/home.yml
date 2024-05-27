@@ -51,5 +51,6 @@ connection:
 about_us:
   css:
     - css/styles
+    - css/about_us
   js:
     - js/connection
