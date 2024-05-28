@@ -24,17 +24,17 @@ const init = function() {
 const update_birthdate = function(event) {
     let data = $('#birthdate').val()
     if((!(event.data >= 0 && event.data <=9)) || (event.inputType == "deleteContentBackward")) {
-        if(data[data.length - 1] == "/") {
+        if(data[data.length - 1] == '-') {
             $('#birthdate').val(data.slice(0, data.length - 1));
             return;
         }
     }
     else {
-        if(data.length >= 2 && data[2] != "/") {
-            $('#birthdate').val(data.slice(0, 2) + "/" + data.slice(2, data.length))
+        if(data.length >= 2 && data[2] != '-') {
+            $('#birthdate').val(data.slice(0, 2) + '-' + data.slice(2, data.length))
         }
-        if(data.length >= 5 && data[5] != "/")
-            $('#birthdate').val(data.slice(0, 5) + "/" + data.slice(5, data.length))
+        if(data.length >= 5 && data[5] != '-')
+            $('#birthdate').val(data.slice(0, 5) + '-' + data.slice(5, data.length))
         if(data.length > 10)
             $('#birthdate').val(data.slice(0, 10));
     }
