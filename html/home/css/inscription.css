@@ -18,20 +18,12 @@ h2 {
     top: 40px;
     transform: translate(-50%, 0);
     perspective: 1000px;
-    width: 60%;
-    height: 500px;
+    height: 400px;
     text-align: center;
 }
 
 .mdl-card {
-    width: 100%;
-    min-height: 100%;
-}
-
-.mdl-card__title .mdl-button--icon {
-    height: 28px;
-    width: 28px;
-    min-width: 28px;
+    width: 60vw;
 }
 
 .mdl-textfield__label {
@@ -49,14 +41,9 @@ h2 {
     color: #e96e27 !important;
 }
 
-#link_insciption,
-#link_pass_forgot {
+#link_connection {
     color: #e96e27 !important;
     cursor: pointer;
-}
-
-.mdl-textfield.is-focused .mdl-textfield__label {
-    color: #e96e27 !important;
 }
 
 .mdl-textfield.is-upgraded .mdl-textfield__label {
@@ -72,4 +59,32 @@ h2 {
     line-height: 10px;
     font-size: 15px !important;
     margin-top: -15px;
+}
+
+.mdl-cell--6-col {
+    width: calc(50% - 16px) !important;
+}
+
+.pattern_block {
+    color:red;
+    text-align:left;
+    margin-top: -25px;
+}
+
+@media (max-width: 839px) {
+    .container_inscription .showcreds {
+        display: none;
+    }
+
+    .mdl-card {
+        width: 90vw !important;
+    }
+
+    .pattern_block {
+        margin-top: -90px !important;
+    }
+
+    .not_same_error {
+        margin-top: -70px !important;
+    }
 }

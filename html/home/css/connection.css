@@ -18,13 +18,12 @@ h2 {
     top: 40px;
     transform: translate(-50%, 0);
     perspective: 1000px;
-    width: 60%;
-    height: 500px;
+    height: 400px;
     text-align: center;
 }
 
 .mdl-card {
-    width: 100%;
+    width: 60vw;
 }
 
 .mdl-card__title .mdl-button--icon {
@@ -64,4 +63,18 @@ h2 {
 
 .mdl-textfield__label:after {
     background-color: #2385b3;
+}
+
+.mdl-cell--6-col {
+    width: calc(50% - 16px) !important;
+}
+
+@media (max-width: 839px) {
+    .container_connection .showcreds {
+        display: none;
+    }
+
+    .mdl-card {
+        width: 90vw !important;
+    }
 }

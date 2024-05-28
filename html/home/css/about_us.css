@@ -41,3 +41,15 @@
 #myname {
     color:#e96e27
 }
+
+@media (max-width: 600px) {
+    .about_us_list {
+        margin-left: 0px !important;
+        line-height: 15px !important;
+    }
+
+    .about_us > .mdl-card__media {
+        background-image: url('../images/about_us.png');
+        height: 100px;
+    }
+}
