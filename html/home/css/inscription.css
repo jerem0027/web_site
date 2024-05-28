@@ -3,8 +3,8 @@ body {
 }
 
 .mdl-card__title {
-    background-color: #2385b3 !important;
-    color: #fff !important;
+    background-color: #e96e27 !important;
+    color: #ffffff !important;
 }
 
 h2 {
@@ -12,7 +12,7 @@ h2 {
     font-weight: 500 !important;
 }
 
-.container_connection {
+.container_inscription {
     position: absolute;
     left: 50%;
     top: 40px;
@@ -25,6 +25,7 @@ h2 {
 
 .mdl-card {
     width: 100%;
+    min-height: 100%;
 }
 
 .mdl-card__title .mdl-button--icon {
@@ -37,31 +38,38 @@ h2 {
     width: 100%;
 }
 
-#btn_connection_page, .showcreds {
-    background-color: #2385b3;
-    color: #fff !important;
-    border: solid 2px #2385b3 ;
+#btn_insctiption, .showcreds {
+    background-color: #e96e27;
+    color: #ffffff !important;
+    border: solid 2px #e96e27 ;
 }
 
-#btn_connection_page:hover, .showcreds:hover {
+#btn_insctiption:hover, .showcreds:hover {
     background-color: #fff;
-    color: #2385b3 !important;
+    color: #e96e27 !important;
 }
 
 #link_insciption,
 #link_pass_forgot {
-    color: #2385b3 !important;
+    color: #e96e27 !important;
     cursor: pointer;
 }
 
 .mdl-textfield.is-focused .mdl-textfield__label {
-    color: #2385b3 !important;
+    color: #e96e27 !important;
 }
 
 .mdl-textfield.is-upgraded .mdl-textfield__label {
-    color: #2385b3 !important;
+    color: #e96e27 !important;
 }
 
 .mdl-textfield__label:after {
-    background-color: #2385b3;
+    background-color: #424242;
+}
+
+.invalid_input, .not_same_error  {
+    text-align: left;
+    line-height: 10px;
+    font-size: 15px !important;
+    margin-top: -15px;
 }

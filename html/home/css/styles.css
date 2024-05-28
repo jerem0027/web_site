@@ -22,20 +22,18 @@ body {
 }
 
 @keyframes volet {
-    0% { transform: translateY(0); }
-    35% { transform: translateY(calc(100% + 20px)); }
-    50% { transform: translateY(calc(100% + 20px)); }
-    75% { transform: translateY(calc(100% + 20px)); }
-    99% { transform: translateY(0px); }
-    100% { transform: translateY(-100px); }
+    0% { transform: translateY(-200px); }
+    25% { transform: translateY(10%); }
+    50% { transform: translateY(10%); }
+    60% { transform: translateY(10%); }
+    100% { transform: translateY(-200px); }
 }
 
 @keyframes volet-10s {
-    0% { transform: translateY(0); }
-    17.5% { transform: translateY(calc(100% + 20px)); }
-    50% { transform: translateY(calc(100% + 20px)); }
-    75% { transform: translateY(calc(100% + 20px)); }
-    100% { transform: translateY(calc(100% + 20px)); }
+    0% { transform: translateY(-200px); }
+    15% { transform: translateY(10%); }
+    50% { transform: translateY(10%); }
+    100% { transform: translateY(10%); }
 }
 
 .vibration {
@@ -51,7 +49,7 @@ body {
 .volet, .volet-10s {
     animation: volet 5s linear 0s;
     z-index: 10;
-    position: fixed;
+    position: sticky;
     margin-left: 10%;
     margin-right: 10%;
 }

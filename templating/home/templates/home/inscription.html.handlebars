@@ -12,162 +12,179 @@
 
 {{loadpartial '../partials/navbar.html' 'navbar'}}{{> navbar}}
             <div class="mdl-layout__content">
-                <div class="mdl-cell--12-col">&nbsp;</div>
-                <div class="demo-blog__posts mdl-grid" id="top">
-                    <div class="mdl-cell--2-col banner banner_error"></div>
-                    <div class="mdl-cell--8-col banner banner_error">
+                <div class="demo-blog__posts mdl-grid banner banner_error">
+                    <div class="mdl-cell--2-col">&nbsp;</div>
+                    <div class="mdl-cell--8-col">
                         <img src="../logo/logo-white.png" />
                         <h1>Une erreur est survenue</h1>
                     </div>
-                    <div class="mdl-cell--2-col banner banner_error"></div>
-                    <div class="mdl-cell--2-col banner banner_validated"></div>
-                    <div class="mdl-cell--8-col banner banner_validated">
+                    <div class="mdl-cell--2-col">&nbsp;</div>
+                </div>
+
+                <div class="demo-blog__posts mdl-grid banner banner_validated">
+                    <div class="mdl-cell--2-col">&nbsp;</div>
+                    <div class="mdl-cell--8-col">
                         <img src="../logo/logo-white.png" />
                         <h1>Votre inscription à bien été prise en compte</h1>
                         <h3>Vous allez être redirigé vers la page d'accueil dans <span id="timer_inscription">10</span> secondes</h3>
                     </div>
-                    <div class="mdl-cell--2-col banner banner_validated"></div>
-                    <div id="content_inscription">
-                        <div class="mdl-cell--12-col">&nbsp;</div>
-                        <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
+                    <div class="mdl-cell--2-col">&nbsp;</div>
+                </div>
 
-                        <div class="mdl-grid" id="form_inscription">
-                            <div class="mdl-cell--3-col form_part_title">Nom<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Nom"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Prénom<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    id="first_name"
-                                    name="first_name"
-                                    placeholder="Prénom"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
-                            
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Pseudo<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    name="pseudo_form"
-                                    id="pseudo_form"
-                                    placeholder="Pseudo"
-                                    onchange="before_pseudo()"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col invalid_input">
-                            Ce pseudo est deja utilisé
-                            </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Date de naissance<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="date"
-                                    id="birthdate"
-                                    name="birthdate"
-                                    min="1900-01-01"
-                                    pattern="\d{2}-\d{2}-\d{4}"
-                                />
+                <div class="container_inscription">
+                    <div class="mdl-card mdl-shadow--6dp">
+                        <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+                            <div class="mdl-grid">
+                                <h2 class="mdl-cell mdl-cell--12-col mdl-card__title-text">Inscription</h2>
                             </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
+                        </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Email<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input inscription_input_save"
-                                    type="text"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Email"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">&nbsp;</div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--12-col">&nbsp;</div>
+                                <div class="mdl-cell--12-col">&nbsp;</div>
+                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input inscription_input_save"
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        {{!-- placeholder="Nom" --}}
+                                    />
+                                    <label class="mdl-textfield__label" for="name">Nom</label>
+                                </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Mot de passe<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input"
-                                    type="password"
-                                    id="password1"
-                                    name="password1"
-                                    placeholder="Mot de passe"
-                                    oninput="before_submit()"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">
-                                <i id="password-1" class="material-icons showcreds">visibility</i>
-                            </div>
-                            <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
-                                <span style="color:grey;">Votre mot de passe doit contenir au moins:</span>
-                                <ul>
-                                    <li id="pattern_min">1 lettre minuscule</li>
-                                    <li id="pattern_maj">1 lettre majuscule</li>
-                                    <li id="pattern_dig">1 chiffre</li>
-                                    <li id="pattern_spe">1 caractère spécial</li>
-                                </ul>
-                            </div>
+                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input inscription_input_save"
+                                        type="text"
+                                        id="first_name"
+                                        name="first_name"
+                                        {{!-- placeholder="Prénom" --}}
+                                    />
+                                    <label class="mdl-textfield__label" for="first_name">Prénom</label>
+                                </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe<span>*</span></div>
-                            <div class="mdl-cell--8-col">
-                                <input
-                                    class="mdl-textfield__input inscription_input"
-                                    type="password"
-                                    id="password2"
-                                    name="password2"
-                                    placeholder="Vérification du mot de passe"
-                                    oninput="before_submit()"
-                                />
-                            </div>
-                            <div class="mdl-cell--1-col">
-                                <i id="password-2" class="material-icons showcreds">visibility</i>
-                            </div>
-                            <div class="mdl-cell--12-col not_same_error">
-                                Les mots de passe ne correspondent pas
-                            </div>
+                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input inscription_input_save"
+                                        type="text"
+                                        name="pseudo_form"
+                                        id="pseudo_form"
+                                        {{!-- placeholder="Pseudo" --}}
+                                        onchange="before_pseudo()"
+                                    />
+                                    <label class="mdl-textfield__label" for="pseudo_form">Pseudo</label>
+                                </div>
+                                <div class="mdl-cell mdl-cell--12-col invalid_input">
+                                    Ce pseudo est deja utilisé
+                                </div>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <span style="color: red; font-size: 12px; font-weight: normal">
-                                <b style="font-size: 16px">*Information : </b>Tous les mots de
-                            passe sont chiffrés, mais pour des questions de sécurité, merci
-                            d'utiliser/créer un nouveau mot de passe.
-                            </span>
 
-                            <div class="mdl-cell--12-col">&nbsp;</div>
-                            <div class="mdl-cell--4-col"></div>
-                            <div class="mdl-cell--4-col">
-                                <button
-                                    onclick="send_inscription()"
-                                    class="btn_insctiption"
-                                    >S'inscrire
+                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input inscription_input_save"
+                                        type="text"
+                                        id="birthdate"
+                                        name="birthdate"
+                                        {{!-- placeholder="Pseudo" --}}
+                                        min="1900-01-01"
+                                        pattern="[0-2][0-9]/[0-1][0-9]/[1,2][0,9]\d{2}"
+                                        oninput="update_birthdate(event)"
+                                    />
+                                    <label class="mdl-textfield__label" for="birthdate">Date de naissance (dd/mm/yyyy)</label>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input inscription_input_save"
+                                        type="text"
+                                        id="email"
+                                        name="email"
+                                        {{!-- placeholder="Email" --}}
+                                    />
+                                    <label class="mdl-textfield__label" for="email">Email</label>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--11-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input"
+                                        type="password"
+                                        id="password1"
+                                        name="password1"
+                                        {{!-- placeholder="Mot de passe" --}}
+                                        oninput="before_submit()"
+                                    />
+                                    <label class="mdl-textfield__label" for="password1">Mot de passe</label>
+                                </div>
+                                <div class="mdl-cell mdl-cell--1-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <i id="password-1" class="material-icons showcreds">visibility</i>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--12-col" style="color:red; text-align:left; margin-top: -25px;">
+                                    <ul>
+                                        <li id="pattern_min">1 lettre minuscule</li>
+                                        <li id="pattern_maj">1 lettre majuscule</li>
+                                        <li id="pattern_dig">1 chiffre</li>
+                                        <li id="pattern_spe">1 caractère spécial</li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="mdl-cell mdl-cell--11-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input
+                                        class="mdl-textfield__input inscription_input"
+                                        type="password"
+                                        id="password2"
+                                        name="password2"
+                                        {{!-- placeholder="Mot de passe" --}}
+                                        oninput="before_submit()"
+                                    />
+                                    <label class="mdl-textfield__label" for="password2">Mot de passe</label>
+                                </div>
+                                <div class="mdl-cell mdl-cell--1-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <i id="password-2" class="material-icons showcreds">visibility</i>
+                                </div>
+                                <div class="mdl-cell mdl-cell--12-col not_same_error">
+                                    Les mots de passe ne correspondent pas
+                                </div>
+
+                                <div class="mdl-cell--12-col">&nbsp;</div>
+                                <div class="mdl-cell--12-col">&nbsp;</div>
+
+                                <span style="color: red; font-size: 15px; font-weight: normal">
+                                    Tous les mots de passe sont chiffrés, mais pour des questions de 
+                                    sécurité, merci d'utiliser/créer un nouveau mot de passe.
+                                </span>
+
+                                <div class="mdl-cell--12-col">&nbsp;</div>
+                            </div>
+                        </div>
+
+                        <div class="mdl-card__actions mdl-card--border">
+                            <div class="mdl-grid">
+                                <button 
+                                    id="btn_insctiption" 
+                                    class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white"
+                                    onclick="send_inscription()">
+                                    S'inscrire
                                 </button>
                             </div>
-                            <div class="mdl-cell--4-col"></div>
+
+                            <div class="mdl-grid" id="form_links">
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    <a id="link_insciption" href="/home/connection.html">Connection</a>
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
             </div>
+{{loadpartial '../partials/footer.html' 'footer'}}{{> footer}}
         </div>
     </body>
 </html>
+

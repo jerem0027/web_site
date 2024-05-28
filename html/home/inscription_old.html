@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Page de presentation des projet réaliser par Jérémie Henrion."/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+
+        <link rel="icon" href="../logo/icon.png" />
+        <title>Jeremie H</title>
+    
+        <!-- Page styles -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="stylesheet" href="../required/css//material.min.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <!-- Scripts -->
+        <script type="text/javascript" src="../required/js/material.min.js"></script>
+        <script type="text/javascript" src="../required/js/jquery-3.7.1.min.js"></script>
+        <script type="text/javascript" src="../home/js/constantes.js"></script>
+        <script type="text/javascript" src="js/connection.js"></script>
+        <script type="text/javascript" src="js/inscription.js"></script>
+        <script type="text/javascript" src="js/password.js"></script>
+
+    </head>
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <div class="mdl-layout__header mdl-layout__header--waterfall">
+                <div class="mdl-layout__header-row">
+                    <div id="spacer_responsive" class="mdl-layout-spacer"></div>
+                    <span class="mdl-layout-title">
+                        <a href="/home/index.html">
+                            <img class="logo-image" id="logo_large" alt="logo large version" src="../logo/logo_large_white.png"/>
+                            <img class="logo-icon" id="logo_short" alt="logo short version" src="../logo/logo.png"/>
+                        </a>
+                    </span>
+                    <div class="mdl-layout-spacer"></div>
+                    <div id="form_connection" class="mdl-layout-title">
+                        <nav class="mdl-navigation">
+                            <a href="/home/account.html"><i id="icon_user" class="material-icons connection_on">person</i></a>
+                            <a href="/home/account.html"><div id="display_username" class="connection_on">test</div></a>
+                            <input
+                                placeholder="Pseudo"
+                                class="mdl-textfield__input connection_off connection_input"
+                                type="text"
+                                id="pseudo"
+                            />
+                            <input
+                                placeholder="Password"
+                                class="mdl-textfield__input connection_off connection_input"
+                                type="password"
+                                id="password"
+                            />
+                        </nav>
+                    </div>
+                    <div class="mdl-layout-title">
+                        <button
+                            id="btn_connection"
+                            onclick="connection()"
+                            type="submit"
+                            class="connection_button connection_off"
+                        >Connexion
+                        </button>
+                    </div>
+
+                    <button
+                        class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
+                        id="more-button"
+                    ><i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                        <li class="mdl-menu__item connection_off">
+                            <a href="/home/connection.html">Connection</a>
+                        </li>
+                        <li class="mdl-menu__item connection_on">
+                            <a href="/home/account.html">Account</a>
+                        </li>
+                        <li class="mdl-menu__item connection_on">
+                            <a onclick="disconnected_func()" href="#">Deconnection</a>
+                        </li>
+                        <li class="mdl-menu__item connection_off">
+                            <a href="/home/inscription.html">Inscription</a>
+                        </li>
+                        <li class="mdl-menu__item">
+                            <a href="/home/about_us.html">About us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="loader_connection" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="width: 100%"></div>
+            </div>
+
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">
+                    <a href="/home/index.html">
+                        <img class="icon-image" src="../logo/icon.png"/>
+                    </a>
+                </span>
+                <nav class="mdl-navigation">
+                    <span class="mdl-navigation__link">Liens</span>
+                    <a class="mdl-navigation__link" href="/phpmyadmin/">phpmyadmin</a>
+                    <a class="mdl-navigation__link" href="../marvel-fan/index.html">Fan site Marvel</a>
+                    <a class="mdl-navigation__link" href="../wikipediie/vue/home.php">Wikipediie</a>
+
+                    <!-- <div class="separator"></div>
+
+                    <span class="mdl-navigation__link">Raspberry Pi</span>
+                    <a class="mdl-navigation__link" href="php/installation.php">Installation</a> -->
+
+                    <div class="separator"></div>
+
+                    <span class="mdl-navigation__link">APIs</span>
+                    <a class="mdl-navigation__link" href="/api/v1/">API V1</a>
+
+                    <div class="separator"></div>
+
+                    <span class="mdl-navigation__link">WORK IN PROGRESS</span>
+                    <a class="mdl-navigation__link" href="/secret_santa/">Secret Santa</a>
+                </nav>
+            </div>
+            <div class="mdl-layout__content">
+                <div class="mdl-cell--12-col">&nbsp;</div>
+                <div class="demo-blog__posts mdl-grid" id="top">
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--8-col banner banner_error">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Une erreur est survenue</h1>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_error"></div>
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+                    <div class="mdl-cell--8-col banner banner_validated">
+                        <img src="../logo/logo-white.png" />
+                        <h1>Votre inscription à bien été prise en compte</h1>
+                        <h3>Vous allez être redirigé vers la page d'accueil dans <span id="timer_inscription">10</span> secondes</h3>
+                    </div>
+                    <div class="mdl-cell--2-col banner banner_validated"></div>
+                    <div id="content_inscription">
+                        <div class="mdl-cell--12-col">&nbsp;</div>
+                        <div class="mdl-cell--12-col"><h1>Inscription</h1></div>
+
+                        <div class="mdl-grid" id="form_inscription">
+                            <div class="mdl-cell--3-col form_part_title">Nom<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Nom"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Prénom<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    type="text"
+                                    id="first_name"
+                                    name="first_name"
+                                    placeholder="Prénom"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">&nbsp;</div>
+                            
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Pseudo<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    type="text"
+                                    name="pseudo_form"
+                                    id="pseudo_form"
+                                    placeholder="Pseudo"
+                                    onchange="before_pseudo()"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col invalid_input">
+                            Ce pseudo est deja utilisé
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Date de naissance<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    type="date"
+                                    id="birthdate"
+                                    name="birthdate"
+                                    min="1900-01-01"
+                                    pattern="\d{2}-\d{2}-\d{4}"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Email<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input inscription_input_save"
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">&nbsp;</div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Mot de passe<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input"
+                                    type="password"
+                                    id="password1"
+                                    name="password1"
+                                    placeholder="Mot de passe"
+                                    oninput="before_submit()"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">
+                                <i id="password-1" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--12-col" style="color:red; margin-top: 10px;">
+                                <span style="color:grey;">Votre mot de passe doit contenir au moins:</span>
+                                <ul>
+                                    <li id="pattern_min">1 lettre minuscule</li>
+                                    <li id="pattern_maj">1 lettre majuscule</li>
+                                    <li id="pattern_dig">1 chiffre</li>
+                                    <li id="pattern_spe">1 caractère spécial</li>
+                                </ul>
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--3-col form_part_title">Vérification du mot de passe<span>*</span></div>
+                            <div class="mdl-cell--8-col">
+                                <input
+                                    class="mdl-textfield__input inscription_input"
+                                    type="password"
+                                    id="password2"
+                                    name="password2"
+                                    placeholder="Vérification du mot de passe"
+                                    oninput="before_submit()"
+                                />
+                            </div>
+                            <div class="mdl-cell--1-col">
+                                <i id="password-2" class="material-icons showcreds">visibility</i>
+                            </div>
+                            <div class="mdl-cell--12-col not_same_error">
+                                Les mots de passe ne correspondent pas
+                            </div>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <span style="color: red; font-size: 12px; font-weight: normal">
+                                <b style="font-size: 16px">*Information : </b>Tous les mots de
+                            passe sont chiffrés, mais pour des questions de sécurité, merci
+                            d'utiliser/créer un nouveau mot de passe.
+                            </span>
+
+                            <div class="mdl-cell--12-col">&nbsp;</div>
+                            <div class="mdl-cell--4-col"></div>
+                            <div class="mdl-cell--4-col">
+                                <button
+                                    onclick="send_inscription()"
+                                    class="btn_insctiption"
+                                    >S'inscrire
+                                </button>
+                            </div>
+                            <div class="mdl-cell--4-col"></div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-grid mdl-grid--nesting">
+                            <div class="mdl-cell mdl-cell--4-col"></div>
+                            <div id="watermark" class="mdl-cell mdl-cell--4-col">Jérémie Henrion © 2024, France</div>
+                            <div id="link_top" class="mdl-cell mdl-cell--4-col">
+                                <a href="#top">
+                                    Top<i class="material-icons">expand_less</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
