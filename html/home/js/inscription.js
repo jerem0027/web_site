@@ -57,7 +57,7 @@ const send_inscription = async function() {
                     "name": $('#name').val(),
                     "first_name": $('#first_name').val(),
                     "pseudo": $('#pseudo_form').val().toLowerCase(),
-                    "birthdate": format_date($('#birthdate').val()),
+                    "birthdate": $('#birthdate').val(),
                     "email": $('#email').val(),
                     "password": $('#password1').val()
                 }),
