@@ -140,8 +140,7 @@ const add_secret_santa = function(data) {
     content = data.content;
     for(var i=0; i<content.length; i++) {
         $(`#sesa_content`).append(`
-            <div class="mdl-cell--1-col sesa${i}">&nbsp;</div>
-            <div class="sesa_info mdl-cell mdl-cell--10-col mdl-grid sesa${i}">
+            <div class="sesa_info mdl-cell mdl-cell--12-col mdl-grid sesa${i}">
                 <div class="mdl-grid mdl-cell--12-col sesa_title sesa${i}" id="title_sesa${i}">
                     <a href="./guest.html?guest=${content[i].link}">${content[i].name}</a>
                 </div>
@@ -165,7 +164,6 @@ const add_secret_santa = function(data) {
                     </div>
                 </div>
             </div>
-            <div class="mdl-cell--1-col sesa${i}">&nbsp;</div>
         `);
     }
     $(".div_button_save").hide();
@@ -180,8 +178,7 @@ const add_guests = function(data) {
     content = data.content;
     for(var i=0; i<content.length; i++) {
         $(`#guest_content`).append(`
-            <div class="mdl-cell--1-col guest${i}">&nbsp;</div>
-            <div class="sesa_info mdl-cell mdl-cell--10-col mdl-grid guest${i}">
+            <div class="sesa_info mdl-cell mdl-cell--12-col mdl-grid guest${i}">
                 <div class="mdl-grid mdl-cell--12-col sesa_title guest${i}" id="title_guest${i}">
                     <a href="./guest.html?guest=${content[i].link}">${content[i].name}</a>
                 </div>
@@ -194,7 +191,6 @@ const add_guests = function(data) {
                     </div>
                 </div>
             </div>
-            <div class="mdl-cell--1-col guest${i}">&nbsp;</div>
         `);
     }
     $(".div_button_save").hide();
