@@ -4,6 +4,19 @@
     color: #4242427a;
 }
 
+.container_create_ss {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, 0);
+    perspective: 1000px;
+    height: 400px;
+}
+
+.mdl-card {
+    width: 80vw;
+}
+
 .sesa_create_title {
     color: #a96950;
     font-size: 25px;

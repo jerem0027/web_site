@@ -6,6 +6,19 @@ i.manage_title {
     font-size: 60px;
 }
 
+.container_manage_ss {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, 0);
+    perspective: 1000px;
+    height: 400px;
+}
+
+.mdl-card {
+    width: 80vw;
+}
+
 .flex_space {
     display:flex; 
     justify-content: space-between;

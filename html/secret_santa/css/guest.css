@@ -12,6 +12,19 @@
     margin: 15px 0;
 }
 
+.container_guest_ss {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, 0);
+    perspective: 1000px;
+    height: 400px;
+}
+
+.mdl-card {
+    width: 80vw;
+}
+
 #guest_content .mdl-cell--6-col {
     margin: 8px 0 8px 0;
     padding: 0 8px 0 8px;

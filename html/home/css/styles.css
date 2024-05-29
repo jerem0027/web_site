@@ -22,15 +22,15 @@ body {
 }
 
 @keyframes volet {
-    0% { transform: translateY(-200px); }
+    0% { transform: translateY(-250px); }
     25% { transform: translateY(10%); }
     50% { transform: translateY(10%); }
     60% { transform: translateY(10%); }
-    100% { transform: translateY(-200px); }
+    100% { transform: translateY(-250px); }
 }
 
 @keyframes volet-10s {
-    0% { transform: translateY(-200px); }
+    0% { transform: translateY(-250px); }
     15% { transform: translateY(10%); }
     50% { transform: translateY(10%); }
     100% { transform: translateY(10%); }
@@ -388,14 +388,16 @@ div {
 footer {
     color: #424242;
     position: sticky;
-    bottom: -100vh;
+    top: 100vh;
 }
 
 #watermark {
     text-align: center;
-    margin-top: 5px !important;
+    margin: 5px 0px !important;
     font-size: 13px;
     border-top: solid 2px #424242;
+    border-left:  100px solid transparent;
+    border-right: 100px solid transparent;
     padding-top: 8px !important;
 }
 
@@ -497,6 +499,10 @@ footer div div {
 
     footer div {
         margin: 0 !important;
+    }
+
+    #link_top {
+        margin-bottom: 15px !important;
     }
 
     .banner {
