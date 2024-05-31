@@ -6,6 +6,22 @@ jQuery(function() {
     user_check();
 });
 
+const apikey_data = function(text) {
+    if (text.length > 25)
+        return (text.substring(0, 10) + '...' + text.substring(text.length - 15))
+    return text
+}
+
+const copy_apikey = function() {
+    navigator.clipboard.writeText(sessionStorage.getItem("apikey"));
+    $("#btn_copy_apikey i").html("check");
+    $('#btn_copy_apikey').addClass("change_color_apikey");
+    setTimeout(() => {
+        $('#btn_copy_apikey').removeClass("change_color_apikey");
+        $("#btn_copy_apikey i").html("content_copy");
+    }, 5000);
+}
+
 const renew_apikey = async function() {
     $('#loader_connection').css("visibility", "visible");
     try {
@@ -20,7 +36,7 @@ const renew_apikey = async function() {
             dataType: 'json',
             success: function(data) {
                 sessionStorage.setItem("apikey", data.APIKEY)
-                $('#form_apikey').html(data.APIKEY);
+                $('#form_apikey').html(apikey_data(data.APIKEY));
                 $('#loader_connection').css("visibility", "hidden");
             },
             error: function(data) {
@@ -53,7 +69,7 @@ const user_check = async function() {
             success: function(data) {
                 $('#form_pseudo').html(data.content.pseudo);
                 $('#form_inscription_date').html(format_date(data.content.inscription_date));
-                $('#form_apikey').html(sessionStorage.getItem("apikey"));
+                $('#form_apikey').html(apikey_data(sessionStorage.getItem("apikey")));
                 $('#form_name').html(data.content.name);
                 $('#form_first_name').html(data.content.first_name);
                 $('#form_email').html(data.content.email);

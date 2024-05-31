@@ -36,17 +36,6 @@ body {
     100% { transform: translateY(10%); }
 }
 
-.change_color {
-    color: white !important;
-    background-color: #4caf4fc0 !important;
-    border-color: #4caf4fc0 !important;
-}
-
-.change_color:hover {
-    color: #4caf4fc0 !important;
-    background-color: inherit !important;
-}
-
 .vibration {
     animation: shake 0.5s ease 0s;
     color: red;
