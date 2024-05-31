@@ -7,7 +7,7 @@ const test = false;
 
 const copy_clipboard = function(element) {
     navigator.clipboard.writeText($("#" + element).html());
-
+    $("#btn_copy_clipboard i").html("check");
     $('#btn_copy_clipboard').addClass("change_color");
     setTimeout(() => {
         $('#btn_copy_clipboard').removeClass("change_color");
