@@ -2,10 +2,6 @@ jQuery(function() {
     $('#loader_connection').css("visibility", "hidden");
     $('.connection_on').hide();
     $('#btn_connection_page').on("click", connection_page);
-    if (sessionStorage.getItem('apikey'))
-        connected_func();
-    else
-        disconnected_func();
 
     $("#pseudo").on("keydown", function(event) {
         if (event.key === "Enter" || event.key === 13) {
@@ -30,6 +26,13 @@ jQuery(function() {
             $("#btn_connection_page").trigger("click");
         }
     });
+
+    if (test)
+        return;
+    if (sessionStorage.getItem('apikey'))
+        connected_func();
+    else
+        disconnected_func();
 });
 
 const set_masterkey = async function () {

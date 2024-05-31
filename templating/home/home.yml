@@ -23,14 +23,6 @@ index:
       site_link: /marvel-fan/index.html
       a_propos_link: /marvel-fan/contact.html
 
-inscription_old:
-  css:
-    - css/styles
-  js:
-    - js/connection
-    - js/inscription
-    - js/password
-
 inscription:
   css:
     - css/styles

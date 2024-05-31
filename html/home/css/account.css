@@ -1,13 +1,28 @@
-#content_inscription h3 {
-    color: #e96e27;
-    font-size: 30px;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
 .form_user_content {
     color: #2385b3;
     font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.content_account h3 {
+    color:#e96e27;
+    font-weight: 500;
+}
+
+button {
+    scrollbar-width: none;
+}
+
+.content_account {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, 0);
+    perspective: 1000px;
+    height: 400px;
+    width: 80vw;
 }
 
 .btn_edit_user, .btn_save_user, .btn_cancel_user, .btn_remove_account {
@@ -28,7 +43,27 @@
 }
 
 .btn_edit_user:active, .btn_save_user:active, .btn_cancel_user:active, .btn_remove_account:active {
-    transform: scale(0.98);
+    transform: scale(0.9);
+}
+
+#btn_renew_apikey, #btn_copy_clipboard {
+    padding: 2px 10px;
+    width: fit-content;
+    margin-right: 5px;
+}
+
+#btn_renew_apikey:active {
+    transform: scale(0.9);
+}
+
+#btn_renew_apikey:hover i {
+    rotate: 180deg;
+    transition: 0.5s ease-out;
+}
+
+#btn_renew_apikey:not(:hover) i {
+    rotate: -180deg;
+    transition: 0.5s ease-out;
 }
 
 .btn_remove_account {
@@ -112,4 +147,14 @@ dialog {
 #btn_valide_remove:hover {
     color: #af4c4cc0;
     background-color: #fff;
+}
+
+@media (max-width: 839px) {
+    .content_account .user_input, .content_account .form_user_content {
+        width: 40vw !important;
+    }
+
+    .content_account .btn_edit_user, .content_account .btn_cancel_user {
+        margin-top: 10px;
+    }
 }

@@ -8,11 +8,6 @@ node ../../tools/create_file.js ./templates/home/account.html.handlebars ./home.
 node ../../tools/create_file.js ./templates/home/connection.html.handlebars ./home.yml ../../html/home/connection.html
 
 
-
-#Old
-# node ../../tools/create_file.js ./templates/home/inscription_old.html.handlebars ./home.yml ../../html/home/inscription_old.html
-
-
 # Secret santa
 node ../../tools/create_file.js ./templates/secret_santa/guest.html.handlebars ./secret_santa.yml ../../html/secret_santa/guest.html
 node ../../tools/create_file.js ./templates/secret_santa/index.html.handlebars ./secret_santa.yml ../../html/secret_santa/index.html

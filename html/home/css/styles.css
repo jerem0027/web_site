@@ -36,6 +36,17 @@ body {
     100% { transform: translateY(10%); }
 }
 
+.change_color {
+    color: white !important;
+    background-color: #4caf4fc0 !important;
+    border-color: #4caf4fc0 !important;
+}
+
+.change_color:hover {
+    color: #4caf4fc0 !important;
+    background-color: inherit !important;
+}
+
 .vibration {
     animation: shake 0.5s ease 0s;
     color: red;
@@ -58,14 +69,6 @@ body {
     animation: volet-10s 10s linear 0s;
 }
 
-#content_inscription {
-    min-height: 86vh;
-}
-
-#content_inscription h1, #content_account h3 {
-    color:#e96e27;
-    font-weight: 500;
-}
 
 .form_part_title {
     color:#424242;
@@ -487,14 +490,6 @@ footer div div {
 @media (max-width: 839px) {
     #watermark {
         display: none;
-    }
-
-    #content_inscription .mdl-cell--8-col, #content_account .user_input, #content_account .form_user_content {
-        width: 40vw !important;
-    }
-
-    #content_account .btn_edit_user, #content_account .btn_cancel_user {
-        margin-top: 10px;
     }
 
     footer div {

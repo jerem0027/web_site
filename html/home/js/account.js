@@ -6,6 +6,38 @@ jQuery(function() {
     user_check();
 });
 
+const renew_apikey = async function() {
+    $('#loader_connection').css("visibility", "visible");
+    try {
+        await $.ajax({
+            type: 'get',
+            url: `${api_url}/api/v1/identity/apikey/update/`,
+            headers: {
+                "APIKEY": sessionStorage.getItem("apikey"),
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            dataType: 'json',
+            success: function(data) {
+                sessionStorage.setItem("apikey", data.APIKEY)
+                $('#form_apikey').html(data.APIKEY);
+                $('#loader_connection').css("visibility", "hidden");
+            },
+            error: function(data) {
+                $('#loader_connection').css("visibility", "hidden");
+            },
+        });
+    } catch (error) {
+        if (400 > error.status || error.status > 499) {
+            $('.banner_error').show().addClass("volet");
+            $('#loader_connection').css("visibility", "hidden");
+            setTimeout(() => {
+                $('.banner_error').hide().removeClass("volet");
+            }, 5000);
+        }
+    }
+}
+
 const user_check = async function() {
     $('#loader_connection').css("visibility", "visible");
     try {
@@ -21,6 +53,7 @@ const user_check = async function() {
             success: function(data) {
                 $('#form_pseudo').html(data.content.pseudo);
                 $('#form_inscription_date').html(format_date(data.content.inscription_date));
+                $('#form_apikey').html(sessionStorage.getItem("apikey"));
                 $('#form_name').html(data.content.name);
                 $('#form_first_name').html(data.content.first_name);
                 $('#form_email').html(data.content.email);
@@ -37,7 +70,7 @@ const user_check = async function() {
             $('#loader_connection').css("visibility", "hidden");
             setTimeout(() => {
                 $('.banner_error').hide().removeClass("volet");
-            }, 5000);
+            }, 3000);
         }
     }
 }
