@@ -2,34 +2,41 @@ version: '3.8'
 
 services:
   nginx:
-    image: jerem0027/nginx:1.24.0
+    image: jerem0027/server:nginx-1.27.0
     container_name: nginx
+    networks:
+      - website-network
     restart: unless-stopped
     volumes:
-      - '~/Documents/my_projects/web_site/html:/etc/nginx/html'
+      - ~/Documents/my_projects/web_site/html:/etc/nginx/html
+      - ./certs/:/ssl/
     ports:
-      - '80:80'
-      - '443:443'
+      - 80:80
+      - 443:443
     links:
       - php
       - mariadb
       - phpmyadmin
-      - api-flask
+      - certbot
 
   php:
-    image: jerem0027/php:8.2
+    image: jerem0027/server:php-8.3.8
     container_name: php
+    networks:
+      - website-network
     restart: unless-stopped
+    volumes:
+      - ~/Documents/my_projects/web_site/html:/etc/nginx/html
     env_file:
       - configs/php.env
-    volumes:
-      - '~/Documents/my_projects/web_site/html:/etc/nginx/html'
     links:
       - mariadb
 
   mariadb:
-    image: jerem0027/mariadb:10.3.39
+    image: jerem0027/server:mariadb-10.11.8
     container_name: mariadb
+    networks:
+      - website-network
     restart: unless-stopped
     volumes:
       - db_content:/var/lib/mysql
@@ -39,24 +46,34 @@ services:
       - 3306:3306
 
   phpmyadmin:
-    image: jerem0027/phpmyadmin:5.2.1
+    image: jerem0027/server:phpmyadmin-5.2.1
     container_name: phpmyadmin
+    networks:
+      - website-network
     restart: unless-stopped
+    volumes:
+      - ./certs/:/etc/apache2/ssl/
     env_file:
       - configs/phpmyadmin.env
     links:
       - mariadb
 
-  api-flask:
-    image: flask_api:1.0.6
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    networks:
+        - website-network
     restart: unless-stopped
-    container_name: api-flask
-    env_file:
-      - configs/flask.env
-    ports:
-      - 5000:5000
-    links:
-      - mariadb
+    volumes:
+        - ./certs:/etc/letsencrypt
+        - ./www:/var/www/certbot
+        - ./certbot.sh:/certbot.sh
+    entrypoint: /bin/sh /certbot.sh
 
 volumes:
   db_content:
+
+networks:
+  website-network:
+      external: true
+      name: website-network

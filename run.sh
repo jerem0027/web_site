@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dockers=("nginx" "php" "mariadb" "phpmyadmin")
+dockers=("nginx" "php" "mariadb" "phpmyadmin" "certbot")
 commandes=("start" "stop" "restart" "rm" "network")
 
 _completion() {
@@ -83,15 +83,17 @@ case "$cmd" in
         fi
         ;;
     start)
-        if [[ $docker == "nginx" || $docker == "" ]]; then
+        if [[ $docker == "certbot" || $docker == "" ]]; then
             docker run \
             --network website-network \
-            -d -p 80:80 -p 443:443 \
-            --restart unless-stopped \
-            --name nginx \
-            -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
-            -v /ssl/:/ssl/ \
-            jerem0027/nginx:1.24.2
+            -d --restart unless-stopped \
+            --name certbot \
+            -v ./certs:/etc/letsencrypt \
+            -v  ./www:/var/www/certbot \
+            -v ./certbot.sh:/certbot.sh \
+            --entrypoint /bin/sh \
+            certbot/certbot \
+            /certbot.sh
         fi
 
         if [[ $docker == "php" || $docker == "" ]]; then
@@ -101,7 +103,7 @@ case "$cmd" in
             --name php \
             -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
             --env-file configs/php.env \
-            jerem0027/php:8.2
+            jerem0027/server:php-8.3.8
         fi
 
         if [[ $docker == "mariadb" || $docker == "" ]]; then
@@ -112,7 +114,7 @@ case "$cmd" in
             --name mariadb \
             --env-file configs/mariadb.env \
             -v db_content:/var/lib/mysql \
-            jerem0027/mariadb:10.3.39
+            jerem0027/server:mariadb-10.11.8
         fi
 
         if [[ $docker == "phpmyadmin" || $docker == "" ]]; then
@@ -120,9 +122,19 @@ case "$cmd" in
             --network website-network \
             -d --restart unless-stopped \
             --name phpmyadmin \
-            -v /ssl/:/etc/apache2/ssl/ \
             --env-file configs/phpmyadmin.env \
-            jerem0027/phpmyadmin:5.2.2
+            jerem0027/server:phpmyadmin-5.2.1
+        fi
+
+        if [[ $docker == "nginx" || $docker == "" ]]; then
+            docker run \
+            --network website-network \
+            -d -p 80:80 -p 443:443 \
+            --restart unless-stopped \
+            --name nginx \
+            -v ~/Documents/my_projects/web_site/html:/etc/nginx/html \
+            -v ./certs/:/ssl/ \
+            jerem0027/server:nginx-1.27.0
         fi
         ;;
 esac
