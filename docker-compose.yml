@@ -6,8 +6,9 @@ services:
       - website-network
     restart: unless-stopped
     volumes:
-      - ~/Documents/my_projects/web_site/html:/etc/nginx/html
+      - ~/Documents/web_site/html:/etc/nginx/html
       - ./certs/:/ssl/
+      - ./www:/var/www/certbot
     ports:
       - 80:80
       - 443:443
@@ -24,7 +25,7 @@ services:
       - website-network
     restart: unless-stopped
     volumes:
-      - ~/Documents/my_projects/web_site/html:/etc/nginx/html
+      - ~/Documents/web_site/html:/etc/nginx/html
     env_file:
       - configs/php.env
     links:
