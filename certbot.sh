@@ -1,11 +1,14 @@
 #!/bin/sh
 
+DATE=$(date "+%d-%m-%Y %H:%M")
 DOMAIN=${DOMAIN:-"jeremiehenrion.eu"}
 
 if [ ! -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem ]; then
     echo "###########################"
     echo "#### CREATE CERTIFICAT ####"
     echo "###########################"
+    echo ""
+    echo $DATE
     certbot certonly --webroot -w /var/www/certbot \
     --email jeremie.henrion@gmail.com \
     --agree-tos --no-eff-email --non-interactive --force-renew\
@@ -18,6 +21,8 @@ while :; do
     echo "###########################"
     echo "#### RENEW CERTIFICATS ####"
     echo "###########################"
+    echo ""
+    echo $DATE
     certbot certificates 2>/dev/null
     certbot renew \
     --deploy-hook "chmod -R 755 /etc/letsencrypt/*" 2>/dev/null

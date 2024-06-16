@@ -11,6 +11,17 @@ Present my work (like CV), and developpe my skill in:
 - PHP
 - NETWORK
 
+### Docker Services
+
+
+| Service   | Version   |
+|-----------|-----------|
+| nginx     | 1.27.0    |
+| php       | 8.3.8     |
+| mariadb   | 10.11.8   |
+| phpmyadmin| 5.2.1     |
+| certbot   | v2.11.0   |
+
 ### Task
 
 - [ ] Auto save and deploy database
@@ -56,6 +67,19 @@ all cmd: start, stop, restart, rm, network
 ./run start
 ```
 
+### Backup BD
+
+```sh
+# Verify Mountpoint folder
+docker volume inspect web_site_db_content
+
+# Create archive
+sudo tar -cvzf archive_db.tar.gz -C /var/lib/docker/volumes/web_site_db_content/ _data
+
+# Push backup
+sudo tar -xvf archive_db.tar.gz -C /var/lib/docker/volumes/web_site_db_content/
+
+```
 ### Contribution
 
 - Jérémie Henrion

@@ -36,22 +36,31 @@ jQuery(function() {
 });
 
 const set_masterkey = async function () {
-    // sessionStorage.setItem("masterkey", "test");
-    // return 0;
     try {
-        await $.ajax({
-            type: 'GET',
-            url: '/php/apikey.php',
-            dataType: 'json',
-            success: function(data) {
-                sessionStorage.setItem("masterkey", data.MASTERKEY);
-            }
+        const data = await new Promise((resolve, reject) => {
+            $.ajax({
+                type: 'GET',
+                url: '/php/apikey.php',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.MASTERKEY != null) {
+                        sessionStorage.setItem("masterkey", data.MASTERKEY);
+                        resolve(data);
+                    } else {
+                        reject({ message: "ERROR: API is not responding", status: 400 });
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    reject({ message: "ERROR: API request failed", status: jqXHR.status });
+                }
+            });
         });
     } catch (error) {
-            throw new Error("ERROR: API is not responsing");
-        }
+        const myerror = new Error(error.message);
+        myerror.status = error.status;
+        throw myerror;
+    }
 }
-
 
 const connection = async function(pseudo, pass) {
     var from_page = true;
@@ -96,11 +105,10 @@ const connection = async function(pseudo, pass) {
                         $('.input_connection_page').removeClass("vibration_input");
                         $('.connection_input').removeClass("vibration_input");
                     }, 3000);
-
                 }
             });
         } catch (error) {
-            if (400 > error.status || error.status > 499) {
+            if (400 >= error.status || error.status > 499) {
                 sessionStorage.clear();
                 $('#loader_connection').css("visibility", "hidden");
                 if (from_page)

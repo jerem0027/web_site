@@ -58,7 +58,7 @@ services:
       - mariadb
 
   certbot:
-    image: certbot/certbot
+    image: certbot/certbot:v2.11.0
     container_name: certbot
     networks:
         - website-network
@@ -74,5 +74,5 @@ volumes:
 
 networks:
   website-network:
-      external: true
+      # external: true
       name: website-network
