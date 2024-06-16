@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+# docker network create website-network --subnet=172.20.0.0/24
+
+# docker run \
+#     --network website-network \
+#     -d -p 5000:5000 \
+#     --restart unless-stopped \
+#     --name flask-api-${version} \
+#     --env-file ./configs/flask.env \
+#     --ip 172.20.0.10 \
+#     -v ./certs/:/certs/ \
+#     jerem0027/server:flask-api-${version}
+
+
 dockers=("nginx" "php" "mariadb" "phpmyadmin" "certbot")
 commandes=("start" "stop" "restart" "rm" "network")
 
@@ -36,7 +50,7 @@ if [[ $cmd == "" ]]; then
 fi
 
 if [[ $cmd == "network" ]]; then
-    docker network create website-network
+    docker network create website-network --subnet=172.20.0.0/24
 fi
 
 exist=false

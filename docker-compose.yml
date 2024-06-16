@@ -74,5 +74,5 @@ volumes:
 
 networks:
   website-network:
-      # external: true
+      external: true
       name: website-network

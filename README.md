@@ -78,8 +78,8 @@ sudo tar -cvzf archive_db.tar.gz -C /var/lib/docker/volumes/web_site_db_content/
 
 # Push backup
 sudo tar -xvf archive_db.tar.gz -C /var/lib/docker/volumes/web_site_db_content/
-
 ```
+
 ### Contribution
 
 - Jérémie Henrion
